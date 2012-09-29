@@ -14,16 +14,22 @@ typedef void(^EBErrorBlock) (NSError *error);
 /// Represents an abstract request
 @interface EBRequest : NSObject
 
+/// Source URL
+@property (atomic, readonly) NSURL *sourceURL;
+
 /// Completion block called when the request is finished correctly.
 @property (atomic, copy) EBCompletionBlock completionBlock;
 
 /// Error block called when the request fails
 @property (atomic, copy) EBErrorBlock errorBlock;
 
-/// Creates a new request with the specified URL. Not started until -(BOOL)start is called.
+
+/// Creates a new request with the specified URL. Not started until start is called.
+/// @param url URL for the request
 + (id)requestWithURL:(NSURL *)url;
 
-/// Creates a new request with the specified URL. Not started until -(BOOL)start is called.
+/// Creates a new request with the specified URL. Not started until start is called.
+/// @param url URL for the request.
 - (id)initWithURL:(NSURL *)url;
 
 /// Starts an asynchronous request
