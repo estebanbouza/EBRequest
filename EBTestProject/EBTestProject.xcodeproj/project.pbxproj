@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B65B5541617BF7B006B1C01 /* libEBRequest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B65B5531617BF7B006B1C01 /* libEBRequest.a */; };
 		5BD413021617B0FC007A17AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413011617B0FC007A17AA /* UIKit.framework */; };
 		5BD413041617B0FC007A17AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413031617B0FC007A17AA /* Foundation.framework */; };
 		5BD413061617B0FC007A17AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413051617B0FC007A17AA /* CoreGraphics.framework */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B65B5531617BF7B006B1C01 /* libEBRequest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEBRequest.a; path = "../build/Debug-iphonesimulator/libEBRequest.a"; sourceTree = "<group>"; };
 		5BD412FD1617B0FC007A17AA /* EBTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD413011617B0FC007A17AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BD413031617B0FC007A17AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,6 +47,7 @@
 				5BD413021617B0FC007A17AA /* UIKit.framework in Frameworks */,
 				5BD413041617B0FC007A17AA /* Foundation.framework in Frameworks */,
 				5BD413061617B0FC007A17AA /* CoreGraphics.framework in Frameworks */,
+				5B65B5541617BF7B006B1C01 /* libEBRequest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +74,7 @@
 		5BD413001617B0FC007A17AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B65B5531617BF7B006B1C01 /* libEBRequest.a */,
 				5BD413011617B0FC007A17AA /* UIKit.framework */,
 				5BD413031617B0FC007A17AA /* Foundation.framework */,
 				5BD413051617B0FC007A17AA /* CoreGraphics.framework */,
@@ -243,10 +247,17 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EBTestProject/EBTestProject-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../EBRequest/EBRequest";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/include";
 				INFOPLIST_FILE = "EBTestProject/EBTestProject-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../EBRequest/EBRequest";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+					"\"$(SRCROOT)/../build/Debug-iphonesimulator\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -257,10 +268,17 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EBTestProject/EBTestProject-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../EBRequest/EBRequest";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/include";
 				INFOPLIST_FILE = "EBTestProject/EBTestProject-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../EBRequest/EBRequest";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+					"\"$(SRCROOT)/../build/Debug-iphonesimulator\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -285,6 +303,7 @@
 				5BD4131D1617B0FD007A17AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
