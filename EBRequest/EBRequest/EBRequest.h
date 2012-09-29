@@ -20,6 +20,8 @@ typedef void(^EBErrorBlock) (NSError *error);
 /// Error block called when the request fails
 @property (atomic, copy) EBErrorBlock errorBlock;
 
+/// Creates a new request with the specified URL. Not started until -(BOOL)start is called.
++ (id)requestWithURL:(NSURL *)url;
 
 /// Creates a new request with the specified URL. Not started until -(BOOL)start is called.
 - (id)initWithURL:(NSURL *)url;

@@ -31,6 +31,10 @@
     return self;
 }
 
++ (id)requestWithURL:(NSURL *)url {
+    return [[[self alloc] initWithURL:url] autorelease];
+}
+
 - (void)dealloc {
     [_sourceURL release];
     [_completionBlock release];
@@ -40,7 +44,7 @@
     [super dealloc];
 }
 
-#pragma mark - 
+#pragma mark -
 
 - (BOOL)start {
     _urlRequest = [[NSURLRequest alloc] initWithURL:_sourceURL];
@@ -48,15 +52,15 @@
     _urlConnection = [[NSURLConnection alloc] initWithRequest:_urlRequest delegate:self startImmediately:NO];
     
     _receivedData = [[NSMutableData alloc] init];
-
+    
     [_urlConnection start];
     return YES;
 }
 
-#pragma mark - 
+#pragma mark -
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-
+    
     if ([NSThread isMainThread]) {
         _errorBlock(error);
     } else {
@@ -83,7 +87,7 @@
     else {
         // Avoid over-retaining _receivedData inside block
         __block typeof(_receivedData) data = _receivedData;
-
+        
         dispatch_sync(dispatch_get_main_queue(), ^{
             _completionBlock(data);
         });
