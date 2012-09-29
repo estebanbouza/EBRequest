@@ -117,4 +117,34 @@ static const NSTimeInterval defaultTimeout = 10;
     [request release];
 }
 
+- (void)testStopRequest {
+    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    EBRequest *request = [[EBRequest alloc] initWithURL:[NSURL URLWithString:testURLString]];
+    
+    request.completionBlock = ^(id responseData) {
+        dispatch_semaphore_signal(semaphore);
+        STFail(@"Request should never be completed");
+    };
+    
+    request.errorBlock = ^(NSError *error) {
+        dispatch_semaphore_signal(semaphore);
+        STFail(@"Request should never be completed");
+    };
+    
+    [request start];
+    [request stop];
+    
+    while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
+    }
+    
+    dispatch_release(semaphore);
+    
+    [request release];
+}
+
+
+
 @end

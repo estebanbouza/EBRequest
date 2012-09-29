@@ -15,6 +15,8 @@
     NSURLRequest        *_urlRequest;
     
     NSMutableData       *_receivedData;
+    
+    BOOL                _shouldBeRunning;
 }
 
 @end
@@ -26,6 +28,7 @@
 - (id)initWithURL:(NSURL *)url {
     if (self = [super init]) {
         _sourceURL = [url retain];
+        _shouldBeRunning = NO;
     }
     
     return self;
@@ -36,9 +39,16 @@
 }
 
 - (void)dealloc {
+    // Stop running connection
+    [_urlConnection cancel];
+    
     [_sourceURL release];
+    [_urlRequest release];
+    [_urlConnection release];
+    
     [_completionBlock release];
     [_errorBlock release];
+    
     [_receivedData release];
     
     [super dealloc];
@@ -53,13 +63,25 @@
     
     _receivedData = [[NSMutableData alloc] init];
     
+    _shouldBeRunning = YES;
     [_urlConnection start];
     return YES;
+}
+
+- (void)stop {
+    _shouldBeRunning = NO;
+    [_urlConnection cancel];
 }
 
 #pragma mark -
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
+    if (!_shouldBeRunning) {
+        return;
+    }
+    
+    _shouldBeRunning = NO;
     
     if ([NSThread isMainThread]) {
         _errorBlock(error);
@@ -79,6 +101,12 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    if (!_shouldBeRunning) {
+        return;
+    }
+    
+    _shouldBeRunning = NO;
     
     if ([NSThread isMainThread]) {
         _completionBlock(connection);

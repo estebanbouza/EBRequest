@@ -30,4 +30,8 @@ typedef void(^EBErrorBlock) (NSError *error);
 /// @returns YES if the request could be started. NO otherwise.
 - (BOOL)start;
 
+/// Stops an asynchronous request.
+- (void)stop;
+
+
 @end
