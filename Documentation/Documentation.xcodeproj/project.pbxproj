@@ -6,10 +6,15 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		5BD412B416178E2D007A17AA /* AppledocSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppledocSettings.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		5BD4129B16178B09007A17AA = {
 			isa = PBXGroup;
 			children = (
+				5BD412B416178E2D007A17AA /* AppledocSettings.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +151,7 @@
 				5BD412A716178B09007A17AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
