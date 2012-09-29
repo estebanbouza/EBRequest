@@ -7,26 +7,51 @@
 //
 
 #import "EBRequestTests.h"
+#import "EBLibrary.h"
+
+static NSString *testURLString = @"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode&include_rts=0";
+
+static const NSTimeInterval defaultTimeout = 10;
 
 @implementation EBRequestTests
 
 - (void)setUp
 {
     [super setUp];
-    
-    // Set-up code here.
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
-    
     [super tearDown];
 }
 
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in EBRequestTests");
+
+- (void)testRegularAsyncConnection {
+    
+   dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    EBRequest *request = [[EBRequest alloc] initWithURL:[NSURL URLWithString:testURLString]];
+    
+    request.completionBlock = ^(id responseData) {
+        dispatch_semaphore_signal(semaphore);
+
+        STAssertNotNil(responseData, @"Response data should be initialized");
+
+    };
+
+    request.errorBlock = ^(NSError *error) {
+        STFail(@"Request failed");
+    };
+    
+    BOOL status = [request start];
+    
+    STAssertTrue(status, @"Request could not be started");
+    
+    while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
+    }
+    
+    dispatch_release(semaphore);
 }
 
 @end

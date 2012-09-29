@@ -8,5 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-#import "EBRequest"
+#import "EBRequest.h"
 

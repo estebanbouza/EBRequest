@@ -49,14 +49,13 @@
     
     _receivedData = [[NSMutableData alloc] init];
 
+    [_urlConnection start];
     return YES;
 }
 
 #pragma mark - 
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    DLog(@"");
-    
 
     if ([NSThread isMainThread]) {
         _errorBlock(error);
@@ -71,13 +70,11 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    DLog(@"");
     
     [_receivedData appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    DLog(@"");
     
     if ([NSThread isMainThread]) {
         _completionBlock(connection);
