@@ -6,6 +6,22 @@
 //  Copyright (c) 2012 Esteban. All rights reserved.
 //
 
-/*** Base class for EBRequest */
 #import <Foundation/Foundation.h>
 
+typedef void(^EBCompletionBlock)(id responseData);
+typedef void(^EBErrorBlock) (NSError *error);
+
+/// Represents an abstract request
+@interface EBRequest : NSObject
+
+/// Completion block called when the request is finished correctly.
+@property (atomic, copy) EBCompletionBlock completionBlock;
+
+/// Error block called when the request fails
+@property (atomic, copy) EBErrorBlock errorBlock;
+
+/// Starts an asynchronous request
+/// @returns YES if the request could be started. NO otherwise.
+- (BOOL)start;
+
+@end
