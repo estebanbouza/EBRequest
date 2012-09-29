@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>--input</key>
+	<array>
+		<string>../EBRequest</string>
+	</array>
 	<key>--ignore</key>
 	<array>
 		<string>ThirdParty</string>
@@ -14,12 +18,16 @@
 	<key>--company-id</key>
 	<string>com.filloadev</string>
 	<key>--create-docset</key>
-	<true/>
+	<false/>
 	<key>--install-docset</key>
 	<false/>
 	<key>--verbose</key>
 	<integer>4</integer>
 	<key>--logformat</key>
 	<integer>1</integer>
+	<key>--project-name</key>
+	<string>EBRequest</string>
+	<key>--output</key>
+	<string>../Builds/docs</string>
 </dict>
 </plist>

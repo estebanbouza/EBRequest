@@ -6,5 +6,6 @@
 //  Copyright (c) 2012 Esteban. All rights reserved.
 //
 
+/*** Base class for EBRequest */
 #import <Foundation/Foundation.h>
 

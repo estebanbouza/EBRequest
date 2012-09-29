@@ -23,11 +23,12 @@
 /* Begin PBXLegacyTarget section */
 		5BD412A216178B09007A17AA /* Documentation */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(ACTION)";
+			buildArgumentsString = .;
 			buildConfigurationList = 5BD412A516178B09007A17AA /* Build configuration list for PBXLegacyTarget "Documentation" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/local/bin/appledoc;
+			buildWorkingDirectory = "$(POJECT_DIR)";
 			dependencies = (
 			);
 			name = Documentation;
