@@ -22,6 +22,7 @@
 		5BC0B2FE1618452900A04A96 /* MockPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0B2FD1618452900A04A96 /* MockPerson.m */; };
 		5BCA3CD11618C7B50007E260 /* MockAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA3CD01618C7B50007E260 /* MockAddress.m */; };
 		5BCA3CD41618C8510007E260 /* JSONTest1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5BCA3CD31618C8510007E260 /* JSONTest1.txt */; };
+		5BCA3CDF1618ECC80007E260 /* JSONTest2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */; };
 		5BD412BD16179505007A17AA /* EBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD412BB16179505007A17AA /* EBRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD412BE16179505007A17AA /* EBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD412BC16179505007A17AA /* EBRequest.m */; };
 		5BD412C01617A2D8007A17AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD412BF1617A2D8007A17AA /* UIKit.framework */; };
@@ -71,6 +72,7 @@
 		5BCA3CCF1618C7B50007E260 /* MockAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAddress.h; sourceTree = "<group>"; };
 		5BCA3CD01618C7B50007E260 /* MockAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockAddress.m; sourceTree = "<group>"; };
 		5BCA3CD31618C8510007E260 /* JSONTest1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTest1.txt; sourceTree = "<group>"; };
+		5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTest2.txt; sourceTree = "<group>"; };
 		5BD412BB16179505007A17AA /* EBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRequest.h; sourceTree = "<group>"; };
 		5BD412BC16179505007A17AA /* EBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBRequest.m; sourceTree = "<group>"; };
 		5BD412BF1617A2D8007A17AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -162,6 +164,7 @@
 				5BCA3CCF1618C7B50007E260 /* MockAddress.h */,
 				5BCA3CD01618C7B50007E260 /* MockAddress.m */,
 				5BCA3CD31618C8510007E260 /* JSONTest1.txt */,
+				5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */,
 			);
 			path = EBRequestTests;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			files = (
 				5B5298961617783B00B6BD6A /* InfoPlist.strings in Resources */,
 				5BCA3CD41618C8510007E260 /* JSONTest1.txt in Resources */,
+				5BCA3CDF1618ECC80007E260 /* JSONTest2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
