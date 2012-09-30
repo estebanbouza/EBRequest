@@ -30,7 +30,7 @@
 
     NSDictionary *personDict = @{@"name" : @"John", @"age" : @42, @"birthDate" : @"542721600"};
     
-    MockPerson *person = [mapper objectFromDict:personDict];
+    MockPerson *person = [mapper objectFromJSON:personDict];
 
     STAssertNotNil(person, @"Object not created");
     
@@ -52,7 +52,7 @@
     
     NSDictionary *personDict = @{@"name" : @"John", @"age" : @42, @"birthDate" : @"542721600"};
     
-    MockPerson *person = [mapper objectFromDict:personDict];
+    MockPerson *person = [mapper objectFromJSON:personDict];
     
     STAssertNotNil(person, @"Object not created");
     
@@ -70,7 +70,7 @@
     
     EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:@[[MockPerson class], [MockAddress class]]];
     
-    MockPerson *person = [mapper objectFromDict:json];
+    MockPerson *person = [mapper objectFromJSON:json];
     
     STAssertTrue([person.name isEqualToString:@"john smith"], @"Error mapping name");
     STAssertTrue([person.age isEqualToNumber:@32], @"Error mapping age");
@@ -80,7 +80,11 @@
     STAssertTrue([[person.address class] isSubclassOfClass:[MockAddress class]], @"Address should be a MockAddress object");
     STAssertNotNil(person.children, @"Error mapping array");
     STAssertTrue(isArray(person.children), @"Children is not an array");
+    STAssertTrue([person.children count] == 3, @"Invalid number of children");
     STAssertTrue([[person.children objectAtIndex:0] isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
+    for (MockPerson *child in person.children) {
+        STAssertTrue([child isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
+    }
     
 }
 
