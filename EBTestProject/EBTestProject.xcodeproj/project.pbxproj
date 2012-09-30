@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B65B5541617BF7B006B1C01 /* libEBRequest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B65B5531617BF7B006B1C01 /* libEBRequest.a */; };
+		5B65B55C1617C2BB006B1C01 /* StandardRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B65B55A1617C2BB006B1C01 /* StandardRequestViewController.m */; };
+		5B65B55D1617C2BB006B1C01 /* StandardRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B65B55B1617C2BB006B1C01 /* StandardRequestViewController.xib */; };
 		5BD413021617B0FC007A17AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413011617B0FC007A17AA /* UIKit.framework */; };
 		5BD413041617B0FC007A17AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413031617B0FC007A17AA /* Foundation.framework */; };
 		5BD413061617B0FC007A17AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413051617B0FC007A17AA /* CoreGraphics.framework */; };
@@ -22,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		5B65B5531617BF7B006B1C01 /* libEBRequest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEBRequest.a; path = "../build/Debug-iphonesimulator/libEBRequest.a"; sourceTree = "<group>"; };
+		5B65B5591617C2BB006B1C01 /* StandardRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardRequestViewController.h; sourceTree = "<group>"; };
+		5B65B55A1617C2BB006B1C01 /* StandardRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardRequestViewController.m; sourceTree = "<group>"; };
+		5B65B55B1617C2BB006B1C01 /* StandardRequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardRequestViewController.xib; sourceTree = "<group>"; };
 		5BD412FD1617B0FC007A17AA /* EBTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD413011617B0FC007A17AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BD413031617B0FC007A17AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,6 +95,9 @@
 				5BD4131E1617B248007A17AA /* MainViewController.h */,
 				5BD4131F1617B248007A17AA /* MainViewController.m */,
 				5BD413081617B0FC007A17AA /* Supporting Files */,
+				5B65B5591617C2BB006B1C01 /* StandardRequestViewController.h */,
+				5B65B55A1617C2BB006B1C01 /* StandardRequestViewController.m */,
+				5B65B55B1617C2BB006B1C01 /* StandardRequestViewController.xib */,
 			);
 			path = EBTestProject;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 				5BD413141617B0FD007A17AA /* Default.png in Resources */,
 				5BD413161617B0FD007A17AA /* Default@2x.png in Resources */,
 				5BD413181617B0FD007A17AA /* Default-568h@2x.png in Resources */,
+				5B65B55D1617C2BB006B1C01 /* StandardRequestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +185,7 @@
 				5BD4130E1617B0FC007A17AA /* main.m in Sources */,
 				5BD413121617B0FC007A17AA /* AppDelegate.m in Sources */,
 				5BD413201617B248007A17AA /* MainViewController.m in Sources */,
+				5B65B55C1617C2BB006B1C01 /* StandardRequestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,6 @@
 
 #import "MainViewController.h"
 
-
-
 typedef enum {
     kRowStandardRequest,
     kNumberOfRows
@@ -67,6 +65,18 @@ static NSString *tableReuseID = @":)";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (indexPath.row) {
+        case kRowStandardRequest: {
+            StandardRequestViewController *reqVC = [[StandardRequestViewController alloc] initWithNibName:@"StandardRequestViewController" bundle:nil];
+            [self.navigationController pushViewController:reqVC animated:YES];
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
     
 }
 
