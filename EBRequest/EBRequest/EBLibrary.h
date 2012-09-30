@@ -10,3 +10,5 @@
 
 #import "EBRequest.h"
 
+#import "EBJSONObjectMapper.h"
+

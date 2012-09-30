@@ -18,6 +18,8 @@
 		5B5409F31617BA9F003E7453 /* EBRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BD412BB16179505007A17AA /* EBRequest.h */; };
 		5BC0B2F616182D0600A04A96 /* EBJSONObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BC0B2F416182D0600A04A96 /* EBJSONObjectMapper.h */; };
 		5BC0B2F716182D0600A04A96 /* EBJSONObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0B2F516182D0600A04A96 /* EBJSONObjectMapper.m */; };
+		5BC0B2FB161844D300A04A96 /* EBJSONObjectMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0B2FA161844D300A04A96 /* EBJSONObjectMapperTests.m */; };
+		5BC0B2FE1618452900A04A96 /* MockPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0B2FD1618452900A04A96 /* MockPerson.m */; };
 		5BD412BD16179505007A17AA /* EBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD412BB16179505007A17AA /* EBRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD412BE16179505007A17AA /* EBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD412BC16179505007A17AA /* EBRequest.m */; };
 		5BD412C01617A2D8007A17AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD412BF1617A2D8007A17AA /* UIKit.framework */; };
@@ -60,6 +62,10 @@
 		5B5298981617783B00B6BD6A /* EBRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBRequestTests.m; sourceTree = "<group>"; };
 		5BC0B2F416182D0600A04A96 /* EBJSONObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBJSONObjectMapper.h; sourceTree = "<group>"; };
 		5BC0B2F516182D0600A04A96 /* EBJSONObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBJSONObjectMapper.m; sourceTree = "<group>"; };
+		5BC0B2F9161844D300A04A96 /* EBJSONObjectMapperTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBJSONObjectMapperTests.h; sourceTree = "<group>"; };
+		5BC0B2FA161844D300A04A96 /* EBJSONObjectMapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBJSONObjectMapperTests.m; sourceTree = "<group>"; };
+		5BC0B2FC1618452900A04A96 /* MockPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockPerson.h; sourceTree = "<group>"; };
+		5BC0B2FD1618452900A04A96 /* MockPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockPerson.m; sourceTree = "<group>"; };
 		5BD412BB16179505007A17AA /* EBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRequest.h; sourceTree = "<group>"; };
 		5BD412BC16179505007A17AA /* EBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBRequest.m; sourceTree = "<group>"; };
 		5BD412BF1617A2D8007A17AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -144,6 +150,10 @@
 				5B5298971617783B00B6BD6A /* EBRequestTests.h */,
 				5B5298981617783B00B6BD6A /* EBRequestTests.m */,
 				5B5298921617783B00B6BD6A /* Supporting Files */,
+				5BC0B2F9161844D300A04A96 /* EBJSONObjectMapperTests.h */,
+				5BC0B2FA161844D300A04A96 /* EBJSONObjectMapperTests.m */,
+				5BC0B2FC1618452900A04A96 /* MockPerson.h */,
+				5BC0B2FD1618452900A04A96 /* MockPerson.m */,
 			);
 			path = EBRequestTests;
 			sourceTree = "<group>";
@@ -279,6 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B5298991617783B00B6BD6A /* EBRequestTests.m in Sources */,
+				5BC0B2FB161844D300A04A96 /* EBJSONObjectMapperTests.m in Sources */,
+				5BC0B2FE1618452900A04A96 /* MockPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

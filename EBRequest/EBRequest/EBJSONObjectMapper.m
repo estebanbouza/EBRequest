@@ -8,6 +8,8 @@
 
 #import "EBJSONObjectMapper.h"
 
+#import <objc/runtime.h>
+
 @interface EBJSONObjectMapper () {
     Class           _class;
 }
@@ -32,7 +34,19 @@
 
 
 - (id)objectFromDict:(NSDictionary *)dict {
-    return nil;
+    id object = [[_class alloc] init];
+    
+    unsigned int count;
+    
+    objc_property_t *properties = class_copyPropertyList(_class, &count);
+    
+    for (int i = 0; i < count; i++) {
+        NSString *propertyName = [NSString stringWithCString:property_getName(properties[i]) encoding:NSUTF8StringEncoding];
+
+        [object setValue:[dict objectForKey:propertyName] forKey:propertyName];
+    }
+    
+    return [object autorelease];
 }
 
 #pragma mark - Public methods
