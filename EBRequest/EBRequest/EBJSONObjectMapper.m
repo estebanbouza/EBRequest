@@ -48,11 +48,19 @@ static const char *kTypeUnknown = "unk";
 }
 
 
-- (id)objectFromDict:(NSDictionary *)dict {
-    Class class = [self susceptibleClassForDict:dict];
+
+- (id)objectFromDict:(id)dict {
     
-    return [self mappedDictionary:dict toClass:class];
+    if (isDictionary(dict)) {
+        Class class = [self susceptibleClassForDict:dict];
+        
+        return [self mappedDictionary:dict toClass:class];
+
+    } else if (isArray(dict)) {
+        return nil;
+    }
     
+    return nil;
 }
 
 /// @returns The most susceptible class for the dict or nil if not found at all.
