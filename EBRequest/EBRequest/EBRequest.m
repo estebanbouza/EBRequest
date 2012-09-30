@@ -109,7 +109,7 @@
     _shouldBeRunning = NO;
     
     if ([NSThread isMainThread]) {
-        _completionBlock(connection);
+        _completionBlock(_receivedData);
     }
     
     else {
