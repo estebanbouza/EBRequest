@@ -47,6 +47,32 @@
     STAssertEquals(components.second, 0, @"Second mapping not working");
 }
 
+- (void)testSeveralClassMapping {
+    EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:@[[MockPerson class], [MockAddress class]]];
+    
+    NSDictionary *personDict = @{@"name" : @"John", @"age" : @42, @"birthDate" : @"542721600"};
+    
+    MockPerson *person = [mapper objectFromDict:personDict];
+    
+    STAssertNotNil(person, @"Object not created");
+    
+    STAssertEquals(person.name, @"John", @"String mapping not working");
+    STAssertTrue([person.age isEqualToNumber:@42], @"Number mapping not working");
+}
+
+
+- (void)testStaticJSONMapping {
+    NSError *error;
+    
+    NSString *jsonString = [NSString stringWithContentsOfFile:[[NSBundle bundleForClass:[MockPerson class]] pathForResource:@"JSONTest1" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
+    
+    id json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NULL error:&error];
+    
+    
+    DLog(@"%@", jsonString);
+    
+    
+}
 
 
 @end

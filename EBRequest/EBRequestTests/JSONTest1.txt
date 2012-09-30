@@ -1,0 +1,24 @@
+{
+  "name": "john smith",
+  "age": 32,
+  "employed": true,
+  "address": {
+    "street": "701 first ave.",
+    "city": "sunnyvale, ca 95125",
+    "country": "united states"
+  },
+  "children": [
+    {
+      "name": "richard",
+      "age": 7
+    },
+    {
+      "name": "susan",
+      "age": 4
+    },
+    {
+      "name": "james",
+      "age": 3
+    }
+  ]
+}
