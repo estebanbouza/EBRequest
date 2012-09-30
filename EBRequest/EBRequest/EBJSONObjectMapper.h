@@ -29,6 +29,6 @@
 /// Maps a NSDictionary to a custom class.
 /// @param dict The array or dictionary with the key-values representing the ivars of the object.
 /// @returns an object of the specified class (See initWithClass:)
-- (id)objectFromDict:(id)dict;
+- (id)objectFromJSON:(id)dict;
 
 @end

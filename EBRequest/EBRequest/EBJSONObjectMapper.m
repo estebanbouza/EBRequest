@@ -48,15 +48,17 @@ static const char *kTypeUnknown = "unk";
 
 
 
-- (id)objectFromDict:(id)dict {
+- (id)objectFromJSON:(id)json {
     
-    if (isDictionary(dict)) {
-        Class class = [self susceptibleClassForDict:dict];
+    if (isDictionary(json)) {
+        Class class = [self susceptibleClassForDict:json];
         
-        return [self mappedDictionary:dict toClass:class];
+        return [self mappedDictionary:json toClass:class];
 
-    } else if (isArray(dict)) {
-        return nil;
+    } else if (isArray(json)) {
+        for (id anElement in (NSArray *)json) {
+            [self objectFromJSON:anElement];
+        }
     }
     
     return nil;
@@ -91,6 +93,17 @@ static const char *kTypeUnknown = "unk";
             Class bestClass = [self susceptibleClassForDict:value];
             
             value = [self mappedDictionary:value toClass:bestClass];
+        }
+        
+        // If the property class is an array, map it also recursively
+        else if (isArray(value)) {
+            NSMutableArray *elements = [NSMutableArray arrayWithCapacity:[(NSArray *)value count]];
+            
+            for (id anElement in (NSArray *)value) {
+                [elements addObject:[self objectFromJSON:anElement]];
+            }
+            
+            value = elements;
         }
         
         // Conditional setters.
