@@ -66,11 +66,21 @@
     
     NSString *jsonString = [NSString stringWithContentsOfFile:[[NSBundle bundleForClass:[MockPerson class]] pathForResource:@"JSONTest1" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
     
-    id json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NULL error:&error];
+    id json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
     
+    EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:@[[MockPerson class], [MockAddress class]]];
     
-    DLog(@"%@", jsonString);
+    MockPerson *person = [mapper objectFromDict:json];
     
+    STAssertTrue([person.name isEqualToString:@"john smith"], @"Error mapping name");
+    STAssertTrue([person.age isEqualToNumber:@32], @"Error mapping age");
+    STAssertTrue([person.employed boolValue] == YES, @"Error mapping booleans");
+    STAssertNotNil(person.address, @"Error mapping object");
+    STAssertFalse(isDictionary(person.address), @"Address is a dictionary, should be an object");
+    STAssertTrue([[person.address class] isSubclassOfClass:[MockAddress class]], @"Address should be a MockAddress object");
+    STAssertNotNil(person.children, @"Error mapping array");
+    STAssertTrue(isArray(person.children), @"Children is not an array");
+    STAssertTrue([[person.children objectAtIndex:0] isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
     
 }
 
