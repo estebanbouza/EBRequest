@@ -32,7 +32,7 @@ static const NSTimeInterval defaultTimeout = 10;
     
     EBRequest *request = [[EBRequest alloc] initWithURL:[NSURL URLWithString:testURLString]];
     
-    request.completionBlock = ^(id responseData) {
+    request.completionBlock = ^(NSData *responseData) {
         dispatch_semaphore_signal(semaphore);
 
         STAssertNotNil(responseData, @"Response data should be initialized");
@@ -40,6 +40,8 @@ static const NSTimeInterval defaultTimeout = 10;
     };
 
     request.errorBlock = ^(NSError *error) {
+        dispatch_semaphore_signal(semaphore);
+
         STFail(@"Request failed");
     };
     
@@ -62,7 +64,7 @@ static const NSTimeInterval defaultTimeout = 10;
     
     EBRequest *request = [EBRequest requestWithURL:[NSURL URLWithString:testURLString]];
     
-    request.completionBlock = ^(id responseData) {
+    request.completionBlock = ^(NSData *responseData) {
         dispatch_semaphore_signal(semaphore);
         
         STAssertNotNil(responseData, @"Response data should be initialized");
@@ -93,7 +95,7 @@ static const NSTimeInterval defaultTimeout = 10;
 
     EBRequest *request = [EBRequest requestWithURL:[NSURL URLWithString:@"http://fals3-d0m4in.com"]];
     
-    request.completionBlock = ^(id responseData) {
+    request.completionBlock = ^(NSData *responseData) {
         dispatch_semaphore_signal(semaphore);
 
         STFail(@"Completion block should not be executed");
@@ -114,7 +116,6 @@ static const NSTimeInterval defaultTimeout = 10;
     
     dispatch_release(semaphore);
     
-    [request release];
 }
 
 - (void)testStopRequest {
@@ -123,7 +124,7 @@ static const NSTimeInterval defaultTimeout = 10;
     
     EBRequest *request = [[EBRequest alloc] initWithURL:[NSURL URLWithString:testURLString]];
     
-    request.completionBlock = ^(id responseData) {
+    request.completionBlock = ^(NSData *responseData) {
         dispatch_semaphore_signal(semaphore);
         STFail(@"Request should never be completed");
     };
@@ -135,6 +136,8 @@ static const NSTimeInterval defaultTimeout = 10;
     
     [request start];
     [request stop];
+    
+    dispatch_semaphore_signal(semaphore);
     
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
