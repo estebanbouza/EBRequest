@@ -10,9 +10,8 @@
 #import <objc/runtime.h>
 
 static const char *kBOOLType = "c";
-
-#define kBOOLTypeString [NSString stringWithCString:kBOOLType encoding:NSUTF8StringEncoding]
 static const char *kTypeUnknown = "unk";
+#define kBOOLTypeString [NSString stringWithCString:kBOOLType encoding:NSUTF8StringEncoding]
 
 @interface EBJSONObjectMapper () {
     NSArray         *_classes;
@@ -63,6 +62,56 @@ static const char *kTypeUnknown = "unk";
     return nil;
 }
 
+- (id)mappedDictionary:(NSDictionary *)dict toClass:(Class)class {
+    id object = [[class alloc] init];
+    
+    unsigned int count;
+    
+    // Read object's properties
+    objc_property_t *properties = class_copyPropertyList(class, &count);
+    
+    for (int i = 0; i < count; i++) {
+        objc_property_t property = properties[i];
+        
+        NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+        // Value to be set in the new object
+        id value = [dict objectForKey:propertyName];
+        
+        if (value == nil) {
+            DLog(@"Key not defined: %@. Skipping", propertyName);
+            continue;
+        }
+        
+        // Get property class
+        NSString *propertyClassName = [NSString stringWithCString:getPropertyType(property) encoding:NSUTF8StringEncoding];
+        Class propertyClass = NSClassFromString(propertyClassName);
+        
+        // If the property class is a dictionary, map it recursively
+        if (isDictionary(value)) {
+            Class bestClass = [self susceptibleClassForDict:value];
+            
+            value = [self mappedDictionary:value toClass:bestClass];
+        }
+        
+        // Conditional setters.
+        // In case of date, only unix timestamps are valid
+        else if ([propertyClass isSubclassOfClass:[NSDate class]]) {
+            value = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:propertyName] doubleValue]];
+        } else if ([propertyClassName isEqualToString:kBOOLTypeString]) {
+            value = [dict objectForKey:propertyName];
+        }
+        else if (propertyClass == nil ) {
+            DLog(@"Warning: Could not determine class of property %@. Trying scalar ", propertyName);
+        }
+        
+        [object setValue:value forKey:propertyName];
+    }
+    
+    free(properties);
+    
+    return [object autorelease];
+}
+
 /// @returns The most susceptible class for the dict or nil if not found at all.
 - (Class)susceptibleClassForDict:(NSDictionary *)dictionary {
     Class theClass = nil;
@@ -108,52 +157,6 @@ static const char *kTypeUnknown = "unk";
     
     return propertyNames;
 }
-
-
-- (id)mappedDictionary:(NSDictionary *)dict toClass:(Class)class {
-    id object = [[class alloc] init];
-    
-    unsigned int count;
-    
-    // Read object's properties
-    objc_property_t *properties = class_copyPropertyList(class, &count);
-    
-    for (int i = 0; i < count; i++) {
-        objc_property_t property = properties[i];
-        
-        NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-        // Value to be set in the new object
-        id value = [dict objectForKey:propertyName];
-        
-        if (value == nil) {
-            DLog(@"Key not defined: %@. Skipping", propertyName);
-            continue;
-        }
-        
-        // Get property class
-        NSString *propertyClassName = [NSString stringWithCString:getPropertyType(property) encoding:NSUTF8StringEncoding];
-        Class propertyClass = NSClassFromString(propertyClassName);
-        
-        // Conditional setters.
-        // In case of date, only unix timestamps are valid
-        if ([propertyClass isSubclassOfClass:[NSDate class]]) {
-            value = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:propertyName] doubleValue]];
-        } else if ([propertyClassName isEqualToString:kBOOLTypeString]) {
-            value = [dict objectForKey:propertyName];
-        }
-        else if (propertyClass == nil ) {
-            DLog(@"Warning: Could not determine class of property %@. Trying scalar ", propertyName);
-        }
-        
-        [object setValue:value forKey:propertyName];
-    }
-    
-    free(properties);
-    
-    return [object autorelease];
-}
-
-
 
 
 static const char* getPropertyType(objc_property_t property) {

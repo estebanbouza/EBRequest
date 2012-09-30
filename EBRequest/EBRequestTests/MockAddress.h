@@ -10,4 +10,8 @@
 
 @interface MockAddress : NSObject
 
+@property (nonatomic, strong)           NSString *street;
+@property (nonatomic, strong)           NSString *city;
+@property (nonatomic, strong)           NSString *country;
+
 @end
