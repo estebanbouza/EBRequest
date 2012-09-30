@@ -1,4 +1,4 @@
 EBRequest
 =========
 
-An AsiHTTPRequest like library
+An ASIHTTPRequest like library
