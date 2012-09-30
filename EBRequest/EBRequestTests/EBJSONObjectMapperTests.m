@@ -86,6 +86,15 @@
         STAssertTrue([child isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
     }
     
+    STAssertTrue([[[person.children objectAtIndex:0] name] isEqualToString:@"richard"], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:1] name] isEqualToString:@"susan"], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:2] name] isEqualToString:@"james"], @"Error mapping children");
+    
+    STAssertTrue([[[person.children objectAtIndex:0] age] isEqualToNumber:@7], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:1] age] isEqualToNumber:@4], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:2] age] isEqualToNumber:@3], @"Error mapping children");
+    
+    
 }
 
 
