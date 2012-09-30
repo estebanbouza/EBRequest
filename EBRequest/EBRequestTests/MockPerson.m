@@ -11,7 +11,7 @@
 @implementation MockPerson
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"Name: %@, Age: %d", self.name, self.age];
+    return [NSString stringWithFormat:@"Name: %@, Age: %@", self.name, self.age];
 }
 
 @end

@@ -93,7 +93,7 @@ static const NSTimeInterval defaultTimeout = 10;
     
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-    EBRequest *request = [EBRequest requestWithURL:[NSURL URLWithString:@"http://fals3-d0m4in.com"]];
+    EBRequest *request = [EBRequest requestWithURL:[NSURL URLWithString:@"http://localhost:666"]];
     
     request.completionBlock = ^(NSData *responseData) {
         dispatch_semaphore_signal(semaphore);
@@ -105,7 +105,6 @@ static const NSTimeInterval defaultTimeout = 10;
         dispatch_semaphore_signal(semaphore);
 
         STAssertNotNil(error, @"An error is supposed to happen");
-        STAssertEquals(error.code, -1003, @"The server should not be found");
     };
     
     [request start];
