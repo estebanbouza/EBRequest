@@ -13,3 +13,6 @@
 #else
 #   define DLog(...)
 #endif
+
+#define isDictionary(var)   [var isKindOfClass:[NSDictionary class]]
+#define isArray(var)        [var isKindOfClass:[NSArray class]]
