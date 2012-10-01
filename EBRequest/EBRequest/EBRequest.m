@@ -8,19 +8,10 @@
 
 #import "EBRequest.h"
 
-@interface EBRequest () {
-
-}
-
-@end
-
 
 @implementation EBRequest
 
-
-
 #pragma mark - Lifecycle
-
 
 - (id)initWithURL:(NSURL *)url {
     if (self = [super init]) {
