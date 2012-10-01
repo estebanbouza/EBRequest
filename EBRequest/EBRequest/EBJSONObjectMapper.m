@@ -56,9 +56,11 @@ static const char *kTypeUnknown = "unk";
         return [self mappedDictionary:json toClass:class];
 
     } else if (isArray(json)) {
+        NSMutableArray *result = [NSMutableArray array];
         for (id anElement in (NSArray *)json) {
-            [self objectFromJSON:anElement];
+            [result addObject:[self objectFromJSON:anElement]];
         }
+        return result;
     }
     
     return nil;
@@ -80,7 +82,7 @@ static const char *kTypeUnknown = "unk";
         id value = [dict objectForKey:propertyName];
         
         if (value == nil) {
-            DLog(@"Key not defined: %@. Skipping", propertyName);
+            // Key not defined. Skipping
             continue;
         }
         
