@@ -147,4 +147,45 @@
     STAssertTrue([grandgrandson.children count] == 0, @"Invalid number of children");
 }
 
+
+- (void)testArrayJSONMapping {
+    NSError *error;
+    
+    NSString *jsonString = [NSString stringWithContentsOfFile:[[NSBundle bundleForClass:[MockPerson class]] pathForResource:@"JSONTest3" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
+    
+    id json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
+    
+    EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:@[[MockPerson class], [MockAddress class]]];
+    
+    NSArray *result = [mapper objectFromJSON:json];
+    
+    STAssertTrue(isArray(result), @"Result is not array");
+    STAssertTrue(result.count == 4, @"Incorrect array count");
+    
+    STAssertTrue([[result objectAtIndex:0] isKindOfClass:[MockPerson class]], @"Error mapping classes");
+    STAssertTrue([[result objectAtIndex:1] isKindOfClass:[MockAddress class]], @"Error mapping classes");
+    STAssertTrue([[result objectAtIndex:2] isKindOfClass:[MockPerson class]], @"Error mapping classes");
+    STAssertTrue([[result objectAtIndex:3] isKindOfClass:[MockPerson class]], @"Error mapping classes");
+    
+    MockPerson *first = [result objectAtIndex:0];
+    STAssertTrue([first.name isEqualToString:@"john smith"], nil);
+    STAssertTrue([first.address.city isEqualToString:@"sunnyvale, ca 95125"], nil);
+    
+    MockAddress *second = [result objectAtIndex:1];
+    STAssertTrue([second.street isEqualToString:@"701 first ave."], nil);
+    
+    MockPerson *third = [result objectAtIndex:2];
+    STAssertTrue([third.name isEqualToString:@"manolo"], nil);
+    STAssertNil(third.address, nil);
+    STAssertNotNil(third.children, nil);
+    STAssertTrue(third.children.count == 2, nil);
+    STAssertTrue([[[third.children objectAtIndex:0] name] isEqualToString:@"little manolo A"], nil);
+    STAssertTrue([[[third.children objectAtIndex:1] name] isEqualToString:@"little manolo B"], nil);
+    
+    MockPerson *fourth = [result objectAtIndex:3];
+    STAssertTrue([fourth.name isEqualToString:@"patty"], nil);
+    STAssertNotNil(fourth.address, nil);
+    
+}
+
 @end

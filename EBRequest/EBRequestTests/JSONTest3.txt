@@ -1,0 +1,44 @@
+[
+  {
+    "name": "john smith",
+    "age": 32,
+    "employed": true,
+    "address": {
+      "street": "701 first ave.",
+      "city": "sunnyvale, ca 95125",
+      "country": "united states"
+    }
+  },
+  {
+    "street": "701 first ave.",
+    "city": "sunnyvale, ca 95125",
+    "country": "united states"
+  },
+  {
+    "name": "manolo",
+    "age": 32,
+    "employed": false,
+    "children": [
+      {
+        "name": "little manolo A",
+        "age": 32,
+        "employed": false
+      },
+      {
+        "name": "little manolo B",
+        "age": 32,
+        "employed": false
+      }
+    ]
+  },
+  {
+    "name": "patty",
+    "age": 32,
+    "employed": true,
+    "address": {
+      "street": "701 first ave.",
+      "city": "sunnyvale, ca 95125",
+      "country": "united states"
+    }
+  }
+]
