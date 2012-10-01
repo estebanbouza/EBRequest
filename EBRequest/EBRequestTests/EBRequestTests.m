@@ -30,7 +30,7 @@ static const NSTimeInterval defaultTimeout = 10;
     
    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
-    EBRequest *request = [[EBRequest alloc] initWithURL:[NSURL URLWithString:testURLString]];
+    EBDataRequest *request = [[EBDataRequest alloc] initWithURL:[NSURL URLWithString:testURLString]];
     
     request.completionBlock = ^(NSData *responseData) {
         dispatch_semaphore_signal(semaphore);
@@ -62,7 +62,7 @@ static const NSTimeInterval defaultTimeout = 10;
     
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
-    EBRequest *request = [EBRequest requestWithURL:[NSURL URLWithString:testURLString]];
+    EBDataRequest *request = [EBDataRequest requestWithURL:[NSURL URLWithString:testURLString]];
     
     request.completionBlock = ^(NSData *responseData) {
         dispatch_semaphore_signal(semaphore);
@@ -93,7 +93,7 @@ static const NSTimeInterval defaultTimeout = 10;
     
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-    EBRequest *request = [EBRequest requestWithURL:[NSURL URLWithString:@"http://localhost:666"]];
+    EBDataRequest *request = [EBDataRequest requestWithURL:[NSURL URLWithString:@"http://localhost:666"]];
     
     request.completionBlock = ^(NSData *responseData) {
         dispatch_semaphore_signal(semaphore);
@@ -121,7 +121,7 @@ static const NSTimeInterval defaultTimeout = 10;
     
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
-    EBRequest *request = [[EBRequest alloc] initWithURL:[NSURL URLWithString:testURLString]];
+    EBDataRequest *request = [[EBDataRequest alloc] initWithURL:[NSURL URLWithString:testURLString]];
     
     request.completionBlock = ^(NSData *responseData) {
         dispatch_semaphore_signal(semaphore);

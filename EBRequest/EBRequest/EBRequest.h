@@ -2,7 +2,7 @@
 //  EBRequest.h
 //  EBRequest
 //
-//  Created by Esteban on 29/09/12.
+//  Created by Esteban on 01/10/12.
 //  Copyright (c) 2012 Esteban. All rights reserved.
 //
 
@@ -15,7 +15,7 @@ typedef void(^EBErrorBlock) (NSError *error);
 @interface EBRequest : NSObject
 
 /// Source URL
-@property (atomic, readonly) NSURL *sourceURL;
+@property (atomic, retain) NSURL *sourceURL;
 
 /// Completion block called when the request is finished correctly.
 @property (atomic, copy) EBCompletionBlock completionBlock;
@@ -38,6 +38,5 @@ typedef void(^EBErrorBlock) (NSError *error);
 
 /// Stops an asynchronous request.
 - (void)stop;
-
 
 @end

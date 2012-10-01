@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "EBRequest.h"
-#import "EBDataRequest.h"
 
-#import "EBJSONObjectMapper.h"
+@interface EBDataRequest : EBRequest
 
+@end
