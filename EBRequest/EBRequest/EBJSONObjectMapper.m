@@ -128,6 +128,7 @@ static const char *kTypeUnknown = "unk";
 }
 
 /// @returns The most susceptible class for the dict or nil if not found at all.
+/// @param dictionary The dictionary to be linked to a class.
 - (Class)susceptibleClassForDict:(NSDictionary *)dictionary {
     Class theClass = nil;
     NSInteger maxCommonProperties = 0;

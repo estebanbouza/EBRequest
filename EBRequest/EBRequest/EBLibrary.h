@@ -10,6 +10,7 @@
 
 #import "EBRequest.h"
 #import "EBDataRequest.h"
+#import "EBJSONRequest.h"
 
 #import "EBJSONObjectMapper.h"
 

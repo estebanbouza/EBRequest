@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "EBRequest.h"
 
+/// EBDataRequest will return NSData objects in the completion block
 @interface EBDataRequest : EBRequest
 
 @end

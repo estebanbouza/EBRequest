@@ -17,10 +17,10 @@ typedef void(^EBErrorBlock) (NSError *error);
 /// Source URL
 @property (atomic, retain) NSURL *sourceURL;
 
-/// Completion block called when the request is finished correctly.
+/// Completion block called when the request is finished correctly. The completion block is always executed in the main thread.
 @property (atomic, copy) EBCompletionBlock completionBlock;
 
-/// Error block called when the request fails
+/// Error block called when the request fails. The error block is always executed in the main thread.
 @property (atomic, copy) EBErrorBlock errorBlock;
 
 
