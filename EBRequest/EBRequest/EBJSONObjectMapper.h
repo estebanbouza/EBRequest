@@ -18,12 +18,16 @@
 /// @param class The class to be mapped to
 - (id)initWithClass:(Class)class;
 
+/// Creates a mapper instance with several possible clases.
+/// @param classes The possible classes to map to
 - (id)initWithClasses:(NSArray *)classes;
 
 /// Creates an autoreleased mapper for the specified class. See initWithClass:
 /// @param class The class to be mapped to
 + (id)mapperWithClass:(Class)class;
 
+/// Creates an autoreleased mapper for the specified classes. See initWithClasses:
+/// @param classes The possible classes to map to
 + (id)mapperWithClasses:(NSArray *)classes;
 
 /// Maps a NSDictionary to a custom class.
