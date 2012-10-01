@@ -19,6 +19,8 @@
 		5B696BA61619FE3200B4A20C /* JSONTest3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B696BA51619FE3200B4A20C /* JSONTest3.txt */; };
 		5B8A2CC6161A0DD600CB5FBA /* EBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8A2CC4161A0DD600CB5FBA /* EBRequest.h */; };
 		5B8A2CC7161A0DD600CB5FBA /* EBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */; };
+		5B8A2CCB161A15D500CB5FBA /* EBJSONRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8A2CC9161A15D500CB5FBA /* EBJSONRequest.h */; };
+		5B8A2CCC161A15D500CB5FBA /* EBJSONRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A2CCA161A15D500CB5FBA /* EBJSONRequest.m */; };
 		5BC0B2F616182D0600A04A96 /* EBJSONObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BC0B2F416182D0600A04A96 /* EBJSONObjectMapper.h */; };
 		5BC0B2F716182D0600A04A96 /* EBJSONObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0B2F516182D0600A04A96 /* EBJSONObjectMapper.m */; };
 		5BC0B2FB161844D300A04A96 /* EBJSONObjectMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0B2FA161844D300A04A96 /* EBJSONObjectMapperTests.m */; };
@@ -69,6 +71,8 @@
 		5B696BA51619FE3200B4A20C /* JSONTest3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTest3.txt; sourceTree = "<group>"; };
 		5B8A2CC4161A0DD600CB5FBA /* EBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRequest.h; sourceTree = "<group>"; };
 		5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBRequest.m; sourceTree = "<group>"; };
+		5B8A2CC9161A15D500CB5FBA /* EBJSONRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBJSONRequest.h; sourceTree = "<group>"; };
+		5B8A2CCA161A15D500CB5FBA /* EBJSONRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBJSONRequest.m; sourceTree = "<group>"; };
 		5BC0B2F416182D0600A04A96 /* EBJSONObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBJSONObjectMapper.h; sourceTree = "<group>"; };
 		5BC0B2F516182D0600A04A96 /* EBJSONObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBJSONObjectMapper.m; sourceTree = "<group>"; };
 		5BC0B2F9161844D300A04A96 /* EBJSONObjectMapperTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBJSONObjectMapperTests.h; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */,
 				5BD412BB16179505007A17AA /* EBDataRequest.h */,
 				5BD412BC16179505007A17AA /* EBDataRequest.m */,
+				5B8A2CC9161A15D500CB5FBA /* EBJSONRequest.h */,
+				5B8A2CCA161A15D500CB5FBA /* EBJSONRequest.m */,
 				5BC0B2F416182D0600A04A96 /* EBJSONObjectMapper.h */,
 				5BC0B2F516182D0600A04A96 /* EBJSONObjectMapper.m */,
 				5B52987D1617783B00B6BD6A /* Supporting Files */,
@@ -198,6 +204,7 @@
 				5BD412BD16179505007A17AA /* EBDataRequest.h in Headers */,
 				5BC0B2F616182D0600A04A96 /* EBJSONObjectMapper.h in Headers */,
 				5B8A2CC6161A0DD600CB5FBA /* EBRequest.h in Headers */,
+				5B8A2CCB161A15D500CB5FBA /* EBJSONRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +313,7 @@
 				5BD412BE16179505007A17AA /* EBDataRequest.m in Sources */,
 				5BC0B2F716182D0600A04A96 /* EBJSONObjectMapper.m in Sources */,
 				5B8A2CC7161A0DD600CB5FBA /* EBRequest.m in Sources */,
+				5B8A2CCC161A15D500CB5FBA /* EBJSONRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
