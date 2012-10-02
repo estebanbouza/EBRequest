@@ -28,6 +28,6 @@
 	<key>--project-name</key>
 	<string>EBRequest</string>
 	<key>--output</key>
-	<string>../build/docs</string>
+	<string>../docs</string>
 </dict>
 </plist>
