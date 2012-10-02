@@ -1,7 +1,6 @@
 EBRequest
 =========
 
-An ASIHTTPRequest like library.
+**An ASIHTTPRequest like library.**
 
-[Class documentation](./docs/html/index.html)
-
+Read the class documentation inside docs/html/index.html
