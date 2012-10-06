@@ -1,5 +1,5 @@
 # EBRequest
-**An ASIHTTPRequest like library.**
+**An ASIHTTPRequest like and object mapper library.**
 
 --------------
 
@@ -30,17 +30,79 @@ Things you can do with this library:
 	    	for (NSDictionary *tweet in tweets) {
 		    	NSLog(@"Tweet: %@", tweet);
 	    	}
-
 	    };
 	    
 	    [request start];
 
-* Map JSON feeds to classes easily:
+* The most important part: **Map JSON feeds to classes easily**. Let's say you have 2 entities in your model: `Person` and `Address`:
+	* `Person`:
+			
+			@interface MockPerson : NSObject
+
+			@property (nonatomic, strong)                       NSString    *name;
+			@property (nonatomic, strong)                       NSNumber    *age;
+			@property (nonatomic, strong)                       NSDate      *birthDate;
+			@property (nonatomic, strong, getter = isEmployed)  NSNumber    *employed;
+			@property (nonatomic, strong)                       MockAddress *address;
+			@property (nonatomic, strong)                       NSArray     *children;
+			
+			@end
+			
+	* `Address`:
+		
+			@interface MockAddress : NSObject
+
+			@property (nonatomic, strong)           NSString *street;
+			@property (nonatomic, strong)           NSString *city;
+			@property (nonatomic, strong)           NSString *country;
+			
+			@end
+
+	* And let's say that you have a JSON feed that looks like:
+
+			{
+			  "name": "john smith",
+			  "age": 32,
+			  "employed": true,
+			  "address": {
+			    "street": "701 first ave.",
+			    "city": "sunnyvale, ca 95125",
+			    "country": "united states"
+			  },
+			  "children": [
+			    {
+			      "name": "richard",
+			      "age": 7
+			    },
+			    {
+			      "name": "susan",
+			      "age": 4
+			    }
+			  ]
+			}
+
+	* Then you can map the feed to your model like this:
+	
+			EBJSONRequest *request = [EBJSONRequest requestWithURL:url];
+				
+			request.classesToMap = @[[MockPerson class], [MockAddress class]];
+			    
+			request.completionBlock = ^(id data){
+				/* data is already mapped to your custom class! */
+				
+				MockPerson *john = (MockPerson *)data;
+				NSLog(@"Address: %@", john.address);
+				
+				MockPerson *susan = [john.children objectAtIndex:1];
+				NSLog(@"Susan age: %@", susan.age);
+				
+			};
+			
+			[request start];
 
 
+### Class documentation
 
-
-
-Read the class documentation inside docs/html/index.html
+Read the full class documentation at `docs/html/index.html`
 
 
