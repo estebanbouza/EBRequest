@@ -68,6 +68,38 @@ static const NSTimeInterval defaultTimeout = 10;
 }
 
 
+- (void)testDocumentation {
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    __block BOOL completionExecuted = NO;
+
+    NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode"];
+    
+    EBJSONRequest *request = [EBJSONRequest requestWithURL:url];
+    
+    request.completionBlock = ^(id data){
+        NSArray *tweets = (NSArray *)data;
+        
+        for (NSDictionary *tweet in tweets) {
+            STAssertTrue(isDictionary(tweet), @"Tweet is not dict");
+        }
+        completionExecuted = YES;
+        dispatch_semaphore_signal(semaphore);
+
+    };
+    
+    [request start];
+    
+    while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
+    }
+    
+    STAssertTrue(completionExecuted, nil);
+    
+    dispatch_release(semaphore);
+
+}
+
+
 - (void)testMappedJSON {
     __block BOOL completionExecuted = NO;
     
