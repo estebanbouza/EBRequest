@@ -12,7 +12,20 @@
 @interface EBJSONObjectMapper : NSObject
 
 /// Mapper's classes for this object
-@property (atomic, readonly) NSArray *classes;
+@property (nonatomic, readonly) NSArray *classes;
+
+/** Dictionary containing an/ equivalence between JSON and Class property names.
+ 
+
+For example, for a class defined as 
+    Person(name, age)
+And a JSON defined as
+ 
+    { "jname" : "peter", "jage" : 35 }
+A mapper can be defined as:
+    argumentMapper = [@"name" : @"jname", @"age" : @"jage"];
+ */
+@property (nonatomic, retain) NSDictionary *argumentMapper;
 
 /// Creates a mapper instance for the specified class.
 /// @param class The class to be mapped to
@@ -34,5 +47,6 @@
 /// @param dict The array or dictionary with the key-values representing the ivars of the object.
 /// @returns an object of the specified class (See initWithClass:).
 - (id)objectFromJSON:(id)dict;
+
 
 @end
