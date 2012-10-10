@@ -31,6 +31,6 @@
  A mapper can be defined as:
  argumentMapper = [@"name" : @"jname", @"age" : @"jage"];
  */
-@property (nonatomic, retain) NSDictionary *argumentMapper;
+@property (nonatomic, retain) NSDictionary *propertyMapper;
 
 @end

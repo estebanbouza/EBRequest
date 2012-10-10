@@ -12,7 +12,7 @@
 
 - (void)dealloc {
     [_theClass release];
-    [_argumentMapper release];
+    [_propertyMapper release];
     
     [super dealloc];
 }

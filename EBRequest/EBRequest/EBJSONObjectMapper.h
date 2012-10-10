@@ -16,7 +16,7 @@
 @property (nonatomic, readonly) NSArray *classes;
 
 /// Optional. A mapper between NSObject property names and JSON fields. See EBPropertyMapper.
-@property (nonatomic, retain) EBPropertyMapper *argumentMapper;
+@property (nonatomic, retain) EBPropertyMapper *propertyMapper;
 
 /// Creates a mapper instance for the specified class.
 /// @param class The class to be mapped to
