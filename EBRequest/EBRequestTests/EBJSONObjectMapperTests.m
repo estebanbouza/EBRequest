@@ -24,6 +24,7 @@
     [super tearDown];
 }
 
+#pragma mark Mapping
 
 - (void)testRegularMapping {
     EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClass:[MockPerson class]];
@@ -186,6 +187,59 @@
     STAssertTrue([fourth.name isEqualToString:@"patty"], nil);
     STAssertNotNil(fourth.address, nil);
     
+}
+
+#pragma mark - Property Mapper tests
+
+- (void)testPropertyMapper {
+    NSError *error;
+
+    NSString *jsonString = [NSString stringWithContentsOfFile:[[NSBundle bundleForClass:[MockPerson class]] pathForResource:@"JSONTestPropertyMapper" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
+    
+    id json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
+    
+    EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:@[[MockPerson class], [MockAddress class]]];
+    
+    // Create property mappers for person and address.
+    EBPropertyMapper *personMapper = [EBPropertyMapper mapperWithClass:[MockPerson class]
+                                                            properties:@{@"name" : @"j_name",
+                                                                     @"employed" : @"j_employed",
+                                                                      @"address" : @"j_address",
+                                                                     @"children" : @"j_children"
+                                      }];
+    
+    EBPropertyMapper *addressMapper = [EBPropertyMapper mapperWithClass:[MockAddress class] properties:@{@"city" : @"j_city", @"country" : @"j_country"}];
+    mapper.propertyMappers = @[personMapper, addressMapper];
+
+    // Start mapping the JSON
+    MockPerson *person = [mapper objectFromJSON:json];
+    
+    STAssertTrue([person.name isEqualToString:@"john smith"], @"Error mapping name");
+    STAssertTrue([person.age isEqualToNumber:@32], @"Error mapping age");
+    STAssertTrue([person.employed boolValue] == YES, @"Error mapping booleans");
+    STAssertNotNil(person.address, @"Error mapping object");
+    
+    STAssertFalse(isDictionary(person.address), @"Address is a dictionary, should be an object");
+    STAssertTrue([[person.address class] isSubclassOfClass:[MockAddress class]], @"Address should be a MockAddress object");
+    STAssertTrue([person.address.street isEqualToString:@"701 first ave."], nil);
+    STAssertTrue([person.address.city isEqualToString:@"sunnyvale, ca 95125"], nil);
+    STAssertTrue([person.address.country isEqualToString:@"united states"], nil);
+    
+    STAssertNotNil(person.children, @"Error mapping array");
+    STAssertTrue(isArray(person.children), @"Children is not an array");
+    STAssertTrue([person.children count] == 3, @"Invalid number of children");
+    STAssertTrue([[person.children objectAtIndex:0] isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
+    for (MockPerson *child in person.children) {
+        STAssertTrue([child isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
+    }
+    
+    STAssertTrue([[[person.children objectAtIndex:0] name] isEqualToString:@"richard"], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:1] name] isEqualToString:@"susan"], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:2] name] isEqualToString:@"james"], @"Error mapping children");
+    
+    STAssertTrue([[[person.children objectAtIndex:0] age] isEqualToNumber:@7], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:1] age] isEqualToNumber:@4], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:2] age] isEqualToNumber:@3], @"Error mapping children");
 }
 
 @end

@@ -46,7 +46,7 @@ static const char *kTypeUnknown = "unk";
     return [[[self alloc] initWithClasses:classes] autorelease];
 }
 
-
+#pragma mark - Implementation
 
 - (id)objectFromJSON:(id)json {
     
@@ -66,7 +66,7 @@ static const char *kTypeUnknown = "unk";
     return nil;
 }
 
-- (id)mappedDictionary:(NSDictionary *)dict toClass:(Class)class {
+- (id)mappedDictionary:(NSDictionary *)feedDict toClass:(Class)class {
     id object = [[class alloc] init];
     
     unsigned int count;
@@ -78,10 +78,15 @@ static const char *kTypeUnknown = "unk";
         objc_property_t property = properties[i];
         
         NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-        // Value to be set in the new object
-        id value = [dict objectForKey:propertyName];
         
-        if (value == nil) {
+        // If there's a mapped property name, use it
+        NSString *mappedPropertyName = [self mappedPropertyName:propertyName forClass:class];
+        mappedPropertyName = mappedPropertyName ? mappedPropertyName : propertyName;
+        
+        // Value to be set in the new object
+        id feedValue = [feedDict objectForKey:mappedPropertyName];
+        
+        if (feedValue == nil) {
             // Key not defined. Skipping
             continue;
         }
@@ -90,41 +95,42 @@ static const char *kTypeUnknown = "unk";
         NSString *propertyClassName = [NSString stringWithCString:getPropertyType(property) encoding:NSUTF8StringEncoding];
         Class propertyClass = NSClassFromString(propertyClassName);
         
-        // If the property class is a dictionary, map it recursively
-        if (isDictionary(value)) {
-            Class bestClass = [self susceptibleClassForDict:value];
-            
-            value = [self mappedDictionary:value toClass:bestClass];
-        }
-        
-        // If the property class is an array, map it also recursively
-        else if (isArray(value)) {
-            NSMutableArray *elements = [NSMutableArray arrayWithCapacity:[(NSArray *)value count]];
-            
-            for (id anElement in (NSArray *)value) {
-                [elements addObject:[self objectFromJSON:anElement]];
-            }
-            
-            value = elements;
+        // If the property class is a dictionary or an array, map it recursively
+        if (isDictionary(feedValue) ||
+            isArray(feedValue)) {
+            feedValue = [self objectFromJSON:feedValue];
         }
         
         // Conditional setters.
         // In case of date, only unix timestamps are valid
         else if ([propertyClass isSubclassOfClass:[NSDate class]]) {
-            value = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:propertyName] doubleValue]];
+            feedValue = [NSDate dateWithTimeIntervalSince1970:[[feedDict objectForKey:propertyName] doubleValue]];
         } else if ([propertyClassName isEqualToString:kBOOLTypeString]) {
-            value = [dict objectForKey:propertyName];
+            feedValue = [feedDict objectForKey:propertyName];
         }
         else if (propertyClass == nil ) {
             DLog(@"Warning: Could not determine class of property %@. Trying scalar ", propertyName);
         }
         
-        [object setValue:value forKey:propertyName];
+        [object setValue:feedValue forKey:propertyName];
     }
     
     free(properties);
     
     return [object autorelease];
+}
+
+
+/** @returns The mapped property name if found. Nil otherwise. */
+- (NSString *)mappedPropertyName:(NSString *)propertyName forClass:(Class)class {
+    
+    for (EBPropertyMapper *propertyMapper in self.propertyMappers) {
+        if (propertyMapper.theClass == class) {
+            return [propertyMapper.propertyMapper objectForKey:propertyName];
+        }
+    }
+    
+    return nil;
 }
 
 /// @returns The most susceptible class for the dict or nil if not found at all.
@@ -156,6 +162,7 @@ static const char *kTypeUnknown = "unk";
     return theClass;
 }
 
+/** @returns The property names for a specified class, using the value of propertyMapper by default */
 - (NSMutableSet *)propertyNamesForClass:(Class)class {
 
     unsigned int count;
@@ -168,7 +175,11 @@ static const char *kTypeUnknown = "unk";
         objc_property_t property = properties[i];
         
         NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-        [propertyNames addObject:propertyName];
+        NSString *mappedPropertyName = [self mappedPropertyName:propertyName forClass:class];
+        
+        mappedPropertyName = mappedPropertyName ? mappedPropertyName : propertyName;
+        
+        [propertyNames addObject:mappedPropertyName];
     }
     
     return propertyNames;
