@@ -90,22 +90,10 @@ static const char *kTypeUnknown = "unk";
         NSString *propertyClassName = [NSString stringWithCString:getPropertyType(property) encoding:NSUTF8StringEncoding];
         Class propertyClass = NSClassFromString(propertyClassName);
         
-        // If the property class is a dictionary, map it recursively
-        if (isDictionary(value)) {
-            Class bestClass = [self susceptibleClassForDict:value];
-            
-            value = [self mappedDictionary:value toClass:bestClass];
-        }
-        
-        // If the property class is an array, map it also recursively
-        else if (isArray(value)) {
-            NSMutableArray *elements = [NSMutableArray arrayWithCapacity:[(NSArray *)value count]];
-            
-            for (id anElement in (NSArray *)value) {
-                [elements addObject:[self objectFromJSON:anElement]];
-            }
-            
-            value = elements;
+        // If the property class is a dictionary or an array, map it recursively
+        if (isDictionary(value) ||
+            isArray(value)) {
+            value = [self objectFromJSON:value];
         }
         
         // Conditional setters.
