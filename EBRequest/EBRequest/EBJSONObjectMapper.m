@@ -121,7 +121,9 @@ static const char *kTypeUnknown = "unk";
 }
 
 
-/** @returns The mapped property name if found. Nil otherwise. */
+/** @param propertyName The property name to search.
+ @param class The class to be searched.
+ @returns The mapped property name if found. Nil otherwise. */
 - (NSString *)mappedPropertyName:(NSString *)propertyName forClass:(Class)class {
     
     for (EBPropertyMapper *propertyMapper in self.propertyMappers) {
@@ -162,7 +164,8 @@ static const char *kTypeUnknown = "unk";
     return theClass;
 }
 
-/** @returns The property names for a specified class, using the value of propertyMapper by default */
+/** @param class The class to be analyzed
+ @returns The property names for a specified class, using the value of propertyMapper by default */
 - (NSMutableSet *)propertyNamesForClass:(Class)class {
 
     unsigned int count;

@@ -34,11 +34,17 @@
 @property (nonatomic, retain) NSDictionary *propertyMapper;
 
 
-/** Returns a Property Mapper with the specified class and properties */
+/** Returns a Property Mapper with the specified class and properties.
+ @param aClass The class to be mapped.
+ @param properties The class properties that must be mapped to another name.
+ */
 - (id)initWithClass:(Class)aClass properties:(NSDictionary *)properties;
 
 
-/** See initWithClass:properties: */
+/** See initWithClass:properties:
+ @param aClass The class to be mapped.
+ @param properties The class properties that must be mapped to another name.
+*/
 + (id)mapperWithClass:(Class)aClass properties:(NSDictionary *)properties;
 
 @end
