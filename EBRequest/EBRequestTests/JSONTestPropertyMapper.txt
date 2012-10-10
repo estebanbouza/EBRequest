@@ -1,23 +1,23 @@
 {
-  "name": "john smith",
+  "j_name": "john smith",
   "age": 32,
-  "employed": true,
-  "address": {
+  "j_employed": true,
+  "j_address": {
     "street": "701 first ave.",
-    "city": "sunnyvale, ca 95125",
-    "country": "united states"
+    "j_city": "sunnyvale, ca 95125",
+    "j_country": "united states"
   },
-  "children": [
+  "j_children": [
     {
-      "name": "richard",
+      "j_name": "richard",
       "age": 7
     },
     {
-      "name": "susan",
+      "j_name": "susan",
       "age": 4
     },
     {
-      "name": "james",
+      "j_name": "james",
       "age": 3
     }
   ]
