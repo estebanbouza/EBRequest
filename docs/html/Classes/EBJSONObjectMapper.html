@@ -42,6 +42,8 @@
 	
 	<option value="//api/name/classes">&nbsp;&nbsp;&nbsp;&nbsp;classes</option>
 	
+	<option value="//api/name/propertyMappers">&nbsp;&nbsp;&nbsp;&nbsp;propertyMappers</option>
+	
 	
 	
 	
@@ -60,7 +62,11 @@
 	
 	<option value="//api/name/initWithClasses:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithClasses:</option>
 	
+	<option value="//api/name/mappedPropertyName:forClass:">&nbsp;&nbsp;&nbsp;&nbsp;- mappedPropertyName:forClass:</option>
+	
 	<option value="//api/name/objectFromJSON:">&nbsp;&nbsp;&nbsp;&nbsp;- objectFromJSON:</option>
+	
+	<option value="//api/name/propertyNamesForClass:">&nbsp;&nbsp;&nbsp;&nbsp;- propertyNamesForClass:</option>
 	
 	<option value="//api/name/susceptibleClassForDict:">&nbsp;&nbsp;&nbsp;&nbsp;- susceptibleClassForDict:</option>
 	
@@ -90,6 +96,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/classes">classes</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/propertyMappers">propertyMappers</a></span></li>
+	
 </ul></li>
 
 
@@ -110,7 +118,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithClasses:">initWithClasses:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mappedPropertyName:forClass:">mappedPropertyName:forClass:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/objectFromJSON:">objectFromJSON:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/propertyNamesForClass:">propertyNamesForClass:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/susceptibleClassForDict:">susceptibleClassForDict:</a></span></li>
 	
@@ -176,6 +188,13 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/propertyMappers">&nbsp;&nbsp;propertyMappers</a></code>
+		<span class="tooltip"><p>Optional. A list of <a href="../Classes/EBPropertyMapper.html">EBPropertyMapper</a> between NSObject property names and JSON fields. See <a href="../Classes/EBPropertyMapper.html">EBPropertyMapper</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/initWithClass:">&ndash;&nbsp;initWithClass:</a></code>
 		<span class="tooltip"><p>Creates a mapper instance for the specified class.</p></span>
 	</span>
@@ -219,8 +238,22 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
+		<code><a href="#//api/name/mappedPropertyName:forClass:">&ndash;&nbsp;mappedPropertyName:forClass:</a></code>
+		<span class="tooltip"><p>The property name to search.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/susceptibleClassForDict:">&ndash;&nbsp;susceptibleClassForDict:</a></code>
 		<span class="tooltip"><p>The most susceptible class for the dict or nil if not found at all.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/propertyNamesForClass:">&ndash;&nbsp;propertyNamesForClass:</a></code>
+		<span class="tooltip"><p>The class to be analyzed</p></span>
 	</span>
 	
 	
@@ -249,7 +282,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (atomic, readonly) NSArray *classes</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSArray *classes</code></div>
 
     
 	
@@ -262,6 +295,47 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Mapper&rsquo;s classes for this object</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBJSONObjectMapper.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/propertyMappers" title="propertyMappers"></a>
+	<h3 class="subsubtitle method-title">propertyMappers</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Optional. A list of <a href="../Classes/EBPropertyMapper.html">EBPropertyMapper</a> between NSObject property names and JSON fields. See <a href="../Classes/EBPropertyMapper.html">EBPropertyMapper</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSArray *propertyMappers</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Optional. A list of <a href="../Classes/EBPropertyMapper.html">EBPropertyMapper</a> between NSObject property names and JSON fields. See <a href="../Classes/EBPropertyMapper.html">EBPropertyMapper</a>.</p>
 	</div>
 	
 	
@@ -499,6 +573,62 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/mappedPropertyName:forClass:" title="mappedPropertyName:forClass:"></a>
+	<h3 class="subsubtitle method-title">mappedPropertyName:forClass:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The property name to search.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)mappedPropertyName:(NSString *)<em>propertyName</em> forClass:(Class)<em>class</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>propertyName</em></dt>
+			<dd><p>The property name to search.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>class</em></dt>
+			<dd><p>The class to be searched.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The mapped property name if found. Nil otherwise.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBJSONObjectMapper.m</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/objectFromJSON:" title="objectFromJSON:"></a>
 	<h3 class="subsubtitle method-title">objectFromJSON:</h3>
 	
@@ -549,6 +679,57 @@
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
 		<code class="declared-in-ref">EBJSONObjectMapper.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/propertyNamesForClass:" title="propertyNamesForClass:"></a>
+	<h3 class="subsubtitle method-title">propertyNamesForClass:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The class to be analyzed</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSMutableSet *)propertyNamesForClass:(Class)<em>class</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>class</em></dt>
+			<dd><p>The class to be analyzed</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The property names for a specified class, using the value of propertyMapper by default</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBJSONObjectMapper.m</code><br />
 	</div>				
 	
 	
@@ -618,7 +799,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 Filloa Dev. All rights reserved. (Last updated: 2012-10-02)</span><br />
+						<p><span class="copyright">&copy; 2012 Filloa Dev. All rights reserved. (Last updated: 2012-10-10)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

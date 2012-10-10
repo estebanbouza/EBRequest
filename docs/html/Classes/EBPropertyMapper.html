@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>EBJSONRequest Class Reference</title>
+		<title>EBPropertyMapper Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">EBJSONRequest Class Reference</h1>
+				<h1 class="hideInXcode">EBPropertyMapper Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -40,18 +40,23 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/classesToMap">&nbsp;&nbsp;&nbsp;&nbsp;classesToMap</option>
+	<option value="//api/name/propertyMapper">&nbsp;&nbsp;&nbsp;&nbsp;propertyMapper</option>
+	
+	<option value="//api/name/theClass">&nbsp;&nbsp;&nbsp;&nbsp;theClass</option>
 	
 	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/mapperWithClass:properties:">&nbsp;&nbsp;&nbsp;&nbsp;+ mapperWithClass:properties:</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/start">&nbsp;&nbsp;&nbsp;&nbsp;- start</option>
-	
-	<option value="//api/name/stop">&nbsp;&nbsp;&nbsp;&nbsp;- stop</option>
+	<option value="//api/name/initWithClass:properties:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithClass:properties:</option>
 	
 	
 	
@@ -77,19 +82,25 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/classesToMap">classesToMap</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/propertyMapper">propertyMapper</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/theClass">theClass</a></span></li>
 	
 </ul></li>
 
 
 
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapperWithClass:properties:">mapperWithClass:properties:</a></span></li>
+	
+</ul></li>
+
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/start">start</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stop">stop</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithClass:properties:">initWithClass:properties:</a></span></li>
 	
 </ul></li>
 
@@ -98,7 +109,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="EBJSONRequest Class Reference" name="top"></a>
+				<a title="EBPropertyMapper Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -107,7 +118,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">EBJSONRequest Class Reference</h1>
+						<h1 class="title title-header">EBPropertyMapper Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -115,10 +126,10 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value"><a href="../Classes/EBRequest.html">EBRequest</a> : NSObject</td>
+	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">EBJSONRequest.h<br />EBJSONRequest.m</td>
+	<td class="specification-value">EBPropertyMapper.h<br />EBPropertyMapper.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -128,7 +139,8 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>EBJSONRequest returns JSON or Custom objects in the completion block. For more information see property <a href="#//api/name/classesToMap">classesToMap</a></p>
+						<p>The EBPropertyMapper class is used to associate the property names of a
+NSObject to the JSON property names. See property argumentMapper for more information.</p>
 					</div>
 					
 					
@@ -141,35 +153,34 @@
 						
 						
 						
-						<h3 class="subsubtitle task-title">Other Methods</h3>
+						
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/classesToMap">&nbsp;&nbsp;classesToMap</a></code>
-		<span class="tooltip"><p>Optional argument. If the parameter is non nil, the result of the mapping will be custom classes instead of NSDictionary and NSArrays. The mapping is done through <a href="../Classes/EBJSONObjectMapper.html">EBJSONObjectMapper</a></p></span>
+		<code><a href="#//api/name/theClass">&nbsp;&nbsp;theClass</a></code>
+		<span class="tooltip"><p>The class which this mapper is associated to.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
-</li>
-						</ul>
-						
-						
-						
-						<h3 class="subsubtitle task-title">Other Methods</h3>
-
-						<ul class="task-list">
-							<li>
+</li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/start">&ndash;&nbsp;start</a></code>
-		<span class="tooltip"><p>Starts an asynchronous request</p></span>
+		<code><a href="#//api/name/propertyMapper">&nbsp;&nbsp;propertyMapper</a></code>
+		<span class="tooltip"><p>Dictionary containing an equivalence between JSON and Class property names.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithClass:properties:">&ndash;&nbsp;initWithClass:properties:</a></code>
+		<span class="tooltip"><p>Returns a Property Mapper with the specified class and properties.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/stop">&ndash;&nbsp;stop</a></code>
-		<span class="tooltip"><p>Stops an asynchronous request.</p></span>
+		<code><a href="#//api/name/mapperWithClass:properties:">+&nbsp;mapperWithClass:properties:</a></code>
+		<span class="tooltip"><p>See <a href="#//api/name/initWithClass:properties:">initWithClass:properties:</a></p></span>
 	</span>
 	
 	
@@ -187,18 +198,18 @@
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/classesToMap" title="classesToMap"></a>
-	<h3 class="subsubtitle method-title">classesToMap</h3>
+	<a name="//api/name/propertyMapper" title="propertyMapper"></a>
+	<h3 class="subsubtitle method-title">propertyMapper</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Optional argument. If the parameter is non nil, the result of the mapping will be custom classes instead of NSDictionary and NSArrays. The mapping is done through <a href="../Classes/EBJSONObjectMapper.html">EBJSONObjectMapper</a></p>
+		<p>Dictionary containing an equivalence between JSON and Class property names.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSArray *classesToMap</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSDictionary *propertyMapper</code></div>
 
     
 	
@@ -210,7 +221,15 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Optional argument. If the parameter is non nil, the result of the mapping will be custom classes instead of NSDictionary and NSArrays. The mapping is done through <a href="../Classes/EBJSONObjectMapper.html">EBJSONObjectMapper</a></p>
+		<p>Dictionary containing an equivalence between JSON and Class property names.</p>
+
+<p>For example, for a class defined as
+Person(name, age)
+And a JSON defined as</p>
+
+<p>{ &ldquo;jname&rdquo; : &ldquo;peter&rdquo;, &ldquo;jage&rdquo; : 35 }
+A mapper can be defined as:
+argumentMapper = [@&ldquo;name&rdquo; : @&ldquo;jname&rdquo;, @&ldquo;age&rdquo; : @&ldquo;jage&rdquo;];</p>
 	</div>
 	
 	
@@ -221,7 +240,50 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">EBJSONRequest.h</code><br />
+		<code class="declared-in-ref">EBPropertyMapper.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/theClass" title="theClass"></a>
+	<h3 class="subsubtitle method-title">theClass</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The class which this mapper is associated to.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) Class theClass</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The class which this mapper is associated to.</p>
+
+<p>Note &ldquo;class&rdquo; is a reserved word.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBPropertyMapper.h</code><br />
 	</div>				
 	
 	
@@ -231,6 +293,68 @@
 					
 					
 					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/mapperWithClass:properties:" title="mapperWithClass:properties:"></a>
+	<h3 class="subsubtitle method-title">mapperWithClass:properties:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>See <a href="#//api/name/initWithClass:properties:">initWithClass:properties:</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)mapperWithClass:(Class)<em>aClass</em> properties:(NSDictionary *)<em>properties</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aClass</em></dt>
+			<dd><p>The class to be mapped.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>properties</em></dt>
+			<dd><p>The class properties that must be mapped to another name.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>See <a href="#//api/name/initWithClass:properties:">initWithClass:properties:</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBPropertyMapper.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
 					
 					
 					<div class="section section-methods">
@@ -238,27 +362,37 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/start" title="start"></a>
-	<h3 class="subsubtitle method-title">start</h3>
+	<a name="//api/name/initWithClass:properties:" title="initWithClass:properties:"></a>
+	<h3 class="subsubtitle method-title">initWithClass:properties:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Starts an asynchronous request</p>
+		<p>Returns a Property Mapper with the specified class and properties.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (BOOL)start</code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithClass:(Class)<em>aClass</em> properties:(NSDictionary *)<em>properties</em></code></div>
 
     
 	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>YES if the request could be started. NO otherwise.</p>
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aClass</em></dt>
+			<dd><p>The class to be mapped.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>properties</em></dt>
+			<dd><p>The class properties that must be mapped to another name.</p></dd>
+		</dl>
+		
 	</div>
+	
+	
 	
 	
 	
@@ -266,7 +400,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Starts an asynchronous request</p>
+		<p>Returns a Property Mapper with the specified class and properties.</p>
 	</div>
 	
 	
@@ -277,48 +411,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">EBRequest.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/stop" title="stop"></a>
-	<h3 class="subsubtitle method-title">stop</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Stops an asynchronous request.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)stop</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Stops an asynchronous request.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">EBRequest.h</code><br />
+		<code class="declared-in-ref">EBPropertyMapper.h</code><br />
 	</div>				
 	
 	
