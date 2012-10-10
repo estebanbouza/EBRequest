@@ -80,7 +80,7 @@ static const char *kTypeUnknown = "unk";
         NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
         
         // If there's a mapped property name, use it
-        NSString *mappedPropertyName = [self.propertyMapper.propertyMapper objectForKey:propertyName];
+        NSString *mappedPropertyName = [self mappedPropertyName:propertyName forClass:class];
         mappedPropertyName = mappedPropertyName ? mappedPropertyName : propertyName;
         
         // Value to be set in the new object
@@ -118,6 +118,19 @@ static const char *kTypeUnknown = "unk";
     free(properties);
     
     return [object autorelease];
+}
+
+
+/** @returns The mapped property name if found. Nil otherwise. */
+- (NSString *)mappedPropertyName:(NSString *)propertyName forClass:(Class)class {
+    
+    for (EBPropertyMapper *propertyMapper in self.propertyMappers) {
+        if (propertyMapper.theClass == class) {
+            return [propertyMapper.propertyMapper objectForKey:propertyName];
+        }
+    }
+    
+    return nil;
 }
 
 /// @returns The most susceptible class for the dict or nil if not found at all.
@@ -162,7 +175,7 @@ static const char *kTypeUnknown = "unk";
         objc_property_t property = properties[i];
         
         NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-        NSString *mappedPropertyName = [self.propertyMapper.propertyMapper objectForKey:propertyName];
+        NSString *mappedPropertyName = [self mappedPropertyName:propertyName forClass:class];
         
         mappedPropertyName = mappedPropertyName ? mappedPropertyName : propertyName;
         
