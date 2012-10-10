@@ -23,7 +23,7 @@
 }
 
 + (id)mapperWithClass:(Class)aClass properties:(NSDictionary *)properties {
-    return [[self alloc] initWithClass:aClass properties:properties];
+    return [[[self alloc] initWithClass:aClass properties:properties] autorelease];
 }
 
 
