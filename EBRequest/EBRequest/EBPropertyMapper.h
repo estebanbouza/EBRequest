@@ -33,4 +33,12 @@
  */
 @property (nonatomic, retain) NSDictionary *propertyMapper;
 
+
+/** Returns a Property Mapper with the specified class and properties */
+- (id)initWithClass:(Class)aClass properties:(NSDictionary *)properties;
+
+
+/** See initWithClass:properties: */
++ (id)mapperWithClass:(Class)aClass properties:(NSDictionary *)properties;
+
 @end

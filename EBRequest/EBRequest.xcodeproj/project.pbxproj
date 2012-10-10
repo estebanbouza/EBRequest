@@ -19,6 +19,7 @@
 		5B696BA61619FE3200B4A20C /* JSONTest3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B696BA51619FE3200B4A20C /* JSONTest3.txt */; };
 		5B7AF97F162605C7008FE123 /* EBPropertyMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7AF97D162605C7008FE123 /* EBPropertyMapper.h */; };
 		5B7AF980162605C7008FE123 /* EBPropertyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AF97E162605C7008FE123 /* EBPropertyMapper.m */; };
+		5B7AF98316260DB1008FE123 /* JSONTestPropertyMapper.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B7AF98216260DB1008FE123 /* JSONTestPropertyMapper.txt */; };
 		5B8A2CC6161A0DD600CB5FBA /* EBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8A2CC4161A0DD600CB5FBA /* EBRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B8A2CC7161A0DD600CB5FBA /* EBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */; };
 		5B8A2CCB161A15D500CB5FBA /* EBJSONRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8A2CC9161A15D500CB5FBA /* EBJSONRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,6 +81,7 @@
 		5B696BA51619FE3200B4A20C /* JSONTest3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTest3.txt; sourceTree = "<group>"; };
 		5B7AF97D162605C7008FE123 /* EBPropertyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPropertyMapper.h; sourceTree = "<group>"; };
 		5B7AF97E162605C7008FE123 /* EBPropertyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPropertyMapper.m; sourceTree = "<group>"; };
+		5B7AF98216260DB1008FE123 /* JSONTestPropertyMapper.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTestPropertyMapper.txt; sourceTree = "<group>"; };
 		5B8A2CC4161A0DD600CB5FBA /* EBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRequest.h; sourceTree = "<group>"; };
 		5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBRequest.m; sourceTree = "<group>"; };
 		5B8A2CC9161A15D500CB5FBA /* EBJSONRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBJSONRequest.h; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				5BCA3CD31618C8510007E260 /* JSONTest1.txt */,
 				5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */,
 				5B696BA51619FE3200B4A20C /* JSONTest3.txt */,
+				5B7AF98216260DB1008FE123 /* JSONTestPropertyMapper.txt */,
 				5BC69A39161A1C0E00C5DE9F /* EBJSONRequestTests.h */,
 				5BC69A3A161A1C0E00C5DE9F /* EBJSONRequestTests.m */,
 				5B5298921617783B00B6BD6A /* Supporting Files */,
@@ -302,6 +305,7 @@
 				5BCA3CD41618C8510007E260 /* JSONTest1.txt in Resources */,
 				5BCA3CDF1618ECC80007E260 /* JSONTest2.txt in Resources */,
 				5B696BA61619FE3200B4A20C /* JSONTest3.txt in Resources */,
+				5B7AF98316260DB1008FE123 /* JSONTestPropertyMapper.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
