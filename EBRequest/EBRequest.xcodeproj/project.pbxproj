@@ -17,6 +17,8 @@
 		5B5409EB1617B6D1003E7453 /* EBLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B52987F1617783B00B6BD6A /* EBLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5409F31617BA9F003E7453 /* EBDataRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BD412BB16179505007A17AA /* EBDataRequest.h */; };
 		5B696BA61619FE3200B4A20C /* JSONTest3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B696BA51619FE3200B4A20C /* JSONTest3.txt */; };
+		5B7AF97F162605C7008FE123 /* EBPropertyMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7AF97D162605C7008FE123 /* EBPropertyMapper.h */; };
+		5B7AF980162605C7008FE123 /* EBPropertyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AF97E162605C7008FE123 /* EBPropertyMapper.m */; };
 		5B8A2CC6161A0DD600CB5FBA /* EBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8A2CC4161A0DD600CB5FBA /* EBRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B8A2CC7161A0DD600CB5FBA /* EBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */; };
 		5B8A2CCB161A15D500CB5FBA /* EBJSONRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8A2CC9161A15D500CB5FBA /* EBJSONRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -76,6 +78,8 @@
 		5B5298971617783B00B6BD6A /* EBRequestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBRequestTests.h; sourceTree = "<group>"; };
 		5B5298981617783B00B6BD6A /* EBRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBRequestTests.m; sourceTree = "<group>"; };
 		5B696BA51619FE3200B4A20C /* JSONTest3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTest3.txt; sourceTree = "<group>"; };
+		5B7AF97D162605C7008FE123 /* EBPropertyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPropertyMapper.h; sourceTree = "<group>"; };
+		5B7AF97E162605C7008FE123 /* EBPropertyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPropertyMapper.m; sourceTree = "<group>"; };
 		5B8A2CC4161A0DD600CB5FBA /* EBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRequest.h; sourceTree = "<group>"; };
 		5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBRequest.m; sourceTree = "<group>"; };
 		5B8A2CC9161A15D500CB5FBA /* EBJSONRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBJSONRequest.h; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				5B8A2CCA161A15D500CB5FBA /* EBJSONRequest.m */,
 				5BC0B2F416182D0600A04A96 /* EBJSONObjectMapper.h */,
 				5BC0B2F516182D0600A04A96 /* EBJSONObjectMapper.m */,
+				5B7AF97D162605C7008FE123 /* EBPropertyMapper.h */,
+				5B7AF97E162605C7008FE123 /* EBPropertyMapper.m */,
 				5B52987D1617783B00B6BD6A /* Supporting Files */,
 			);
 			path = EBRequest;
@@ -216,6 +222,7 @@
 				5BC0B2F616182D0600A04A96 /* EBJSONObjectMapper.h in Headers */,
 				5B8A2CC6161A0DD600CB5FBA /* EBRequest.h in Headers */,
 				5B8A2CCB161A15D500CB5FBA /* EBJSONRequest.h in Headers */,
+				5B7AF97F162605C7008FE123 /* EBPropertyMapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +332,7 @@
 				5BC0B2F716182D0600A04A96 /* EBJSONObjectMapper.m in Sources */,
 				5B8A2CC7161A0DD600CB5FBA /* EBRequest.m in Sources */,
 				5B8A2CCC161A15D500CB5FBA /* EBJSONRequest.m in Sources */,
+				5B7AF980162605C7008FE123 /* EBPropertyMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

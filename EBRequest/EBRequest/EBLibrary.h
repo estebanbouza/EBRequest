@@ -13,4 +13,5 @@
 #import "EBJSONRequest.h"
 
 #import "EBJSONObjectMapper.h"
+#import "EBPropertyMapper.h"
 

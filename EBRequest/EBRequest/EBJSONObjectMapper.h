@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EBPropertyMapper.h"
 
 /// Maps a NSDictionary from a JSON to a NSObject.
 @interface EBJSONObjectMapper : NSObject
@@ -14,18 +15,8 @@
 /// Mapper's classes for this object
 @property (nonatomic, readonly) NSArray *classes;
 
-/** Dictionary containing an/ equivalence between JSON and Class property names.
- 
-
-For example, for a class defined as 
-    Person(name, age)
-And a JSON defined as
- 
-    { "jname" : "peter", "jage" : 35 }
-A mapper can be defined as:
-    argumentMapper = [@"name" : @"jname", @"age" : @"jage"];
- */
-@property (nonatomic, retain) NSDictionary *argumentMapper;
+/// Optional. A mapper between NSObject property names and JSON fields. See EBPropertyMapper.
+@property (nonatomic, retain) EBPropertyMapper *argumentMapper;
 
 /// Creates a mapper instance for the specified class.
 /// @param class The class to be mapped to
