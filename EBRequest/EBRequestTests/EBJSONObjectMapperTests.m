@@ -24,6 +24,111 @@
     [super tearDown];
 }
 
+
+
+#pragma mark - JSON Validation
+
+
+- (BOOL)validateJSON2:(MockPerson *)person {
+    STAssertTrue([person.name isEqualToString:@"john smith"], @"Error mapping name");
+    STAssertTrue([person.age isEqualToNumber:@32], @"Error mapping age");
+    STAssertTrue([person.employed boolValue] == YES, @"Error mapping booleans");
+    STAssertNotNil(person.address, @"Error mapping object");
+    STAssertFalse(isDictionary(person.address), @"Address is a dictionary, should be an object");
+    STAssertTrue([[person.address class] isSubclassOfClass:[MockAddress class]], @"Address should be a MockAddress object");
+    STAssertNotNil(person.children, @"Error mapping array");
+    STAssertTrue(isArray(person.children), @"Children is not an array");
+    STAssertTrue([person.children count] == 3, @"Invalid number of children");
+    STAssertTrue([[person.children objectAtIndex:0] isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
+    
+    MockPerson *firstChild = [person.children objectAtIndex:0];
+    
+    STAssertFalse(isDictionary(firstChild.address), @"Address is a dictionary, should be an object");
+    STAssertTrue([[firstChild.address class] isSubclassOfClass:[MockAddress class]], @"Address should be a MockAddress object");
+    
+    MockPerson *lastChild = [person.children objectAtIndex:2];
+    STAssertTrue([lastChild.name isEqualToString:@"james"], @"Invalid children");
+    STAssertTrue([lastChild.age isEqualToNumber:@3], nil);
+    STAssertTrue([lastChild.children count] == 1, @"Invalid number of children");
+    
+    MockPerson *grandson = [lastChild.children objectAtIndex:0];
+    STAssertTrue([grandson.name isEqualToString:@"supersmall"], @"Invalid children");
+    STAssertTrue([grandson.age isEqualToNumber:@1], nil);
+    STAssertTrue([grandson.children count] == 1, @"Invalid number of children");
+    
+    MockPerson *grandgrandson = [grandson.children objectAtIndex:0];
+    STAssertTrue([grandgrandson.name isEqualToString:@"supersupersmall"], @"Invalid children");
+    STAssertTrue([grandgrandson.age isEqualToNumber:@-1], nil);
+    STAssertTrue([grandgrandson.children count] == 0, @"Invalid number of children");
+    
+    return YES;
+}
+
+
+- (BOOL)validateJSON1:(MockPerson *)person {
+    STAssertTrue([person.name isEqualToString:@"john smith"], @"Error mapping name");
+    STAssertTrue([person.age isEqualToNumber:@32], @"Error mapping age");
+    STAssertTrue([person.employed boolValue] == YES, @"Error mapping booleans");
+    STAssertNotNil(person.address, @"Error mapping object");
+    
+    STAssertFalse(isDictionary(person.address), @"Address is a dictionary, should be an object");
+    STAssertTrue([[person.address class] isSubclassOfClass:[MockAddress class]], @"Address should be a MockAddress object");
+    STAssertTrue([person.address.street isEqualToString:@"701 first ave."], nil);
+    STAssertTrue([person.address.city isEqualToString:@"sunnyvale, ca 95125"], nil);
+    STAssertTrue([person.address.country isEqualToString:@"united states"], nil);
+    
+    STAssertNotNil(person.children, @"Error mapping array");
+    STAssertTrue(isArray(person.children), @"Children is not an array");
+    STAssertTrue([person.children count] == 3, @"Invalid number of children");
+    STAssertTrue([[person.children objectAtIndex:0] isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
+    for (MockPerson *child in person.children) {
+        STAssertTrue([child isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
+    }
+    
+    STAssertTrue([[[person.children objectAtIndex:0] name] isEqualToString:@"richard"], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:1] name] isEqualToString:@"susan"], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:2] name] isEqualToString:@"james"], @"Error mapping children");
+    
+    STAssertTrue([[[person.children objectAtIndex:0] age] isEqualToNumber:@7], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:1] age] isEqualToNumber:@4], @"Error mapping children");
+    STAssertTrue([[[person.children objectAtIndex:2] age] isEqualToNumber:@3], @"Error mapping children");
+    
+    return YES;
+    
+}
+
+
+- (BOOL)validateJSON3:(NSArray *)result {
+    STAssertTrue(isArray(result), @"Result is not array");
+    STAssertTrue(result.count == 4, @"Incorrect array count");
+    
+    STAssertTrue([[result objectAtIndex:0] isKindOfClass:[MockPerson class]], @"Error mapping classes");
+    STAssertTrue([[result objectAtIndex:1] isKindOfClass:[MockAddress class]], @"Error mapping classes");
+    STAssertTrue([[result objectAtIndex:2] isKindOfClass:[MockPerson class]], @"Error mapping classes");
+    STAssertTrue([[result objectAtIndex:3] isKindOfClass:[MockPerson class]], @"Error mapping classes");
+    
+    MockPerson *first = [result objectAtIndex:0];
+    STAssertTrue([first.name isEqualToString:@"john smith"], nil);
+    STAssertTrue([first.address.city isEqualToString:@"sunnyvale, ca 95125"], nil);
+    
+    MockAddress *second = [result objectAtIndex:1];
+    STAssertTrue([second.street isEqualToString:@"701 first ave."], nil);
+    
+    MockPerson *third = [result objectAtIndex:2];
+    STAssertTrue([third.name isEqualToString:@"manolo"], nil);
+    STAssertNil(third.address, nil);
+    STAssertNotNil(third.children, nil);
+    STAssertTrue(third.children.count == 2, nil);
+    STAssertTrue([[[third.children objectAtIndex:0] name] isEqualToString:@"little manolo A"], nil);
+    STAssertTrue([[[third.children objectAtIndex:1] name] isEqualToString:@"little manolo B"], nil);
+    
+    MockPerson *fourth = [result objectAtIndex:3];
+    STAssertTrue([fourth.name isEqualToString:@"patty"], nil);
+    STAssertNotNil(fourth.address, nil);
+    
+    return YES;
+}
+
 #pragma mark Mapping
 
 - (void)testRegularMapping {
@@ -137,107 +242,5 @@
 }
 
 
-#pragma mark - JSON Validation
-
-
-- (BOOL)validateJSON2:(MockPerson *)person {
-    STAssertTrue([person.name isEqualToString:@"john smith"], @"Error mapping name");
-    STAssertTrue([person.age isEqualToNumber:@32], @"Error mapping age");
-    STAssertTrue([person.employed boolValue] == YES, @"Error mapping booleans");
-    STAssertNotNil(person.address, @"Error mapping object");
-    STAssertFalse(isDictionary(person.address), @"Address is a dictionary, should be an object");
-    STAssertTrue([[person.address class] isSubclassOfClass:[MockAddress class]], @"Address should be a MockAddress object");
-    STAssertNotNil(person.children, @"Error mapping array");
-    STAssertTrue(isArray(person.children), @"Children is not an array");
-    STAssertTrue([person.children count] == 3, @"Invalid number of children");
-    STAssertTrue([[person.children objectAtIndex:0] isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
-    
-    MockPerson *firstChild = [person.children objectAtIndex:0];
-    
-    STAssertFalse(isDictionary(firstChild.address), @"Address is a dictionary, should be an object");
-    STAssertTrue([[firstChild.address class] isSubclassOfClass:[MockAddress class]], @"Address should be a MockAddress object");
-    
-    MockPerson *lastChild = [person.children objectAtIndex:2];
-    STAssertTrue([lastChild.name isEqualToString:@"james"], @"Invalid children");
-    STAssertTrue([lastChild.age isEqualToNumber:@3], nil);
-    STAssertTrue([lastChild.children count] == 1, @"Invalid number of children");
-    
-    MockPerson *grandson = [lastChild.children objectAtIndex:0];
-    STAssertTrue([grandson.name isEqualToString:@"supersmall"], @"Invalid children");
-    STAssertTrue([grandson.age isEqualToNumber:@1], nil);
-    STAssertTrue([grandson.children count] == 1, @"Invalid number of children");
-    
-    MockPerson *grandgrandson = [grandson.children objectAtIndex:0];
-    STAssertTrue([grandgrandson.name isEqualToString:@"supersupersmall"], @"Invalid children");
-    STAssertTrue([grandgrandson.age isEqualToNumber:@-1], nil);
-    STAssertTrue([grandgrandson.children count] == 0, @"Invalid number of children");
-    
-    return YES;
-}
-
-
-- (BOOL)validateJSON1:(MockPerson *)person {
-    STAssertTrue([person.name isEqualToString:@"john smith"], @"Error mapping name");
-    STAssertTrue([person.age isEqualToNumber:@32], @"Error mapping age");
-    STAssertTrue([person.employed boolValue] == YES, @"Error mapping booleans");
-    STAssertNotNil(person.address, @"Error mapping object");
-    
-    STAssertFalse(isDictionary(person.address), @"Address is a dictionary, should be an object");
-    STAssertTrue([[person.address class] isSubclassOfClass:[MockAddress class]], @"Address should be a MockAddress object");
-    STAssertTrue([person.address.street isEqualToString:@"701 first ave."], nil);
-    STAssertTrue([person.address.city isEqualToString:@"sunnyvale, ca 95125"], nil);
-    STAssertTrue([person.address.country isEqualToString:@"united states"], nil);
-    
-    STAssertNotNil(person.children, @"Error mapping array");
-    STAssertTrue(isArray(person.children), @"Children is not an array");
-    STAssertTrue([person.children count] == 3, @"Invalid number of children");
-    STAssertTrue([[person.children objectAtIndex:0] isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
-    for (MockPerson *child in person.children) {
-        STAssertTrue([child isKindOfClass:[MockPerson class]], @"Children is not a MockPerson class");
-    }
-    
-    STAssertTrue([[[person.children objectAtIndex:0] name] isEqualToString:@"richard"], @"Error mapping children");
-    STAssertTrue([[[person.children objectAtIndex:1] name] isEqualToString:@"susan"], @"Error mapping children");
-    STAssertTrue([[[person.children objectAtIndex:2] name] isEqualToString:@"james"], @"Error mapping children");
-    
-    STAssertTrue([[[person.children objectAtIndex:0] age] isEqualToNumber:@7], @"Error mapping children");
-    STAssertTrue([[[person.children objectAtIndex:1] age] isEqualToNumber:@4], @"Error mapping children");
-    STAssertTrue([[[person.children objectAtIndex:2] age] isEqualToNumber:@3], @"Error mapping children");
-    
-    return YES;
-    
-}
-
-
-- (BOOL)validateJSON3:(NSArray *)result {
-    STAssertTrue(isArray(result), @"Result is not array");
-    STAssertTrue(result.count == 4, @"Incorrect array count");
-    
-    STAssertTrue([[result objectAtIndex:0] isKindOfClass:[MockPerson class]], @"Error mapping classes");
-    STAssertTrue([[result objectAtIndex:1] isKindOfClass:[MockAddress class]], @"Error mapping classes");
-    STAssertTrue([[result objectAtIndex:2] isKindOfClass:[MockPerson class]], @"Error mapping classes");
-    STAssertTrue([[result objectAtIndex:3] isKindOfClass:[MockPerson class]], @"Error mapping classes");
-    
-    MockPerson *first = [result objectAtIndex:0];
-    STAssertTrue([first.name isEqualToString:@"john smith"], nil);
-    STAssertTrue([first.address.city isEqualToString:@"sunnyvale, ca 95125"], nil);
-    
-    MockAddress *second = [result objectAtIndex:1];
-    STAssertTrue([second.street isEqualToString:@"701 first ave."], nil);
-    
-    MockPerson *third = [result objectAtIndex:2];
-    STAssertTrue([third.name isEqualToString:@"manolo"], nil);
-    STAssertNil(third.address, nil);
-    STAssertNotNil(third.children, nil);
-    STAssertTrue(third.children.count == 2, nil);
-    STAssertTrue([[[third.children objectAtIndex:0] name] isEqualToString:@"little manolo A"], nil);
-    STAssertTrue([[[third.children objectAtIndex:1] name] isEqualToString:@"little manolo B"], nil);
-    
-    MockPerson *fourth = [result objectAtIndex:3];
-    STAssertTrue([fourth.name isEqualToString:@"patty"], nil);
-    STAssertNotNil(fourth.address, nil);
-    
-    return YES;
-}
 
 @end
