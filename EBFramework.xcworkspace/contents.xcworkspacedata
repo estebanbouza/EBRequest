@@ -8,6 +8,6 @@
       location = "group:EBRequest/EBRequest.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:EBTestProject/EBTestProject.xcodeproj">
+      location = "group:EBTestProject/EBExampleProject.xcodeproj">
    </FileRef>
 </Workspace>
