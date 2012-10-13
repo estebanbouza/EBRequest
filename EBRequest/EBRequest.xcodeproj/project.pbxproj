@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B49E09616291912007AD7F6 /* EBDescribedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E09416291912007AD7F6 /* EBDescribedObject.h */; };
+		5B49E09616291912007AD7F6 /* EBDescribedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E09416291912007AD7F6 /* EBDescribedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B49E09716291912007AD7F6 /* EBDescribedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E09516291912007AD7F6 /* EBDescribedObject.m */; };
 		5B49E09B162919A6007AD7F6 /* EBDescribedObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */; };
 		5B52987B1617783B00B6BD6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B52987A1617783B00B6BD6A /* Foundation.framework */; };
@@ -178,9 +178,9 @@
 				5BC0B2F516182D0600A04A96 /* EBJSONObjectMapper.m */,
 				5B7AF97D162605C7008FE123 /* EBPropertyMapper.h */,
 				5B7AF97E162605C7008FE123 /* EBPropertyMapper.m */,
-				5B52987D1617783B00B6BD6A /* Supporting Files */,
 				5B49E09416291912007AD7F6 /* EBDescribedObject.h */,
 				5B49E09516291912007AD7F6 /* EBDescribedObject.m */,
+				5B52987D1617783B00B6BD6A /* Supporting Files */,
 			);
 			path = EBRequest;
 			sourceTree = "<group>";
