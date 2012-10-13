@@ -19,11 +19,14 @@
     
     NSMutableSet *properties = [self propertyNamesForClass:[self class]];
     NSArray *sortedProperties = [[properties allObjects] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [(NSString *)obj1 compare:(NSString *) obj2];
+        return [obj1 compare:obj2];
     }];
     
-    for (NSString *propName in sortedProperties) {
-        [result appendFormat:@"%@: {%@}, ", propName, [self valueForKey:propName]];
+    for (NSInteger i = 0; i < sortedProperties.count; i++) {
+        NSString *propName = sortedProperties[i];
+        NSString *appendFormat = i == sortedProperties.count - 1 ? @"%@: {%@}" : @"%@: {%@}, ";
+        
+        [result appendFormat:appendFormat, propName, [self valueForKey:propName]];
     }
 
     return result;

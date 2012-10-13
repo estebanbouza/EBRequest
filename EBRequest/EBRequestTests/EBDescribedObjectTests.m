@@ -40,7 +40,7 @@
     person.name = @"Mary";
     person.age = @42;
     
-    STAssertTrue([[person description] isEqualToString:@"age: {42}, name: {Mary}, partner: {(null)}, "], [NSString stringWithFormat:@"Description error: %@", person]);
+    STAssertTrue([[person description] isEqualToString:@"age: {42}, name: {Mary}, partner: {(null)}"], [NSString stringWithFormat:@"Description error: %@", person]);
 
 }
 
@@ -53,7 +53,7 @@
 
     mary.partner = john;
 
-    STAssertTrue([[mary description] isEqualToString:@"age: {(null)}, name: {Mary}, partner: {age: {(null)}, name: {John}, partner: {(null)}, }, "], [NSString stringWithFormat:@"Description error: %@", mary]);
+    STAssertTrue([[mary description] isEqualToString:@"age: {(null)}, name: {Mary}, partner: {age: {(null)}, name: {John}, partner: {(null)}}"], [NSString stringWithFormat:@"Description error: %@", mary]);
 
 }
 
