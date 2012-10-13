@@ -12,7 +12,7 @@ static NSString *testURLString = @"http://api.twitter.com/1/statuses/user_timeli
 
 
 @interface StandardRequestViewController () {
-    EBDataRequest *request;
+    EBDataRequest *_request;
 }
 
 @end
@@ -34,15 +34,15 @@ static NSString *testURLString = @"http://api.twitter.com/1/statuses/user_timeli
 	
     self.lblURL.text = testURLString;
     
-    request = [EBDataRequest requestWithURL:[NSURL URLWithString:testURLString]];
+    _request = [EBDataRequest requestWithURL:[NSURL URLWithString:testURLString]];
     
-    request.completionBlock = ^(id responseData) {
+    _request.completionBlock = ^(id responseData) {
         self.txtResult.text = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
         [self.activityIndicator stopAnimating];
     };
     
     [self.activityIndicator startAnimating];
-    [request start];
+    [_request start];
     
 }
 

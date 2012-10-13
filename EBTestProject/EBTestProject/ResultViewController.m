@@ -17,10 +17,14 @@
 
 @implementation ResultViewController
 
+- (id)init {
+    return [self initWithNibName:@"ResultViewController" bundle:[NSBundle mainBundle]];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 
@@ -31,4 +35,5 @@
     [self setActivityIndicator:nil];
     [super viewDidUnload];
 }
+
 @end

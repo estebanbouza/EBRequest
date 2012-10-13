@@ -8,12 +8,19 @@
 
 #import "MainViewController.h"
 
+#import "ResultViewController.h"
+#import "MappedJSONViewController.h"
+#import "StandardRequestViewController.h"
+
 typedef enum {
     kRowStandardRequest,
+    kRowMappedJSONRequest,
     kNumberOfRows
 } t_rows;
 
+
 static NSString *tableReuseID = @":)";
+
 
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -57,6 +64,11 @@ static NSString *tableReuseID = @":)";
     switch (indexPath.row) {
         case kRowStandardRequest:
             cell.textLabel.text = @"Standard request";
+            break;
+            
+        case kRowMappedJSONRequest:
+            cell.textLabel.text = @"Mapped JSON to NSObjects";
+            break;
     }
     
     return cell;
@@ -68,11 +80,18 @@ static NSString *tableReuseID = @":)";
     
     switch (indexPath.row) {
         case kRowStandardRequest: {
-            ResultViewController *reqVC = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
+            StandardRequestViewController *reqVC = [StandardRequestViewController new];
             [self.navigationController pushViewController:reqVC animated:YES];
             
-        }
             break;
+        }
+            
+        case kRowMappedJSONRequest: {
+            MappedJSONViewController *mappedVC = [MappedJSONViewController new];
+            [self.navigationController pushViewController:mappedVC animated:YES];
+            
+            break;
+        }
             
         default:
             break;

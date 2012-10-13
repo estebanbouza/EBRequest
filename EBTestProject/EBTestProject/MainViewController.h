@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ResultViewController.h"
 
 @interface MainViewController : UIViewController
 

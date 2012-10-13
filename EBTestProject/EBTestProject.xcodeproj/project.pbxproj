@@ -12,6 +12,10 @@
 		5B65B55D1617C2BB006B1C01 /* ResultViewController~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B65B55B1617C2BB006B1C01 /* ResultViewController~iphone.xib */; };
 		5B9E7D2B16298D8B00FF3B86 /* ResultViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E7D2A16298D8B00FF3B86 /* ResultViewController~ipad.xib */; };
 		5B9E7D2E16298FFE00FF3B86 /* StandardRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7D2D16298FFE00FF3B86 /* StandardRequestViewController.m */; };
+		5B9E7D331629923F00FF3B86 /* MappedJSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7D321629923F00FF3B86 /* MappedJSONViewController.m */; };
+		5B9E7D36162993E800FF3B86 /* ResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7D35162993E800FF3B86 /* ResponseData.m */; };
+		5B9E7D39162993FB00FF3B86 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7D38162993FB00FF3B86 /* Entry.m */; };
+		5B9E7D3C1629948600FF3B86 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7D3B1629948600FF3B86 /* Response.m */; };
 		5BD413021617B0FC007A17AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413011617B0FC007A17AA /* UIKit.framework */; };
 		5BD413041617B0FC007A17AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413031617B0FC007A17AA /* Foundation.framework */; };
 		5BD413061617B0FC007A17AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413051617B0FC007A17AA /* CoreGraphics.framework */; };
@@ -32,6 +36,14 @@
 		5B9E7D2A16298D8B00FF3B86 /* ResultViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ResultViewController~ipad.xib"; sourceTree = "<group>"; };
 		5B9E7D2C16298FFE00FF3B86 /* StandardRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardRequestViewController.h; sourceTree = "<group>"; };
 		5B9E7D2D16298FFE00FF3B86 /* StandardRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardRequestViewController.m; sourceTree = "<group>"; };
+		5B9E7D311629923F00FF3B86 /* MappedJSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappedJSONViewController.h; sourceTree = "<group>"; };
+		5B9E7D321629923F00FF3B86 /* MappedJSONViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappedJSONViewController.m; sourceTree = "<group>"; };
+		5B9E7D34162993E800FF3B86 /* ResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseData.h; sourceTree = "<group>"; };
+		5B9E7D35162993E800FF3B86 /* ResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseData.m; sourceTree = "<group>"; };
+		5B9E7D37162993FB00FF3B86 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		5B9E7D38162993FB00FF3B86 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		5B9E7D3A1629948600FF3B86 /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
+		5B9E7D3B1629948600FF3B86 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		5BD412FD1617B0FC007A17AA /* EBTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD413011617B0FC007A17AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BD413031617B0FC007A17AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,6 +76,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B9E7D2F1629909C00FF3B86 /* Standard Request */ = {
+			isa = PBXGroup;
+			children = (
+				5B9E7D2C16298FFE00FF3B86 /* StandardRequestViewController.h */,
+				5B9E7D2D16298FFE00FF3B86 /* StandardRequestViewController.m */,
+			);
+			name = "Standard Request";
+			sourceTree = "<group>";
+		};
+		5B9E7D301629921F00FF3B86 /* Mapped JSON Request */ = {
+			isa = PBXGroup;
+			children = (
+				5B9E7D311629923F00FF3B86 /* MappedJSONViewController.h */,
+				5B9E7D321629923F00FF3B86 /* MappedJSONViewController.m */,
+				5B9E7D34162993E800FF3B86 /* ResponseData.h */,
+				5B9E7D35162993E800FF3B86 /* ResponseData.m */,
+				5B9E7D37162993FB00FF3B86 /* Entry.h */,
+				5B9E7D38162993FB00FF3B86 /* Entry.m */,
+				5B9E7D3A1629948600FF3B86 /* Response.h */,
+				5B9E7D3B1629948600FF3B86 /* Response.m */,
+			);
+			name = "Mapped JSON Request";
+			sourceTree = "<group>";
+		};
 		5BD412F21617B0FC007A17AA = {
 			isa = PBXGroup;
 			children = (
@@ -104,8 +140,8 @@
 				5B65B55A1617C2BB006B1C01 /* ResultViewController.m */,
 				5B9E7D2A16298D8B00FF3B86 /* ResultViewController~ipad.xib */,
 				5B65B55B1617C2BB006B1C01 /* ResultViewController~iphone.xib */,
-				5B9E7D2C16298FFE00FF3B86 /* StandardRequestViewController.h */,
-				5B9E7D2D16298FFE00FF3B86 /* StandardRequestViewController.m */,
+				5B9E7D2F1629909C00FF3B86 /* Standard Request */,
+				5B9E7D301629921F00FF3B86 /* Mapped JSON Request */,
 			);
 			path = EBTestProject;
 			sourceTree = "<group>";
@@ -196,6 +232,10 @@
 				5BD413201617B248007A17AA /* MainViewController.m in Sources */,
 				5B65B55C1617C2BB006B1C01 /* ResultViewController.m in Sources */,
 				5B9E7D2E16298FFE00FF3B86 /* StandardRequestViewController.m in Sources */,
+				5B9E7D331629923F00FF3B86 /* MappedJSONViewController.m in Sources */,
+				5B9E7D36162993E800FF3B86 /* ResponseData.m in Sources */,
+				5B9E7D39162993FB00FF3B86 /* Entry.m in Sources */,
+				5B9E7D3C1629948600FF3B86 /* Response.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
