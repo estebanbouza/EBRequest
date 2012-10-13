@@ -17,7 +17,7 @@
  
  Sample usage:
  
-        EBImageRequest *imageRequest = [EBImageRequest requestWithURL:nil];
+        EBImageRequest *imageRequest = [EBImageRequest requestWithURL:_imageURL];
 
 
         imageRequest.completionBlock = ^(id img) {
