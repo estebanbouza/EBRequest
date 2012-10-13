@@ -11,10 +11,12 @@
 #import "ResultViewController.h"
 #import "MappedJSONViewController.h"
 #import "StandardRequestViewController.h"
+#import "ImageViewController.h"
 
 typedef enum {
     kRowStandardRequest,
     kRowMappedJSONRequest,
+    kRowImageRequest,
     kNumberOfRows
 } t_rows;
 
@@ -69,6 +71,10 @@ static NSString *tableReuseID = @":)";
         case kRowMappedJSONRequest:
             cell.textLabel.text = @"Mapped JSON to NSObjects";
             break;
+            
+        case kRowImageRequest:
+            cell.textLabel.text = @"Image request";
+            break;
     }
     
     return cell;
@@ -89,6 +95,13 @@ static NSString *tableReuseID = @":)";
         case kRowMappedJSONRequest: {
             MappedJSONViewController *mappedVC = [MappedJSONViewController new];
             [self.navigationController pushViewController:mappedVC animated:YES];
+            
+            break;
+        }
+            
+        case kRowImageRequest: {
+            ImageViewController *imgVC = [ImageViewController new];
+            [self.navigationController pushViewController:imgVC animated:YES];
             
             break;
         }

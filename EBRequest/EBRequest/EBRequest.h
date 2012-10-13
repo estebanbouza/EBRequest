@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^EBCompletionBlock)(NSData *responseData);
+typedef void(^EBCompletionBlock)(id responseData);
 typedef void(^EBErrorBlock) (NSError *error);
 
 /// Represents an abstract request

@@ -46,9 +46,14 @@
 		5BCA3CD11618C7B50007E260 /* MockAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA3CD01618C7B50007E260 /* MockAddress.m */; };
 		5BCA3CD41618C8510007E260 /* JSONTest1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5BCA3CD31618C8510007E260 /* JSONTest1.txt */; };
 		5BCA3CDF1618ECC80007E260 /* JSONTest2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */; };
+		5BCF6A111629DA410024C3BC /* EBImageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BCF6A0F1629DA410024C3BC /* EBImageRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BCF6A121629DA410024C3BC /* EBImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF6A101629DA410024C3BC /* EBImageRequest.m */; };
+		5BCF6A141629DA720024C3BC /* EBImageRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BCF6A0F1629DA410024C3BC /* EBImageRequest.h */; };
+		5BCF6A171629E0710024C3BC /* EBImageRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF6A161629E0710024C3BC /* EBImageRequestTests.m */; };
+		5BCF6A291629EDF00024C3BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD412BF1617A2D8007A17AA /* UIKit.framework */; };
 		5BD412BD16179505007A17AA /* EBDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD412BB16179505007A17AA /* EBDataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD412BE16179505007A17AA /* EBDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD412BC16179505007A17AA /* EBDataRequest.m */; };
-		5BD412C01617A2D8007A17AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD412BF1617A2D8007A17AA /* UIKit.framework */; };
+		5BD412C01617A2D8007A17AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD412BF1617A2D8007A17AA /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,7 @@
 			dstSubfolderSpec = 16;
 			files = (
 				5B5298801617783B00B6BD6A /* EBLibrary.h in CopyFiles */,
+				5BCF6A141629DA720024C3BC /* EBImageRequest.h in CopyFiles */,
 				5B9E7D2216298B9500FF3B86 /* EBInfo.h in CopyFiles */,
 				5B9E7D2316298B9500FF3B86 /* EBGitVersion.h in CopyFiles */,
 				5B9E7D2416298B9900FF3B86 /* EBDescribedObject.h in CopyFiles */,
@@ -121,6 +127,10 @@
 		5BCA3CD01618C7B50007E260 /* MockAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockAddress.m; sourceTree = "<group>"; };
 		5BCA3CD31618C8510007E260 /* JSONTest1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTest1.txt; sourceTree = "<group>"; };
 		5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTest2.txt; sourceTree = "<group>"; };
+		5BCF6A0F1629DA410024C3BC /* EBImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBImageRequest.h; sourceTree = "<group>"; };
+		5BCF6A101629DA410024C3BC /* EBImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBImageRequest.m; sourceTree = "<group>"; };
+		5BCF6A151629E0710024C3BC /* EBImageRequestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBImageRequestTests.h; sourceTree = "<group>"; };
+		5BCF6A161629E0710024C3BC /* EBImageRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBImageRequestTests.m; sourceTree = "<group>"; };
 		5BD412BB16179505007A17AA /* EBDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDataRequest.h; sourceTree = "<group>"; };
 		5BD412BC16179505007A17AA /* EBDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBDataRequest.m; sourceTree = "<group>"; };
 		5BD412BF1617A2D8007A17AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -140,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BCF6A291629EDF00024C3BC /* UIKit.framework in Frameworks */,
 				5B52988A1617783B00B6BD6A /* SenTestingKit.framework in Frameworks */,
 				5B52988D1617783B00B6BD6A /* Foundation.framework in Frameworks */,
 				5B5298901617783B00B6BD6A /* libEBRequest.a in Frameworks */,
@@ -186,6 +197,8 @@
 				5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */,
 				5BD412BB16179505007A17AA /* EBDataRequest.h */,
 				5BD412BC16179505007A17AA /* EBDataRequest.m */,
+				5BCF6A0F1629DA410024C3BC /* EBImageRequest.h */,
+				5BCF6A101629DA410024C3BC /* EBImageRequest.m */,
 				5B8A2CC9161A15D500CB5FBA /* EBJSONRequest.h */,
 				5B8A2CCA161A15D500CB5FBA /* EBJSONRequest.m */,
 				5BC0B2F416182D0600A04A96 /* EBJSONObjectMapper.h */,
@@ -222,15 +235,17 @@
 				5BC0B2FD1618452900A04A96 /* MockPerson.m */,
 				5BCA3CCF1618C7B50007E260 /* MockAddress.h */,
 				5BCA3CD01618C7B50007E260 /* MockAddress.m */,
+				5BC69A39161A1C0E00C5DE9F /* EBJSONRequestTests.h */,
+				5BC69A3A161A1C0E00C5DE9F /* EBJSONRequestTests.m */,
+				5B49E099162919A6007AD7F6 /* EBDescribedObjectTests.h */,
+				5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */,
+				5BCF6A151629E0710024C3BC /* EBImageRequestTests.h */,
+				5BCF6A161629E0710024C3BC /* EBImageRequestTests.m */,
 				5BCA3CD31618C8510007E260 /* JSONTest1.txt */,
 				5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */,
 				5B696BA51619FE3200B4A20C /* JSONTest3.txt */,
 				5B7AF98216260DB1008FE123 /* JSONTestPropertyMapper.txt */,
-				5BC69A39161A1C0E00C5DE9F /* EBJSONRequestTests.h */,
-				5BC69A3A161A1C0E00C5DE9F /* EBJSONRequestTests.m */,
 				5B5298921617783B00B6BD6A /* Supporting Files */,
-				5B49E099162919A6007AD7F6 /* EBDescribedObjectTests.h */,
-				5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */,
 			);
 			path = EBRequestTests;
 			sourceTree = "<group>";
@@ -258,6 +273,7 @@
 				5B7AF97F162605C7008FE123 /* EBPropertyMapper.h in Headers */,
 				5B8A2CCB161A15D500CB5FBA /* EBJSONRequest.h in Headers */,
 				5B49E0CA16297CA5007AD7F6 /* EBInfo.h in Headers */,
+				5BCF6A111629DA410024C3BC /* EBImageRequest.h in Headers */,
 				5B49E0D1162984E3007AD7F6 /* EBGitVersion.h in Headers */,
 				5B49E09616291912007AD7F6 /* EBDescribedObject.h in Headers */,
 				5B49E0D816298781007AD7F6 /* EBRuntimeUtils.h in Headers */,
@@ -389,6 +405,7 @@
 				5B7AF980162605C7008FE123 /* EBPropertyMapper.m in Sources */,
 				5B49E09716291912007AD7F6 /* EBDescribedObject.m in Sources */,
 				5B49E0D916298781007AD7F6 /* EBRuntimeUtils.m in Sources */,
+				5BCF6A121629DA410024C3BC /* EBImageRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +419,7 @@
 				5BCA3CD11618C7B50007E260 /* MockAddress.m in Sources */,
 				5BC69A3B161A1C0E00C5DE9F /* EBJSONRequestTests.m in Sources */,
 				5B49E09B162919A6007AD7F6 /* EBDescribedObjectTests.m in Sources */,
+				5BCF6A171629E0710024C3BC /* EBImageRequestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
