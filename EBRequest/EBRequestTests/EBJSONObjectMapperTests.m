@@ -214,6 +214,11 @@
     // Start mapping the JSON
     MockPerson *person = [mapper objectFromJSON:json];
     
+    [self validateJSON1:person];
+}
+
+
+- (BOOL)validateJSON1:(MockPerson *)person {
     STAssertTrue([person.name isEqualToString:@"john smith"], @"Error mapping name");
     STAssertTrue([person.age isEqualToNumber:@32], @"Error mapping age");
     STAssertTrue([person.employed boolValue] == YES, @"Error mapping booleans");
@@ -240,6 +245,8 @@
     STAssertTrue([[[person.children objectAtIndex:0] age] isEqualToNumber:@7], @"Error mapping children");
     STAssertTrue([[[person.children objectAtIndex:1] age] isEqualToNumber:@4], @"Error mapping children");
     STAssertTrue([[[person.children objectAtIndex:2] age] isEqualToNumber:@3], @"Error mapping children");
+    
+    return YES;
 }
 
 @end

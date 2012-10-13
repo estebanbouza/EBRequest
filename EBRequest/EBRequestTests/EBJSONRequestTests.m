@@ -157,7 +157,9 @@ static const NSTimeInterval defaultTimeout = 10;
         STFail(@"Should not be executed");
     };
     
-    request.classesToMap = @[[MockPerson class], [MockAddress class]];
+    EBJSONObjectMapper *jsonMapper = [EBJSONObjectMapper mapperWithClasses:@[[MockPerson class], [MockAddress class]]];
+    
+    request.JSONObjectMapper = jsonMapper;
     
     [request start];
     
