@@ -23,8 +23,8 @@
     if (self = [super initWithURL:url]) {
         
         _request = [[EBDataRequest alloc] initWithURL:url];
-        _request.completionBlock = [self completionBlock];
-        _request.errorBlock = [self errorBlock];
+        _request.completionBlock = [self imageCompletionBlock];
+        _request.errorBlock = [self imageErrorBlock];
         
     }
     
@@ -43,7 +43,7 @@
 
 #pragma Handlers
 
-- (EBCompletionBlock)completionBlock {
+- (EBCompletionBlock)imageCompletionBlock {
     id block = ^(NSData *data){
 
         if (data == nil) {
@@ -65,7 +65,7 @@
     return [[block copy] autorelease];
 }
 
-- (EBErrorBlock)errorBlock {
+- (EBErrorBlock)imageErrorBlock {
     id block = ^(NSError *error) {
         self.errorBlock(error);
     };
