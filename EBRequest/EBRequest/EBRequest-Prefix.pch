@@ -8,11 +8,5 @@
 
 #import "EBLibrary.h"
 
-#ifdef DEBUG
-#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-#else
-#   define DLog(...)
-#endif
-
 #define isDictionary(var)   [var isKindOfClass:[NSDictionary class]]
 #define isArray(var)        [var isKindOfClass:[NSArray class]]
