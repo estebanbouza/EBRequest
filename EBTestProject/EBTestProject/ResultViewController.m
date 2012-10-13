@@ -8,11 +8,9 @@
 
 #import "ResultViewController.h"
 
-static NSString *testURLString = @"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode&include_rts=0";
 
 
 @interface ResultViewController () {
-    EBDataRequest *request;
 }
 
 @end
@@ -23,28 +21,9 @@ static NSString *testURLString = @"http://api.twitter.com/1/statuses/user_timeli
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.lblURL.text = testURLString;
-    
-    request = [EBDataRequest requestWithURL:[NSURL URLWithString:testURLString]];
-    
-    request.completionBlock = ^(id responseData) {
-        self.txtResult.text = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        [self.activityIndicator stopAnimating];
-    };
-    
-    [self.activityIndicator startAnimating];
-    [request start];
-    
-    
-
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 - (void)viewDidUnload {
     [self setLblURL:nil];
