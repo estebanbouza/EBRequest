@@ -140,7 +140,7 @@ in the main thread so it&rsquo;s safe to draw once the image is donwloaded insid
 
 <p>Sample usage:</p>
 
-<pre><code>    EBImageRequest *imageRequest = [EBImageRequest requestWithURL:nil];
+<pre><code>    EBImageRequest *imageRequest = [EBImageRequest requestWithURL:_imageURL];
 
 
     imageRequest.completionBlock = ^(id img) {
