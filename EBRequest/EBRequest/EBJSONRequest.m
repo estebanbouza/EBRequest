@@ -32,7 +32,7 @@
     [_urlConnection release];
     
     [_receivedData release];
-    [_classesToMap release];
+    [_JSONObjectMapper release];
     
     [super dealloc];
 }
@@ -98,8 +98,8 @@
     id mappedResult = [NSJSONSerialization JSONObjectWithData:_receivedData options:0 error:&error];
     
     // If there are classes to map, then do it
-    if (self.classesToMap) {
-        mappedResult = [[EBJSONObjectMapper mapperWithClasses:self.classesToMap] objectFromJSON:mappedResult];
+    if (self.JSONObjectMapper) {
+        mappedResult = [_JSONObjectMapper objectFromJSON:mappedResult];
     }
     
     if ([NSThread isMainThread]) {
