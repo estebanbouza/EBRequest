@@ -23,7 +23,7 @@
     }];
     
     for (NSString *propName in sortedProperties) {
-        [result appendFormat:@"%@: %@, ", propName, [self valueForKey:propName]];
+        [result appendFormat:@"%@: {%@}, ", propName, [self valueForKey:propName]];
     }
 
     return result;
