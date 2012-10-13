@@ -18,9 +18,10 @@
 
 @implementation MappedJSONViewController
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
+    
     [self.activityIndicator startAnimating];
 
     // Use Google news API to search news related with pizza. 

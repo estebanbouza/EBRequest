@@ -19,18 +19,10 @@ static NSString *testURLString = @"http://api.twitter.com/1/statuses/user_timeli
 
 @implementation StandardRequestViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
 	
     self.lblURL.text = testURLString;
     

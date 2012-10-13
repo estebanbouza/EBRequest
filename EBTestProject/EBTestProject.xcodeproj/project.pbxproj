@@ -16,6 +16,7 @@
 		5B9E7D36162993E800FF3B86 /* ResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7D35162993E800FF3B86 /* ResponseData.m */; };
 		5B9E7D39162993FB00FF3B86 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7D38162993FB00FF3B86 /* Entry.m */; };
 		5B9E7D3C1629948600FF3B86 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7D3B1629948600FF3B86 /* Response.m */; };
+		5BCF6A281629E7B60024C3BC /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF6A271629E7B60024C3BC /* ImageViewController.m */; };
 		5BD413021617B0FC007A17AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413011617B0FC007A17AA /* UIKit.framework */; };
 		5BD413041617B0FC007A17AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413031617B0FC007A17AA /* Foundation.framework */; };
 		5BD413061617B0FC007A17AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD413051617B0FC007A17AA /* CoreGraphics.framework */; };
@@ -44,6 +45,8 @@
 		5B9E7D38162993FB00FF3B86 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		5B9E7D3A1629948600FF3B86 /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
 		5B9E7D3B1629948600FF3B86 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
+		5BCF6A261629E7B60024C3BC /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		5BCF6A271629E7B60024C3BC /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		5BD412FD1617B0FC007A17AA /* EBTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EBTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD413011617B0FC007A17AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BD413031617B0FC007A17AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +103,15 @@
 			name = "Mapped JSON Request";
 			sourceTree = "<group>";
 		};
+		5BCF6A241629E7910024C3BC /* Image Request */ = {
+			isa = PBXGroup;
+			children = (
+				5BCF6A261629E7B60024C3BC /* ImageViewController.h */,
+				5BCF6A271629E7B60024C3BC /* ImageViewController.m */,
+			);
+			name = "Image Request";
+			sourceTree = "<group>";
+		};
 		5BD412F21617B0FC007A17AA = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +154,7 @@
 				5B65B55B1617C2BB006B1C01 /* ResultViewController~iphone.xib */,
 				5B9E7D2F1629909C00FF3B86 /* Standard Request */,
 				5B9E7D301629921F00FF3B86 /* Mapped JSON Request */,
+				5BCF6A241629E7910024C3BC /* Image Request */,
 			);
 			path = EBTestProject;
 			sourceTree = "<group>";
@@ -236,6 +249,7 @@
 				5B9E7D36162993E800FF3B86 /* ResponseData.m in Sources */,
 				5B9E7D39162993FB00FF3B86 /* Entry.m in Sources */,
 				5B9E7D3C1629948600FF3B86 /* Response.m in Sources */,
+				5BCF6A281629E7B60024C3BC /* ImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
