@@ -26,6 +26,7 @@ static const NSTimeInterval defaultTimeout = 10;
         completionExecuted = YES;
 
         STAssertTrue([img isKindOfClass:[UIImage class]], nil);
+        STAssertTrue([NSThread isMainThread], @"Completion not executed in main thread");
     };
     
     imageRequest.errorBlock = ^(NSError *error) {
