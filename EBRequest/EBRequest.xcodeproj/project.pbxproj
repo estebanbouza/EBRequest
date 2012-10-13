@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B49E0CA16297CA5007AD7F6 /* EBInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E0C916297CA5007AD7F6 /* EBInfo.h */; };
-		5B49E0D1162984E3007AD7F6 /* EBGitVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E0D0162984E3007AD7F6 /* EBGitVersion.h */; };
 		5B49E09616291912007AD7F6 /* EBDescribedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E09416291912007AD7F6 /* EBDescribedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B49E09716291912007AD7F6 /* EBDescribedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E09516291912007AD7F6 /* EBDescribedObject.m */; };
 		5B49E09B162919A6007AD7F6 /* EBDescribedObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */; };
-		5B49E0D816298781007AD7F6 /* EBRuntimeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E0D616298781007AD7F6 /* EBRuntimeUtils.h */; };
+		5B49E0CA16297CA5007AD7F6 /* EBInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E0C916297CA5007AD7F6 /* EBInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B49E0D1162984E3007AD7F6 /* EBGitVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E0D0162984E3007AD7F6 /* EBGitVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B49E0D816298781007AD7F6 /* EBRuntimeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E0D616298781007AD7F6 /* EBRuntimeUtils.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		5B49E0D916298781007AD7F6 /* EBRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E0D716298781007AD7F6 /* EBRuntimeUtils.m */; };
 		5B52987B1617783B00B6BD6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B52987A1617783B00B6BD6A /* Foundation.framework */; };
 		5B5298801617783B00B6BD6A /* EBLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B52987F1617783B00B6BD6A /* EBLibrary.h */; };
@@ -32,6 +32,9 @@
 		5B8A2CC7161A0DD600CB5FBA /* EBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */; };
 		5B8A2CCB161A15D500CB5FBA /* EBJSONRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8A2CC9161A15D500CB5FBA /* EBJSONRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B8A2CCC161A15D500CB5FBA /* EBJSONRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A2CCA161A15D500CB5FBA /* EBJSONRequest.m */; };
+		5B9E7D2216298B9500FF3B86 /* EBInfo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B49E0C916297CA5007AD7F6 /* EBInfo.h */; };
+		5B9E7D2316298B9500FF3B86 /* EBGitVersion.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B49E0D0162984E3007AD7F6 /* EBGitVersion.h */; };
+		5B9E7D2416298B9900FF3B86 /* EBDescribedObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B49E09416291912007AD7F6 /* EBDescribedObject.h */; };
 		5BC0B2F616182D0600A04A96 /* EBJSONObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BC0B2F416182D0600A04A96 /* EBJSONObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BC0B2F716182D0600A04A96 /* EBJSONObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0B2F516182D0600A04A96 /* EBJSONObjectMapper.m */; };
 		5BC0B2FB161844D300A04A96 /* EBJSONObjectMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0B2FA161844D300A04A96 /* EBJSONObjectMapperTests.m */; };
@@ -66,6 +69,9 @@
 			dstSubfolderSpec = 16;
 			files = (
 				5B5298801617783B00B6BD6A /* EBLibrary.h in CopyFiles */,
+				5B9E7D2216298B9500FF3B86 /* EBInfo.h in CopyFiles */,
+				5B9E7D2316298B9500FF3B86 /* EBGitVersion.h in CopyFiles */,
+				5B9E7D2416298B9900FF3B86 /* EBDescribedObject.h in CopyFiles */,
 				5BC69A42161A253A00C5DE9F /* EBJSONObjectMapper.h in CopyFiles */,
 				5B7AF991162617E4008FE123 /* EBPropertyMapper.h in CopyFiles */,
 				5BC69A43161A253D00C5DE9F /* EBJSONRequest.h in CopyFiles */,
@@ -77,12 +83,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5B49E0C916297CA5007AD7F6 /* EBInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBInfo.h; sourceTree = "<group>"; };
-		5B49E0D0162984E3007AD7F6 /* EBGitVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBGitVersion.h; sourceTree = "<group>"; };
 		5B49E09416291912007AD7F6 /* EBDescribedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDescribedObject.h; sourceTree = "<group>"; };
 		5B49E09516291912007AD7F6 /* EBDescribedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBDescribedObject.m; sourceTree = "<group>"; };
 		5B49E099162919A6007AD7F6 /* EBDescribedObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDescribedObjectTests.h; sourceTree = "<group>"; };
 		5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBDescribedObjectTests.m; sourceTree = "<group>"; };
+		5B49E0C916297CA5007AD7F6 /* EBInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBInfo.h; sourceTree = "<group>"; };
+		5B49E0D0162984E3007AD7F6 /* EBGitVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBGitVersion.h; sourceTree = "<group>"; };
 		5B49E0D616298781007AD7F6 /* EBRuntimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRuntimeUtils.h; sourceTree = "<group>"; };
 		5B49E0D716298781007AD7F6 /* EBRuntimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBRuntimeUtils.m; sourceTree = "<group>"; };
 		5B5298771617783B00B6BD6A /* libEBRequest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEBRequest.a; sourceTree = BUILT_PRODUCTS_DIR; };

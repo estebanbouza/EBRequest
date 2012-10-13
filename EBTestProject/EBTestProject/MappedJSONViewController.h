@@ -1,5 +1,5 @@
 //
-//  StandardRequestViewController.h
+//  MappedJSONViewController.h
 //  EBTestProject
 //
 //  Created by Esteban on 13/10/12.
@@ -8,6 +8,6 @@
 
 #import "ResultViewController.h"
 
-@interface StandardRequestViewController : ResultViewController
+@interface MappedJSONViewController : ResultViewController
 
 @end

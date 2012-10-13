@@ -2,7 +2,7 @@
 //  StandardRequestViewController.m
 //  EBTestProject
 //
-//  Created by Esteban on 30/09/12.
+//  Created by Esteban on 13/10/12.
 //  Copyright (c) 2012 Esteban. All rights reserved.
 //
 
@@ -12,33 +12,40 @@ static NSString *testURLString = @"http://api.twitter.com/1/statuses/user_timeli
 
 
 @interface StandardRequestViewController () {
-    EBDataRequest *request;
+    EBDataRequest *_request;
 }
 
 @end
 
 @implementation StandardRequestViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+	
     self.lblURL.text = testURLString;
     
-    request = [EBDataRequest requestWithURL:[NSURL URLWithString:testURLString]];
+    _request = [EBDataRequest requestWithURL:[NSURL URLWithString:testURLString]];
     
-    request.completionBlock = ^(id responseData) {
+    _request.completionBlock = ^(id responseData) {
         self.txtResult.text = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
         [self.activityIndicator stopAnimating];
     };
     
     [self.activityIndicator startAnimating];
-    [request start];
+    [_request start];
     
-    
-
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -46,10 +53,4 @@ static NSString *testURLString = @"http://api.twitter.com/1/statuses/user_timeli
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-    [self setLblURL:nil];
-    [self setTxtResult:nil];
-    [self setActivityIndicator:nil];
-    [super viewDidUnload];
-}
 @end
