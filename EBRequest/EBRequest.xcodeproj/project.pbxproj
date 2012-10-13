@@ -235,17 +235,17 @@
 				5BC0B2FD1618452900A04A96 /* MockPerson.m */,
 				5BCA3CCF1618C7B50007E260 /* MockAddress.h */,
 				5BCA3CD01618C7B50007E260 /* MockAddress.m */,
-				5BCA3CD31618C8510007E260 /* JSONTest1.txt */,
-				5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */,
-				5B696BA51619FE3200B4A20C /* JSONTest3.txt */,
-				5B7AF98216260DB1008FE123 /* JSONTestPropertyMapper.txt */,
 				5BC69A39161A1C0E00C5DE9F /* EBJSONRequestTests.h */,
 				5BC69A3A161A1C0E00C5DE9F /* EBJSONRequestTests.m */,
-				5B5298921617783B00B6BD6A /* Supporting Files */,
 				5B49E099162919A6007AD7F6 /* EBDescribedObjectTests.h */,
 				5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */,
 				5BCF6A151629E0710024C3BC /* EBImageRequestTests.h */,
 				5BCF6A161629E0710024C3BC /* EBImageRequestTests.m */,
+				5BCA3CD31618C8510007E260 /* JSONTest1.txt */,
+				5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */,
+				5B696BA51619FE3200B4A20C /* JSONTest3.txt */,
+				5B7AF98216260DB1008FE123 /* JSONTestPropertyMapper.txt */,
+				5B5298921617783B00B6BD6A /* Supporting Files */,
 			);
 			path = EBRequestTests;
 			sourceTree = "<group>";
