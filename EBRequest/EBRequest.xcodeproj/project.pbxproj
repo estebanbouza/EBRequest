@@ -50,6 +50,7 @@
 		5BCF6A121629DA410024C3BC /* EBImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF6A101629DA410024C3BC /* EBImageRequest.m */; };
 		5BCF6A141629DA720024C3BC /* EBImageRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BCF6A0F1629DA410024C3BC /* EBImageRequest.h */; };
 		5BCF6A171629E0710024C3BC /* EBImageRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF6A161629E0710024C3BC /* EBImageRequestTests.m */; };
+		5BCF6A291629EDF00024C3BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD412BF1617A2D8007A17AA /* UIKit.framework */; };
 		5BD412BD16179505007A17AA /* EBDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD412BB16179505007A17AA /* EBDataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD412BE16179505007A17AA /* EBDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD412BC16179505007A17AA /* EBDataRequest.m */; };
 		5BD412C01617A2D8007A17AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD412BF1617A2D8007A17AA /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -149,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BCF6A291629EDF00024C3BC /* UIKit.framework in Frameworks */,
 				5B52988A1617783B00B6BD6A /* SenTestingKit.framework in Frameworks */,
 				5B52988D1617783B00B6BD6A /* Foundation.framework in Frameworks */,
 				5B5298901617783B00B6BD6A /* libEBRequest.a in Frameworks */,
