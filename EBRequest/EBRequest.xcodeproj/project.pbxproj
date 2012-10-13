@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B49E09616291912007AD7F6 /* EBDescribedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E09416291912007AD7F6 /* EBDescribedObject.h */; };
+		5B49E09716291912007AD7F6 /* EBDescribedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E09516291912007AD7F6 /* EBDescribedObject.m */; };
 		5B52987B1617783B00B6BD6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B52987A1617783B00B6BD6A /* Foundation.framework */; };
 		5B5298801617783B00B6BD6A /* EBLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B52987F1617783B00B6BD6A /* EBLibrary.h */; };
 		5B52988A1617783B00B6BD6A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5298891617783B00B6BD6A /* SenTestingKit.framework */; };
@@ -70,6 +72,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B49E09416291912007AD7F6 /* EBDescribedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDescribedObject.h; sourceTree = "<group>"; };
+		5B49E09516291912007AD7F6 /* EBDescribedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBDescribedObject.m; sourceTree = "<group>"; };
 		5B5298771617783B00B6BD6A /* libEBRequest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEBRequest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B52987A1617783B00B6BD6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5B52987E1617783B00B6BD6A /* EBRequest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EBRequest-Prefix.pch"; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 				5B7AF97D162605C7008FE123 /* EBPropertyMapper.h */,
 				5B7AF97E162605C7008FE123 /* EBPropertyMapper.m */,
 				5B52987D1617783B00B6BD6A /* Supporting Files */,
+				5B49E09416291912007AD7F6 /* EBDescribedObject.h */,
+				5B49E09516291912007AD7F6 /* EBDescribedObject.m */,
 			);
 			path = EBRequest;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 				5B8A2CC6161A0DD600CB5FBA /* EBRequest.h in Headers */,
 				5B7AF97F162605C7008FE123 /* EBPropertyMapper.h in Headers */,
 				5B8A2CCB161A15D500CB5FBA /* EBJSONRequest.h in Headers */,
+				5B49E09616291912007AD7F6 /* EBDescribedObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +346,7 @@
 				5B8A2CC7161A0DD600CB5FBA /* EBRequest.m in Sources */,
 				5B8A2CCC161A15D500CB5FBA /* EBJSONRequest.m in Sources */,
 				5B7AF980162605C7008FE123 /* EBPropertyMapper.m in Sources */,
+				5B49E09716291912007AD7F6 /* EBDescribedObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
