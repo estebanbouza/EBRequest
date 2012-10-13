@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StandardRequestViewController : UIViewController
+@interface ResultViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *lblURL;
 @property (weak, nonatomic) IBOutlet UITextView *txtResult;

@@ -6,18 +6,18 @@
 //  Copyright (c) 2012 Esteban. All rights reserved.
 //
 
-#import "StandardRequestViewController.h"
+#import "ResultViewController.h"
 
 static NSString *testURLString = @"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode&include_rts=0";
 
 
-@interface StandardRequestViewController () {
+@interface ResultViewController () {
     EBDataRequest *request;
 }
 
 @end
 
-@implementation StandardRequestViewController
+@implementation ResultViewController
 
 
 - (void)viewDidLoad

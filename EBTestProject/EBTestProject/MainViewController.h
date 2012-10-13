@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "StandardRequestViewController.h"
+#import "ResultViewController.h"
 
 @interface MainViewController : UIViewController
 

@@ -68,7 +68,7 @@ static NSString *tableReuseID = @":)";
     
     switch (indexPath.row) {
         case kRowStandardRequest: {
-            StandardRequestViewController *reqVC = [[StandardRequestViewController alloc] initWithNibName:@"StandardRequestViewController" bundle:nil];
+            ResultViewController *reqVC = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
             [self.navigationController pushViewController:reqVC animated:YES];
             
         }
