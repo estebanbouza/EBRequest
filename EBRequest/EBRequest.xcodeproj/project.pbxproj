@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B49E09616291912007AD7F6 /* EBDescribedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E09416291912007AD7F6 /* EBDescribedObject.h */; };
 		5B49E09716291912007AD7F6 /* EBDescribedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E09516291912007AD7F6 /* EBDescribedObject.m */; };
+		5B49E09B162919A6007AD7F6 /* EBDescribedObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */; };
 		5B52987B1617783B00B6BD6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B52987A1617783B00B6BD6A /* Foundation.framework */; };
 		5B5298801617783B00B6BD6A /* EBLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B52987F1617783B00B6BD6A /* EBLibrary.h */; };
 		5B52988A1617783B00B6BD6A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5298891617783B00B6BD6A /* SenTestingKit.framework */; };
@@ -74,6 +75,8 @@
 /* Begin PBXFileReference section */
 		5B49E09416291912007AD7F6 /* EBDescribedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDescribedObject.h; sourceTree = "<group>"; };
 		5B49E09516291912007AD7F6 /* EBDescribedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBDescribedObject.m; sourceTree = "<group>"; };
+		5B49E099162919A6007AD7F6 /* EBDescribedObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDescribedObjectTests.h; sourceTree = "<group>"; };
+		5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBDescribedObjectTests.m; sourceTree = "<group>"; };
 		5B5298771617783B00B6BD6A /* libEBRequest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEBRequest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B52987A1617783B00B6BD6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5B52987E1617783B00B6BD6A /* EBRequest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EBRequest-Prefix.pch"; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				5BC69A39161A1C0E00C5DE9F /* EBJSONRequestTests.h */,
 				5BC69A3A161A1C0E00C5DE9F /* EBJSONRequestTests.m */,
 				5B5298921617783B00B6BD6A /* Supporting Files */,
+				5B49E099162919A6007AD7F6 /* EBDescribedObjectTests.h */,
+				5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */,
 			);
 			path = EBRequestTests;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 		5B52986E1617783B00B6BD6A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = EB;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Esteban;
 			};
@@ -359,6 +365,7 @@
 				5BC0B2FE1618452900A04A96 /* MockPerson.m in Sources */,
 				5BCA3CD11618C7B50007E260 /* MockAddress.m in Sources */,
 				5BC69A3B161A1C0E00C5DE9F /* EBJSONRequestTests.m in Sources */,
+				5B49E09B162919A6007AD7F6 /* EBDescribedObjectTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
