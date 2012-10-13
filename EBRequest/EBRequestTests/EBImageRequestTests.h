@@ -1,14 +1,13 @@
 //
-//  EBImageRequest.h
+//  EBImageRequestTests.h
 //  EBRequest
 //
 //  Created by Esteban on 13/10/12.
 //  Copyright (c) 2012 Esteban. All rights reserved.
 //
 
-#import <EBRequest/EBRequest.h>
-#import <UIKit/UIKit.h>
+#import <SenTestingKit/SenTestingKit.h>
 
-@interface EBImageRequest : EBRequest
+@interface EBImageRequestTests : SenTestCase
 
 @end

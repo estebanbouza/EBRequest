@@ -7,7 +7,6 @@
 //
 
 #import "EBImageRequest.h"
-#import <UIKit/UIKit.h>
 
 @interface EBImageRequest () {
     EBDataRequest *_request;
