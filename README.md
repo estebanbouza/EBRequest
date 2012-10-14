@@ -1,5 +1,11 @@
 # EBRequest
-**An ASIHTTPRequest like and object mapper library.**
+
+## Introduction
+
+The purpose of this library is to address two common time consuming tasks of iOS development:
+
+* *Fetch data* easily from the network. By data this can be: images, JSON feeds, generic data, etc...
+* *Map JSON feeds to custom NSObjects easily*. 
 
 --------------
 
