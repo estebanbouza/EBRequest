@@ -1,7 +1,20 @@
 # EBRequest
-**An ASIHTTPRequest like and object mapper library.**
 
---------------
+------------
+
+## Introduction
+
+The purpose of this library is to address two common time consuming tasks of iOS development:
+
+* **Fetch data** easily from the network. By data this can be: images, JSON feeds, generic data, etc... The idea here is to follow the ASIHTTPRequest approach and provide completion and error blocks to be executed when the request is done.
+
+
+* **Map JSON feeds to custom NSObjects easily**. The idea here is to let the library parse the JSON feeds to the classes you want. A minimum input from the developer is needed. 
+
+The spirit of this framework is to keep it as simple as possible, with the minimum amount of the developer user needed. 
+
+
+## Examples
 
 Things you can do with this library:
 
@@ -16,23 +29,6 @@ Things you can do with this library:
 	    };
 		
 		[request start];
-	 
-
-* Request JSON feeds easily:
-
-		NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode"];
-		
-		EBJSONRequest *request = [EBJSONRequest requestWithURL:url];
-    
-	    request.completionBlock = ^(id data){
-	    	NSArray *tweets = (NSArray *)data;
-	    	
-	    	for (NSDictionary *tweet in tweets) {
-		    	NSLog(@"Tweet: %@", tweet);
-	    	}
-	    };
-	    
-	    [request start];
 
 * The most important part: **Map JSON feeds to classes easily**. Let's say you have 2 entities in your model: `Person` and `Address`:
 	* `Person`:
@@ -101,7 +97,27 @@ Things you can do with this library:
 			[request start];
 
 
-### Class documentation
+
+	 
+
+* Request JSON feeds easily:
+
+		NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode"];
+		
+		EBJSONRequest *request = [EBJSONRequest requestWithURL:url];
+    
+	    request.completionBlock = ^(id data){
+	    	NSArray *tweets = (NSArray *)data;
+	    	
+	    	for (NSDictionary *tweet in tweets) {
+		    	NSLog(@"Tweet: %@", tweet);
+	    	}
+	    };
+	    
+	    [request start];
+
+
+## Class documentation
 
 Read the full class documentation at `docs/html/index.html`
 
