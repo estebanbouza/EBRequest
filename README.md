@@ -1,13 +1,21 @@
 # EBRequest
 
+------------
+
 ## Introduction
 
 The purpose of this library is to address two common time consuming tasks of iOS development:
 
-* *Fetch data* easily from the network. By data this can be: images, JSON feeds, generic data, etc...
-* *Map JSON feeds to custom NSObjects easily*. 
+* **Fetch data** easily from the network. By data this can be: images, JSON feeds, generic data, etc... The idea here is to follow the ASIHTTPRequest approach and provide completion and error blocks to be executed when the request is done.
+
+
+* **Map JSON feeds to custom NSObjects easily**. The idea here is to let the library parse the JSON feeds to the classes you want. A minimum input from the developer is needed. 
+
+The spirit of this framework is to keep it as simple as possible, with the minimum amount of the developer user needed. 
 
 --------------
+
+## Examples
 
 Things you can do with this library:
 
@@ -107,7 +115,7 @@ Things you can do with this library:
 			[request start];
 
 
-### Class documentation
+## Class documentation
 
 Read the full class documentation at `docs/html/index.html`
 
