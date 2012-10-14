@@ -13,7 +13,6 @@ The purpose of this library is to address two common time consuming tasks of iOS
 
 The spirit of this framework is to keep it as simple as possible, with the minimum amount of the developer user needed. 
 
---------------
 
 ## Examples
 
