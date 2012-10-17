@@ -16,6 +16,8 @@
 #import "EBJSONObjectMapper.h"
 #import "EBPropertyMapper.h"
 
+#import "EBDescribedObject.h"
+
 #import "EBInfo.h"
 #import "EBGitVersion.h"
 
