@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B27AA4C162F2C2800686BD6 /* MultipleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AA4B162F2C2800686BD6 /* MultipleImageViewController.m */; };
 		5B65B5541617BF7B006B1C01 /* libEBRequest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B65B5531617BF7B006B1C01 /* libEBRequest.a */; };
 		5B65B55C1617C2BB006B1C01 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B65B55A1617C2BB006B1C01 /* ResultViewController.m */; };
 		5B65B55D1617C2BB006B1C01 /* ResultViewController~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B65B55B1617C2BB006B1C01 /* ResultViewController~iphone.xib */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B27AA4A162F2C2800686BD6 /* MultipleImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleImageViewController.h; sourceTree = "<group>"; };
+		5B27AA4B162F2C2800686BD6 /* MultipleImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleImageViewController.m; sourceTree = "<group>"; };
 		5B65B5531617BF7B006B1C01 /* libEBRequest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEBRequest.a; path = "../build/Debug-iphonesimulator/libEBRequest.a"; sourceTree = "<group>"; };
 		5B65B5591617C2BB006B1C01 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		5B65B55A1617C2BB006B1C01 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
@@ -79,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B27AA45162F2B5B00686BD6 /* Multiple Image Request */ = {
+			isa = PBXGroup;
+			children = (
+				5B27AA4A162F2C2800686BD6 /* MultipleImageViewController.h */,
+				5B27AA4B162F2C2800686BD6 /* MultipleImageViewController.m */,
+			);
+			name = "Multiple Image Request";
+			sourceTree = "<group>";
+		};
 		5B9E7D2F1629909C00FF3B86 /* Standard Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +167,7 @@
 				5B9E7D2F1629909C00FF3B86 /* Standard Request */,
 				5B9E7D301629921F00FF3B86 /* Mapped JSON Request */,
 				5BCF6A241629E7910024C3BC /* Image Request */,
+				5B27AA45162F2B5B00686BD6 /* Multiple Image Request */,
 			);
 			path = EBTestProject;
 			sourceTree = "<group>";
@@ -250,6 +263,7 @@
 				5B9E7D39162993FB00FF3B86 /* Entry.m in Sources */,
 				5B9E7D3C1629948600FF3B86 /* Response.m in Sources */,
 				5BCF6A281629E7B60024C3BC /* ImageViewController.m in Sources */,
+				5B27AA4C162F2C2800686BD6 /* MultipleImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

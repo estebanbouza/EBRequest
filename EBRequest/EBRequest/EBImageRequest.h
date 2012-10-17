@@ -9,6 +9,9 @@
 #import <EBRequest/EBRequest.h>
 #import <UIKit/UIKit.h>
 
+/** 
+ 
+ */
 @interface EBImageRequest : EBRequest
 
 @end

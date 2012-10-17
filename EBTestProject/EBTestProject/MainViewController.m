@@ -12,11 +12,13 @@
 #import "MappedJSONViewController.h"
 #import "StandardRequestViewController.h"
 #import "ImageViewController.h"
+#import "MultipleImageViewController.h"
 
 typedef enum {
     kRowStandardRequest,
     kRowMappedJSONRequest,
     kRowImageRequest,
+    kRowMultipleImageRequest,
     kNumberOfRows
 } t_rows;
 
@@ -75,6 +77,9 @@ static NSString *tableReuseID = @":)";
         case kRowImageRequest:
             cell.textLabel.text = @"Image request";
             break;
+            
+            case kRowMultipleImageRequest:
+            cell.textLabel.text = @"Multiple Image Request";
     }
     
     return cell;
@@ -104,6 +109,11 @@ static NSString *tableReuseID = @":)";
             [self.navigationController pushViewController:imgVC animated:YES];
             
             break;
+        }
+            
+        case kRowMultipleImageRequest: {
+            MultipleImageViewController *multipleVC = [MultipleImageViewController new];
+            [self.navigationController pushViewController:multipleVC animated:YES];
         }
             
         default:
