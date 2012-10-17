@@ -25,7 +25,7 @@
             _imageView.image = image;
         }
 
-        [imageRequest start];
+        [_imageRequest start];
 
  */
 @interface EBImageRequest : EBRequest
