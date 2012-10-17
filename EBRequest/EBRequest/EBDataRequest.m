@@ -29,6 +29,7 @@
     
     [_urlRequest release];
     [_urlConnection release];
+    [_runLoopMode release];
         
     [_receivedData release];
     
@@ -44,6 +45,10 @@
     
     _urlConnection = [[NSURLConnection alloc] initWithRequest:_urlRequest delegate:self startImmediately:NO];
     
+    if (self.runLoopMode) {
+        [_urlConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:self.runLoopMode];
+    }
+
     _receivedData = [[NSMutableData alloc] init];
     
     _shouldBeRunning = YES;

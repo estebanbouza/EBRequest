@@ -19,7 +19,6 @@
  
         EBImageRequest *imageRequest = [EBImageRequest requestWithURL:_imageURL];
 
-
         imageRequest.completionBlock = ^(id img) {
             UIImage *image = (UIImage *)img;
 

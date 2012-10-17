@@ -12,11 +12,13 @@
 #import "MappedJSONViewController.h"
 #import "StandardRequestViewController.h"
 #import "ImageViewController.h"
+#import "MultipleImageViewController.h"
 
 typedef enum {
     kRowStandardRequest,
     kRowMappedJSONRequest,
     kRowImageRequest,
+    kRowMultipleImageRequest,
     kNumberOfRows
 } t_rows;
 
@@ -37,7 +39,12 @@ static NSString *tableReuseID = @":)";
 {
     [super viewDidLoad];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
+    self.view.frame = CGRectMake(0,
+                                 CGRectGetHeight(self.navigationController.navigationBar.frame),
+                                 CGRectGetWidth(self.view.frame),
+                                 CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
+    
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.tableView.autoresizingMask = ~UIViewAutoresizingNone;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -75,6 +82,9 @@ static NSString *tableReuseID = @":)";
         case kRowImageRequest:
             cell.textLabel.text = @"Image request";
             break;
+            
+            case kRowMultipleImageRequest:
+            cell.textLabel.text = @"Multiple Image Request";
     }
     
     return cell;
@@ -104,6 +114,11 @@ static NSString *tableReuseID = @":)";
             [self.navigationController pushViewController:imgVC animated:YES];
             
             break;
+        }
+            
+        case kRowMultipleImageRequest: {
+            MultipleImageViewController *multipleVC = [MultipleImageViewController new];
+            [self.navigationController pushViewController:multipleVC animated:YES];
         }
             
         default:

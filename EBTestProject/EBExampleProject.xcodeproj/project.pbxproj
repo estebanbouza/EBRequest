@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B27AA4C162F2C2800686BD6 /* MultipleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AA4B162F2C2800686BD6 /* MultipleImageViewController.m */; };
+		5B27AA53162F32BF00686BD6 /* ImageEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AA4E162F32BF00686BD6 /* ImageEntry.m */; };
+		5B27AA54162F32BF00686BD6 /* ImageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AA50162F32BF00686BD6 /* ImageResponse.m */; };
+		5B27AA55162F32BF00686BD6 /* ImageResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AA52162F32BF00686BD6 /* ImageResponseData.m */; };
+		5B27AA58162F399200686BD6 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AA57162F399200686BD6 /* ImageCell.m */; };
+		5B27AA64162F41BF00686BD6 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B27AA63162F41BF00686BD6 /* placeholder.png */; };
 		5B65B5541617BF7B006B1C01 /* libEBRequest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B65B5531617BF7B006B1C01 /* libEBRequest.a */; };
 		5B65B55C1617C2BB006B1C01 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B65B55A1617C2BB006B1C01 /* ResultViewController.m */; };
 		5B65B55D1617C2BB006B1C01 /* ResultViewController~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B65B55B1617C2BB006B1C01 /* ResultViewController~iphone.xib */; };
@@ -30,6 +36,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B27AA4A162F2C2800686BD6 /* MultipleImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleImageViewController.h; sourceTree = "<group>"; };
+		5B27AA4B162F2C2800686BD6 /* MultipleImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleImageViewController.m; sourceTree = "<group>"; };
+		5B27AA4D162F32BF00686BD6 /* ImageEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEntry.h; sourceTree = "<group>"; };
+		5B27AA4E162F32BF00686BD6 /* ImageEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEntry.m; sourceTree = "<group>"; };
+		5B27AA4F162F32BF00686BD6 /* ImageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResponse.h; sourceTree = "<group>"; };
+		5B27AA50162F32BF00686BD6 /* ImageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResponse.m; sourceTree = "<group>"; };
+		5B27AA51162F32BF00686BD6 /* ImageResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResponseData.h; sourceTree = "<group>"; };
+		5B27AA52162F32BF00686BD6 /* ImageResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResponseData.m; sourceTree = "<group>"; };
+		5B27AA56162F399200686BD6 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		5B27AA57162F399200686BD6 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		5B27AA63162F41BF00686BD6 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		5B65B5531617BF7B006B1C01 /* libEBRequest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEBRequest.a; path = "../build/Debug-iphonesimulator/libEBRequest.a"; sourceTree = "<group>"; };
 		5B65B5591617C2BB006B1C01 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		5B65B55A1617C2BB006B1C01 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
@@ -79,6 +96,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B27AA45162F2B5B00686BD6 /* Multiple Image Request */ = {
+			isa = PBXGroup;
+			children = (
+				5B27AA4A162F2C2800686BD6 /* MultipleImageViewController.h */,
+				5B27AA4B162F2C2800686BD6 /* MultipleImageViewController.m */,
+				5B27AA4D162F32BF00686BD6 /* ImageEntry.h */,
+				5B27AA4E162F32BF00686BD6 /* ImageEntry.m */,
+				5B27AA4F162F32BF00686BD6 /* ImageResponse.h */,
+				5B27AA50162F32BF00686BD6 /* ImageResponse.m */,
+				5B27AA51162F32BF00686BD6 /* ImageResponseData.h */,
+				5B27AA52162F32BF00686BD6 /* ImageResponseData.m */,
+				5B27AA56162F399200686BD6 /* ImageCell.h */,
+				5B27AA57162F399200686BD6 /* ImageCell.m */,
+			);
+			name = "Multiple Image Request";
+			sourceTree = "<group>";
+		};
+		5B27AA62162F41AE00686BD6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5B27AA63162F41BF00686BD6 /* placeholder.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		5B9E7D2F1629909C00FF3B86 /* Standard Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +197,8 @@
 				5B9E7D2F1629909C00FF3B86 /* Standard Request */,
 				5B9E7D301629921F00FF3B86 /* Mapped JSON Request */,
 				5BCF6A241629E7910024C3BC /* Image Request */,
+				5B27AA45162F2B5B00686BD6 /* Multiple Image Request */,
+				5B27AA62162F41AE00686BD6 /* Resources */,
 			);
 			path = EBTestProject;
 			sourceTree = "<group>";
@@ -230,6 +274,7 @@
 				5BD413181617B0FD007A17AA /* Default-568h@2x.png in Resources */,
 				5B65B55D1617C2BB006B1C01 /* ResultViewController~iphone.xib in Resources */,
 				5B9E7D2B16298D8B00FF3B86 /* ResultViewController~ipad.xib in Resources */,
+				5B27AA64162F41BF00686BD6 /* placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +295,11 @@
 				5B9E7D39162993FB00FF3B86 /* Entry.m in Sources */,
 				5B9E7D3C1629948600FF3B86 /* Response.m in Sources */,
 				5BCF6A281629E7B60024C3BC /* ImageViewController.m in Sources */,
+				5B27AA4C162F2C2800686BD6 /* MultipleImageViewController.m in Sources */,
+				5B27AA53162F32BF00686BD6 /* ImageEntry.m in Sources */,
+				5B27AA54162F32BF00686BD6 /* ImageResponse.m in Sources */,
+				5B27AA55162F32BF00686BD6 /* ImageResponseData.m in Sources */,
+				5B27AA58162F399200686BD6 /* ImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

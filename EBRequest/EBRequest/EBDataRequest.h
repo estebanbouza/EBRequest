@@ -12,4 +12,7 @@
 /// EBDataRequest will return NSData objects in the completion block
 @interface EBDataRequest : EBRequest
 
+/// Optional property. When set, this run loop mode will be assigned to the internal NSURLConnection.
+@property (nonatomic, retain) NSString *runLoopMode;
+
 @end
