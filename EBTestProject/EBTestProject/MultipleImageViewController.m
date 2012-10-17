@@ -33,7 +33,7 @@ const static CGFloat    kRowHeight = 80.0f;
         
         _queryURLs = [NSMutableArray array];
         for (int i = 0; i < kQuerySearchPages; i++) {
-            [_queryURLs addObject:[NSURL URLWithString:[NSString stringWithFormat:@"https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%@&rsz=8&start=%d", kQueryString, i]]];
+            [_queryURLs addObject:[NSURL URLWithString:[NSString stringWithFormat:@"https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%@&rsz=8&start=%d&imgsz=small", kQueryString, i]]];
         }
     }
     
@@ -52,6 +52,7 @@ const static CGFloat    kRowHeight = 80.0f;
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    _tableView.autoresizingMask = ~UIViewAutoresizingNone;
     [self.view addSubview:_tableView];
     
     [self queryImageURLs];
