@@ -8,6 +8,8 @@
 
 #import "MultipleImageViewController.h"
 
+#import "ImageCell.h"
+
 static const NSInteger kNumberOfRows = 50;
 
 static const NSInteger kQuerySearchPages = 5;
@@ -38,7 +40,7 @@ static const NSInteger kQuerySearchPages = 5;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -54,13 +56,30 @@ static const NSInteger kQuerySearchPages = 5;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *reuseID = @":-)";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
+    ImageCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseID];
+        cell = [[ImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseID];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%d. %@", indexPath.row, [_imageEntries[indexPath.row] titleNoFormatting]];
+    [cell.imageRequest stop];
+    cell.imageView.image = [self placeholderImage];
+    
+    ImageEntry *entry = _imageEntries[indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%d. %@", indexPath.row, entry.titleNoFormatting];
+    
+    cell.imageRequest = [EBImageRequest requestWithURL:[NSURL URLWithString:entry.url]];
+    cell.imageRequest.completionBlock = ^ (id data) {
+        DLog(@"Painting...");
+        
+        UIImage *image = (UIImage *)data;
+        
+        cell.imageView.image = image;
+        
+    };
+    
+    [cell.imageRequest start];
     
     return cell;
 }
@@ -82,7 +101,7 @@ static const NSInteger kQuerySearchPages = 5;
 - (void)queryImageURLs {
     for (NSURL *queryURL in _queryURLs) {
         EBJSONRequest *jsonRequest = [EBJSONRequest requestWithURL:queryURL];
-
+        
         EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:
                                       @[[ImageEntry class],
                                       [ImageResponse class],
@@ -92,21 +111,24 @@ static const NSInteger kQuerySearchPages = 5;
         
         jsonRequest.completionBlock = ^ (id data){
             if (![data isKindOfClass:[ImageResponse class]]) {
-                DLog(@"Invalid class %@", [data class]);
+                DLog(@"Invalid class. Blame esteban.bouza {at] gmail dot com: %@", [data class]);
                 return;
             }
             
             ImageResponse *response = (ImageResponse *)data;
             
-            for (ImageEntry *entry in response.responseData.results) {
-                [_imageEntries addObject:entry];
-            }
+            [_imageEntries addObjectsFromArray:response.responseData.results];
             
             [_tableView reloadData];
         };
         
         [jsonRequest start];
     }
+}
+
+
+- (UIImage *)placeholderImage {
+    return [UIImage imageNamed:@"placeholder"];
 }
 
 @end

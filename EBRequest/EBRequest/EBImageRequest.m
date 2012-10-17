@@ -44,6 +44,8 @@
 #pragma Handlers
 
 - (EBCompletionBlock)imageCompletionBlock {
+    
+    __block typeof(self) this = self;
     id block = ^(NSData *data){
 
         if (data == nil) {
@@ -52,6 +54,8 @@
         }
         
         UIImage *image = [UIImage imageWithData:data];
+        
+        this = this;
         
         if (image == nil) {
             self.errorBlock([NSError errorWithDomain:@"Couldn't create image" code:-1 userInfo:nil]);

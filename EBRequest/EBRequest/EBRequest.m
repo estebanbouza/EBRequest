@@ -16,6 +16,15 @@
 - (id)initWithURL:(NSURL *)url {
     if (self = [super init]) {
         _sourceURL = [url retain];
+        
+        // Default completion and error blocks.
+        _completionBlock = ^(id data) {
+            
+        };
+        
+        _errorBlock = ^(NSError *error) {
+            DLog(@"Error: %@", error);
+        };
     }
     
     return self;
