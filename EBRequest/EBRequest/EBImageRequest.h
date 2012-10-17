@@ -17,9 +17,7 @@
  
  Sample usage:
  
-        
-        NSURL *_imageURL = [NSURL URLWithString:@"https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=pizza"];
-        EBImageRequest *imageRequest = [EBImageRequest requestWithURL:nil];
+        EBImageRequest *imageRequest = [EBImageRequest requestWithURL:_imageURL];
 
         imageRequest.completionBlock = ^(id img) {
             UIImage *image = (UIImage *)img;
