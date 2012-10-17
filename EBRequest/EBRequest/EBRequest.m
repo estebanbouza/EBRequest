@@ -54,4 +54,10 @@
     
 }
 
+#pragma mark - Description
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"sourceURL: %@", self.sourceURL];
+}
+
 @end
