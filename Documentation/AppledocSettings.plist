@@ -29,5 +29,7 @@
 	<string>EBRequest</string>
 	<key>--output</key>
 	<string>../docs</string>
+	<key>--exit-threshold</key>
+	<string>2</string>
 </dict>
 </plist>
