@@ -10,8 +10,8 @@
 
 #import "ImageCell.h"
 
-static const NSInteger  kQuerySearchPages = 5;
-const static NSString   *kQueryString = @"Lettuce";
+static const NSInteger  kQuerySearchPages = 15;
+const static NSString   *kQueryString = @"flower";
 
 const static CGFloat    kRowHeight = 80.0f;
 
@@ -55,6 +55,33 @@ const static CGFloat    kRowHeight = 80.0f;
     [self.view addSubview:_tableView];
     
     [self queryImageURLs];
+}
+
+#pragma mark - Queries
+
+// This method extracts the image objects from Google Images API results.
+- (void)queryImageURLs {
+    for (NSURL *queryURL in _queryURLs) {
+        EBJSONRequest *jsonRequest = [EBJSONRequest requestWithURL:queryURL];
+        
+        EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:
+                                      @[[ImageEntry class],
+                                      [ImageResponse class],
+                                      [ImageResponseData class]]];
+        
+        jsonRequest.JSONObjectMapper = mapper;
+        
+        jsonRequest.completionBlock = ^ (id data){
+            // Data is already mapped to custom classes.
+            ImageResponse *response = (ImageResponse *)data;
+            
+            [_imageEntries addObjectsFromArray:response.responseData.results];
+            
+            [_tableView reloadData];
+        };
+        
+        [jsonRequest start];
+    }
 }
 
 #pragma mark - Table view
@@ -114,33 +141,6 @@ const static CGFloat    kRowHeight = 80.0f;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
-#pragma mark - Queries
-
-// This method extracts the image objects from Google Images API results.
-- (void)queryImageURLs {
-    for (NSURL *queryURL in _queryURLs) {
-        EBJSONRequest *jsonRequest = [EBJSONRequest requestWithURL:queryURL];
-        
-        EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:
-                                      @[[ImageEntry class],
-                                      [ImageResponse class],
-                                      [ImageResponseData class]]];
-        
-        jsonRequest.JSONObjectMapper = mapper;
-        
-        jsonRequest.completionBlock = ^ (id data){
-            // Data is already mapped to custom classes.
-            ImageResponse *response = (ImageResponse *)data;
-            
-            [_imageEntries addObjectsFromArray:response.responseData.results];
-            
-            [_tableView reloadData];
-        };
-        
-        [jsonRequest start];
-    }
-}
 
 #pragma mark - Generic
 
