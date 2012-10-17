@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>EBJSONRequest Class Reference</title>
+		<title>EBImageRequest Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">EBJSONRequest Class Reference</h1>
+				<h1 class="hideInXcode">EBImageRequest Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -38,16 +38,18 @@
 	
 	
 	
-	<option value="properties">Properties</option>
-	
-	<option value="//api/name/JSONObjectMapper">&nbsp;&nbsp;&nbsp;&nbsp;JSONObjectMapper</option>
 	
 	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/requestWithURL:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestWithURL:</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/initWithURL:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithURL:</option>
 	
 	<option value="//api/name/start">&nbsp;&nbsp;&nbsp;&nbsp;- start</option>
 	
@@ -75,17 +77,19 @@
 
 
 
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/JSONObjectMapper">JSONObjectMapper</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestWithURL:">requestWithURL:</a></span></li>
 	
 </ul></li>
 
 
 
-
-
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithURL:">initWithURL:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/start">start</a></span></li>
 	
@@ -98,7 +102,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="EBJSONRequest Class Reference" name="top"></a>
+				<a title="EBImageRequest Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -107,7 +111,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">EBJSONRequest Class Reference</h1>
+						<h1 class="title title-header">EBImageRequest Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -118,7 +122,7 @@
 	<td class="specification-value"><a href="../Classes/EBRequest.html">EBRequest</a> : NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">EBJSONRequest.h<br />EBJSONRequest.m</td>
+	<td class="specification-value">EBImageRequest.h<br />EBImageRequest.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -128,7 +132,25 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>EBJSONRequest returns JSON or Custom objects in the completion block. For more information see property <a href="#//api/name/JSONObjectMapper">JSONObjectMapper</a></p>
+						<p>EBImageRequest fetches images from a URL.
+It returns UIImage objects in the completionBlock. As usual, the completion block is executed
+in the main thread so it&rsquo;s safe to draw once the image is donwloaded inside completionBlock.</p>
+
+<p>See <a href="#//api/name/requestWithURL:">requestWithURL:</a></p>
+
+<p>Sample usage:</p>
+
+<pre><code>    EBImageRequest *imageRequest = [EBImageRequest requestWithURL:_imageURL];
+
+
+    imageRequest.completionBlock = ^(id img) {
+        UIImage *image = (UIImage *)img;
+
+        _imageView.image = image;
+    }
+
+    [imageRequest start];
+</code></pre>
 					</div>
 					
 					
@@ -141,25 +163,24 @@
 						
 						
 						
-						<h3 class="subsubtitle task-title">Other Methods</h3>
+						
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/JSONObjectMapper">&nbsp;&nbsp;JSONObjectMapper</a></code>
-		<span class="tooltip"><p>Optional argument. If the parameter is not nil, the result of the mapping will be custom classes instead of NSDictionary and NSArrays.</p></span>
+		<code><a href="#//api/name/initWithURL:">&ndash;&nbsp;initWithURL:</a></code>
+		<span class="tooltip"><p>Creates a new request with the specified URL. Not started until <a href="../Classes/EBRequest.html#//api/name/start">start</a> is called.</p></span>
 	</span>
-	<span class="task-item-suffix">property</span>
 	
-</li>
-						</ul>
-						
-						
-						
-						<h3 class="subsubtitle task-title">Other Methods</h3>
-
-						<ul class="task-list">
-							<li>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestWithURL:">+&nbsp;requestWithURL:</a></code>
+		<span class="tooltip"><p>Creates a new request with the specified URL. Not started until <a href="../Classes/EBRequest.html#//api/name/start">start</a> is called.</p></span>
+	</span>
+	
+	
+</li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/start">&ndash;&nbsp;start</a></code>
 		<span class="tooltip"><p>Starts an asynchronous request</p></span>
@@ -182,25 +203,37 @@
 					
 					
 					
+					
+					
 					<div class="section section-methods">
-						<a title="Properties" name="properties"></a>
-						<h2 class="subtitle subtitle-methods">Properties</h2>
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/JSONObjectMapper" title="JSONObjectMapper"></a>
-	<h3 class="subsubtitle method-title">JSONObjectMapper</h3>
+	<a name="//api/name/requestWithURL:" title="requestWithURL:"></a>
+	<h3 class="subsubtitle method-title">requestWithURL:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Optional argument. If the parameter is not nil, the result of the mapping will be custom classes instead of NSDictionary and NSArrays.</p>
+		<p>Creates a new request with the specified URL. Not started until <a href="../Classes/EBRequest.html#//api/name/start">start</a> is called.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) EBJSONObjectMapper *JSONObjectMapper</code></div>
+	<div class="method-subsection method-declaration"><code>+ (id)requestWithURL:(NSURL *)<em>url</em></code></div>
 
     
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>url</em></dt>
+			<dd><p>URL for the request</p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
@@ -210,7 +243,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Optional argument. If the parameter is not nil, the result of the mapping will be custom classes instead of NSDictionary and NSArrays.</p>
+		<p>Creates a new request with the specified URL. Not started until <a href="../Classes/EBRequest.html#//api/name/start">start</a> is called.</p>
 	</div>
 	
 	
@@ -221,7 +254,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">EBJSONRequest.h</code><br />
+		<code class="declared-in-ref">EBRequest.h</code><br />
 	</div>				
 	
 	
@@ -231,11 +264,60 @@
 					
 					
 					
-					
-					
 					<div class="section section-methods">
 						<a title="Instance Methods" name="instance_methods"></a>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithURL:" title="initWithURL:"></a>
+	<h3 class="subsubtitle method-title">initWithURL:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates a new request with the specified URL. Not started until <a href="../Classes/EBRequest.html#//api/name/start">start</a> is called.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithURL:(NSURL *)<em>url</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>url</em></dt>
+			<dd><p>URL for the request.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Creates a new request with the specified URL. Not started until <a href="../Classes/EBRequest.html#//api/name/start">start</a> is called.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBRequest.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/start" title="start"></a>
