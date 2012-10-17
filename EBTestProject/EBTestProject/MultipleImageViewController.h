@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImageEntry.h"
+#import "ImageResponse.h"
+#import "ImageResponseData.h"
 
 @interface MultipleImageViewController : UIViewController
 
