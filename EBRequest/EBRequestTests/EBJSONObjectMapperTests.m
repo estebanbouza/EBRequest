@@ -133,18 +133,18 @@
 
 - (void)testRegularMapping {
     EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClass:[MockPerson class]];
-
+    
     NSDictionary *personDict = @{@"name" : @"John", @"age" : @42, @"birthDate" : @"542721600"};
     
     MockPerson *person = [mapper objectFromJSON:personDict];
-
+    
     STAssertNotNil(person, @"Object not created");
     
     STAssertEquals(person.name, @"John", @"String mapping not working");
     STAssertTrue([person.age isEqualToNumber:@42], @"Number mapping not working");
     
     NSDateComponents* components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:person.birthDate];
-
+    
     STAssertEquals(components.year, 1987, @"Year mapping not working");
     STAssertEquals(components.month, 3, @"Month mapping not working");
     STAssertEquals(components.day, 14, @"Day mapping not working");
@@ -192,7 +192,7 @@
     EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:@[[MockPerson class], [MockAddress class]]];
     
     MockPerson *person = [mapper objectFromJSON:json];
-
+    
     STAssertTrue([self validateJSON2:person], nil);
 }
 
@@ -217,7 +217,7 @@
 
 - (void)testPropertyMapper {
     NSError *error;
-
+    
     NSString *jsonString = [NSString stringWithContentsOfFile:[[NSBundle bundleForClass:[MockPerson class]] pathForResource:@"JSONTestPropertyMapper" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
     
     id json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
@@ -227,14 +227,14 @@
     // Create property mappers for person and address.
     EBPropertyMapper *personMapper = [EBPropertyMapper mapperWithClass:[MockPerson class]
                                                             properties:@{@"name" : @"j_name",
-                                                                     @"employed" : @"j_employed",
-                                                                      @"address" : @"j_address",
-                                                                     @"children" : @"j_children"
+                                      @"employed" : @"j_employed",
+                                      @"address" : @"j_address",
+                                      @"children" : @"j_children"
                                       }];
     
     EBPropertyMapper *addressMapper = [EBPropertyMapper mapperWithClass:[MockAddress class] properties:@{@"city" : @"j_city", @"country" : @"j_country"}];
     mapper.propertyMappers = @[personMapper, addressMapper];
-
+    
     // Start mapping the JSON
     MockPerson *person = [mapper objectFromJSON:json];
     
@@ -251,7 +251,7 @@
     EBJSONRequest *request = [EBJSONRequest requestWithURL:jsonURL];
     
     EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:@[[MockPerson class], [MockAddress class]]];
-
+    
     // Create property mappers for person and address.
     EBPropertyMapper *personMapper = [EBPropertyMapper mapperWithClass:[MockPerson class]
                                                             properties:@{@"name" : @"j_name",
@@ -276,7 +276,7 @@
     request.errorBlock = ^(NSError *error) {
         STFail(@"Shouldn't fail %@", error);
         dispatch_semaphore_signal(semaphore);
-
+        
     };
     
     [request start];

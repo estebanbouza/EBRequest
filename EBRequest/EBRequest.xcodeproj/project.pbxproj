@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B3DFF651630267D00C26327 /* JSONTestPropertyMapper2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3DFF641630267D00C26327 /* JSONTestPropertyMapper2.txt */; };
 		5B49E09616291912007AD7F6 /* EBDescribedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E09416291912007AD7F6 /* EBDescribedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B49E09716291912007AD7F6 /* EBDescribedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E09516291912007AD7F6 /* EBDescribedObject.m */; };
 		5B49E09B162919A6007AD7F6 /* EBDescribedObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */; };
@@ -89,6 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B3DFF641630267D00C26327 /* JSONTestPropertyMapper2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTestPropertyMapper2.txt; sourceTree = "<group>"; };
 		5B49E09416291912007AD7F6 /* EBDescribedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDescribedObject.h; sourceTree = "<group>"; };
 		5B49E09516291912007AD7F6 /* EBDescribedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBDescribedObject.m; sourceTree = "<group>"; };
 		5B49E099162919A6007AD7F6 /* EBDescribedObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBDescribedObjectTests.h; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */,
 				5B696BA51619FE3200B4A20C /* JSONTest3.txt */,
 				5B7AF98216260DB1008FE123 /* JSONTestPropertyMapper.txt */,
+				5B3DFF641630267D00C26327 /* JSONTestPropertyMapper2.txt */,
 				5B5298921617783B00B6BD6A /* Supporting Files */,
 			);
 			path = EBRequestTests;
@@ -359,6 +362,7 @@
 				5BCA3CDF1618ECC80007E260 /* JSONTest2.txt in Resources */,
 				5B696BA61619FE3200B4A20C /* JSONTest3.txt in Resources */,
 				5B7AF98316260DB1008FE123 /* JSONTestPropertyMapper.txt in Resources */,
+				5B3DFF651630267D00C26327 /* JSONTestPropertyMapper2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
