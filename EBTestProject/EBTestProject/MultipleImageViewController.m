@@ -70,9 +70,16 @@ const static CGFloat    kRowHeight = 80.0f;
                                       [ImageResponse class],
                                       [ImageResponseData class]]];
         
+        EBPropertyMapper *responseMapper = [EBPropertyMapper mapperWithClass:[ImageResponse class] properties:
+                                            @{@"myData" : @"resposeData",
+                                            @"myStatus" : @"responseStatus",
+                                            @"myDetail" : @"resposeDetail"}];
+        
+        mapper.propertyMappers = @[responseMapper];
+        
         jsonRequest.JSONObjectMapper = mapper;
         
-        jsonRequest.completionBlock = ^ (id data){
+        jsonRequest.completionBlock = ^(id data){
             // Data is already mapped to custom classes.
             ImageResponse *response = (ImageResponse *)data;
             
