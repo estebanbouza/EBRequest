@@ -241,6 +241,56 @@
     [self validateJSON1:person];
 }
 
+- (void)testRequestPropertyMapper {
+    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    __block BOOL completionExecuted = NO;
+    
+    NSURL *jsonURL = [[NSBundle bundleForClass:[MockPerson class]] URLForResource:@"JSONTestPropertyMapper" withExtension:@"txt"];
+    
+    EBJSONRequest *request = [EBJSONRequest requestWithURL:jsonURL];
+    
+    EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:@[[MockPerson class], [MockAddress class]]];
+
+    // Create property mappers for person and address.
+    EBPropertyMapper *personMapper = [EBPropertyMapper mapperWithClass:[MockPerson class]
+                                                            properties:@{@"name" : @"j_name",
+                                      @"employed" : @"j_employed",
+                                      @"address" : @"j_address",
+                                      @"children" : @"j_children"
+                                      }];
+    
+    EBPropertyMapper *addressMapper = [EBPropertyMapper mapperWithClass:[MockAddress class] properties:@{@"city" : @"j_city", @"country" : @"j_country"}];
+    mapper.propertyMappers = @[personMapper, addressMapper];
+    
+    request.JSONObjectMapper = mapper;
+    
+    request.completionBlock = ^(id data) {
+        MockPerson *person = [mapper objectFromJSON:data];
+        
+        [self validateJSON1:person];
+        completionExecuted = YES;
+        dispatch_semaphore_signal(semaphore);
+    };
+    
+    request.errorBlock = ^(NSError *error) {
+        STFail(@"Shouldn't fail %@", error);
+        dispatch_semaphore_signal(semaphore);
+
+    };
+    
+    [request start];
+    
+    while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10.0]];
+    }
+    
+    STAssertTrue(completionExecuted, nil);
+    
+    dispatch_release(semaphore);
+    
+}
+
 
 
 @end
