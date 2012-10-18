@@ -266,7 +266,7 @@
     request.JSONObjectMapper = mapper;
     
     request.completionBlock = ^(id data) {
-        MockPerson *person = [mapper objectFromJSON:data];
+        MockPerson *person = (MockPerson *)data;
         
         [self validateJSON1:person];
         completionExecuted = YES;
