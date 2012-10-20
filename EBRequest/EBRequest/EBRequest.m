@@ -39,6 +39,7 @@
     
     [_completionBlock release];
     [_errorBlock release];
+    [_runLoopMode release];
     
     [super dealloc];
 }

@@ -23,6 +23,8 @@ typedef void(^EBErrorBlock) (NSError *error);
 /// Error block called when the request fails. The error block is always executed in the main thread.
 @property (atomic, copy) EBErrorBlock errorBlock;
 
+/// Optional property. When set, this run loop mode will be assigned to the internal NSURLConnection.
+@property (nonatomic, retain) NSString *runLoopMode;
 
 /// Creates a new request with the specified URL. Not started until start is called.
 /// @param url URL for the request

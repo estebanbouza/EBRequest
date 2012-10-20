@@ -29,7 +29,6 @@
     
     [_urlRequest release];
     [_urlConnection release];
-    [_runLoopMode release];
         
     [_receivedData release];
     
