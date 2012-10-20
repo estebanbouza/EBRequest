@@ -23,13 +23,28 @@
 
 #pragma mark - Lifecycle
 
+- (id)initWithURL:(NSURL *)url {
+    self = [super initWithURL:url];
+    
+    if (self) {
+        _urlRequest = [[NSURLRequest alloc] initWithURL:self.sourceURL];
+        _urlConnection = [[NSURLConnection alloc] initWithRequest:_urlRequest delegate:self startImmediately:NO];
+        _receivedData = [[NSMutableData alloc] init];
+    }
+    
+    return self;
+}
+
++ (id)requestWithURL:(NSURL *)url {
+    return [[[self alloc] initWithURL:url] autorelease];
+}
+
 - (void)dealloc {
     // Stop running connection
     [_urlConnection cancel];
     
     [_urlRequest release];
-    [_urlConnection release];
-        
+    [_urlConnection release];        
     [_receivedData release];
     
     [super dealloc];
@@ -40,15 +55,10 @@
 #pragma mark -
 
 - (BOOL)start {
-    _urlRequest = [[NSURLRequest alloc] initWithURL:self.sourceURL];
-    
-    _urlConnection = [[NSURLConnection alloc] initWithRequest:_urlRequest delegate:self startImmediately:NO];
-    
+
     if (self.runLoopMode) {
         [_urlConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:self.runLoopMode];
     }
-
-    _receivedData = [[NSMutableData alloc] init];
     
     _isRunning = YES;
     [_urlConnection start];

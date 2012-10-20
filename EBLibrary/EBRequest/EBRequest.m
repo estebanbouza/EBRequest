@@ -35,8 +35,7 @@
 }
 
 - (void)dealloc {    
-    [_sourceURL release];
-    
+    [_sourceURL release];    
     [_completionBlock release];
     [_errorBlock release];
     [_runLoopMode release];
