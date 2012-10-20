@@ -7,7 +7,6 @@
 //
 
 #import "EBJSONRequest.h"
-#import "EBJSONObjectMapper.h"
 
 @interface EBJSONRequest() {
     NSURLConnection     *_urlConnection;
