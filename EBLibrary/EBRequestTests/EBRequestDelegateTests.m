@@ -32,14 +32,13 @@
 }
 
 - (void)tearDown {
-    [super tearDown];
     dispatch_release(_semaphore);
 
+    [super tearDown];
 }
 
 
-- (void)testRegularProgress {
-    
+- (void)testDataProgress {
 
     EBDataRequest *dataRequest = [EBDataRequest requestWithURL:[NSURL URLWithString:@"http://static.googleusercontent.com/external_content/untrusted_dlcp/www.google.com/en//websiteoptimizer/techieguide.pdf"]];
     
@@ -61,9 +60,34 @@
     STAssertTrue(_completionExecuted, nil);
 }
 
+- (void)testImageProgress {
+    
+    EBImageRequest *imageRequest = [EBImageRequest requestWithURL:[NSURL URLWithString:@"https://lh4.googleusercontent.com/-v0soe-ievYE/AAAAAAAAAAI/AAAAAAAAs7Y/yFVd0T5kw-o/photo.jpg"]];
+    
+    imageRequest.delegate = self;
+    
+    imageRequest.delegate = self;
+    
+    imageRequest.completionBlock = ^(id data) {
+        _completionExecuted = YES;
+        dispatch_semaphore_signal(_semaphore);
+    };
+    
+    [imageRequest start];
+    
+    while (dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_NOW)) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10.0]];
+    }
+    
+    STAssertTrue(_zeroFound, @"Progress must start in 0.0");
+    STAssertTrue(_oneFound, @"Progress must end in 1.0");
+    STAssertTrue(_completionExecuted, nil);
+}
+
+
 - (void)request:(EBRequest *)request changedProgressTo:(float)progress {
+
     if (progress == 0.0) {
-        
         if (_zeroFound) {
             STFail(@"Zero can only be sent once");
         }
@@ -72,7 +96,6 @@
     }
     
     else if (progress == 1.0) {
-        
         if (_oneFound) {
             STFail(@"One can only be sent once");
         }

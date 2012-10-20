@@ -8,7 +8,7 @@
 
 #import "EBImageRequest.h"
 
-@interface EBImageRequest () {
+@interface EBImageRequest () <EBRequestDelegate> {
     EBDataRequest *_dataRequest;
 }
 
@@ -26,6 +26,7 @@
         _dataRequest.runLoopMode = NSRunLoopCommonModes;
         _dataRequest.completionBlock = [self imageCompletionBlock];
         _dataRequest.errorBlock = [self imageErrorBlock];
+        _dataRequest.delegate = self;
         
     }
     
@@ -78,6 +79,20 @@
     };
     
     return [[block copy] autorelease];
+}
+
+#pragma mark - Data Request delegate
+
+- (void)request:(EBRequest *)request changedProgressTo:(float)progress {
+    if (request == _dataRequest) {
+        [self notifyProgressChange:progress];
+    }
+}
+
+- (void)notifyProgressChange:(float)progress {
+    if ([self.delegate respondsToSelector:@selector(request:changedProgressTo:)]) {
+        [self.delegate request:self changedProgressTo:progress];
+    }
 }
 
 
