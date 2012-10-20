@@ -65,6 +65,28 @@
     EBImageRequest *imageRequest = [EBImageRequest requestWithURL:[NSURL URLWithString:@"https://lh4.googleusercontent.com/-v0soe-ievYE/AAAAAAAAAAI/AAAAAAAAs7Y/yFVd0T5kw-o/photo.jpg"]];
     
     imageRequest.delegate = self;
+        
+    imageRequest.completionBlock = ^(id data) {
+        _completionExecuted = YES;
+        dispatch_semaphore_signal(_semaphore);
+    };
+    
+    [imageRequest start];
+    
+    while (dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_NOW)) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10.0]];
+    }
+    
+    STAssertTrue(_zeroFound, @"Progress must start in 0.0");
+    STAssertTrue(_oneFound, @"Progress must end in 1.0");
+    STAssertTrue(_completionExecuted, nil);
+}
+
+- (void)testJSONProgress {
+    
+    EBJSONRequest *imageRequest = [EBJSONRequest requestWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode"]];
+    
+    imageRequest.delegate = self;
     
     imageRequest.delegate = self;
     
@@ -83,6 +105,9 @@
     STAssertTrue(_oneFound, @"Progress must end in 1.0");
     STAssertTrue(_completionExecuted, nil);
 }
+
+
+#pragma mark - Delegate
 
 
 - (void)request:(EBRequest *)request changedProgressTo:(float)progress {
