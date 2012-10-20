@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EBRequestDelegate.h"
 
 typedef void(^EBCompletionBlock)(id responseData);
 typedef void(^EBErrorBlock) (NSError *error);
@@ -28,6 +29,10 @@ typedef void(^EBErrorBlock) (NSError *error);
 
 /// Specifies whether the current request is running.
 @property (nonatomic, readonly) BOOL isRunning;
+
+/// Delegate. See EBRequestDelegate
+@property (nonatomic, assign) id<EBRequestDelegate> delegate;
+
 
 /// Creates a new request with the specified URL. Not started until start is called.
 /// @param url URL for the request
