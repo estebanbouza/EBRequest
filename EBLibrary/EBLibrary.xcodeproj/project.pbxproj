@@ -567,7 +567,7 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EBRequest/EBRequest-Prefix.pch";
+				GCC_PREFIX_HEADER = "EBRequest/EBLibrary-Prefix.pch";
 				INFOPLIST_FILE = "EBRequestTests/EBLibraryTests-Info.plist";
 				PRODUCT_NAME = EBLibraryTests;
 				WRAPPER_EXTENSION = octest;
@@ -583,7 +583,7 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EBRequest/EBRequest-Prefix.pch";
+				GCC_PREFIX_HEADER = "EBRequest/EBLibrary-Prefix.pch";
 				INFOPLIST_FILE = "EBRequestTests/EBLibraryTests-Info.plist";
 				PRODUCT_NAME = EBLibraryTests;
 				WRAPPER_EXTENSION = octest;
@@ -643,6 +643,7 @@
 				5B7B38291632FE420094F1D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
