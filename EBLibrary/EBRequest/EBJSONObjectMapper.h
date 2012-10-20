@@ -26,6 +26,12 @@
 /// @param classes The possible classes to map to
 - (id)initWithClasses:(NSArray *)classes;
 
+/** Creates a mapper instance with several possible classes and property mappers.
+@param classes The possible classes to map to.
+ @param propertyMappers A list of EBPropertyMapper between NSObject property names and JSON fields. See EBPropertyMapper.
+*/
+- (id)initWithClasses:(NSArray *)classes propertyMappers:(NSArray *)propertyMappers;
+
 /// Creates an autoreleased mapper for the specified class. See initWithClass:
 /// @param class The class to be mapped to
 + (id)mapperWithClass:(Class)class;
@@ -33,6 +39,10 @@
 /// Creates an autoreleased mapper for the specified classes. See initWithClasses:
 /// @param classes The possible classes to map to.
 + (id)mapperWithClasses:(NSArray *)classes;
+
+/** Creates an autoreleased mapper for the specified classes and property mappers. See initWithClasses:propertyMappers:
+ */
++ (id)mapperWithClasses:(NSArray *)classes propertyMappers:(NSArray *)propertyMappers;
 
 /// Maps a NSDictionary to a custom class.
 /// @param dict The array or dictionary with the key-values representing the ivars of the object.
