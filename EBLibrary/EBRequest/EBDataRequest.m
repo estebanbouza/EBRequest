@@ -135,11 +135,14 @@
     }
 }
 
-- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSHTTPURLResponse*) response {
-
-    if ([response statusCode] == 200) {
+- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSHTTPURLResponse*)response {
+    
+    if (![response respondsToSelector:@selector(statusCode)]) {
+        DLog(@"Warning. Cannot access [response statusCode]. Maybe the request isn't http?");
+    }
+    else if([response statusCode] == 200) {
         _expectedContentLength = [response expectedContentLength];
-
+        
         [self notifyProgressChange];
     }
 }
