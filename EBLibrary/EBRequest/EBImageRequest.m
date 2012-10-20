@@ -46,21 +46,23 @@
 
 - (EBCompletionBlock)imageCompletionBlock {
     
+    __block typeof(self) this = self;
+    
     EBCompletionBlock block = ^(NSData *data){
 
         if (data == nil) {
-            self.errorBlock([NSError errorWithDomain:@"No data downloaded" code:-1 userInfo:nil]);
+            this.errorBlock([NSError errorWithDomain:@"No data downloaded" code:-1 userInfo:nil]);
             return;
         }
         
         UIImage *image = [UIImage imageWithData:data];
         
         if (image == nil) {
-            self.errorBlock([NSError errorWithDomain:@"Couldn't create image" code:-1 userInfo:nil]);
+            this.errorBlock([NSError errorWithDomain:@"Couldn't create image" code:-1 userInfo:nil]);
             return;
         }
         
-        self.completionBlock(image);
+        this.completionBlock(image);
         
     };
     
@@ -68,9 +70,11 @@
 }
 
 - (EBErrorBlock)imageErrorBlock {
-    
+
+    __block typeof(self) this = self;
+
     EBErrorBlock block = ^(NSError *error) {
-        self.errorBlock(error);
+        this.errorBlock(error);
     };
     
     return [[block copy] autorelease];

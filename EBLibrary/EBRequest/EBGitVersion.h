@@ -1,4 +1,4 @@
 /* Git repository information for current build: */
 
-#define kGitVersion       @"v0.3-68-g02fb3c8"
+#define kGitVersion       @"v0.3-70-gb293cff"
 #define kGitBranch        @"develop"
