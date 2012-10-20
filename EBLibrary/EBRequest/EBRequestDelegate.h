@@ -18,6 +18,6 @@
  @params request The request being used.
  @params progress The current progress between `0.0` and `1.0`.
  */
-- (void)request:(EBRequest *)request changedProgressTo:(float)progress;
+- (void)request:(EBRequest *)request progressChanged:(float)progress;
 
 @end

@@ -153,10 +153,10 @@
 #pragma mark - Internal
 
 - (void)notifyProgressChange {
-    if ([self.delegate respondsToSelector:@selector(request:changedProgressTo:)]) {
+    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)]) {
         float progress = ((float) [_receivedData length] / (float) _expectedContentLength);
         
-        [self.delegate request:self changedProgressTo:progress];
+        [self.delegate request:self progressChanged:progress];
     }
 }
 

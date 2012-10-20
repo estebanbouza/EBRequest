@@ -83,15 +83,15 @@
 
 #pragma mark - Data Request delegate
 
-- (void)request:(EBRequest *)request changedProgressTo:(float)progress {
+- (void)request:(EBRequest *)request progressChanged:(float)progress {
     if (request == _dataRequest) {
         [self notifyProgressChange:progress];
     }
 }
 
 - (void)notifyProgressChange:(float)progress {
-    if ([self.delegate respondsToSelector:@selector(request:changedProgressTo:)]) {
-        [self.delegate request:self changedProgressTo:progress];
+    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)]) {
+        [self.delegate request:self progressChanged:progress];
     }
 }
 

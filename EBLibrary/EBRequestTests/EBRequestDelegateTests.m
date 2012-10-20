@@ -84,18 +84,16 @@
 
 - (void)testJSONProgress {
     
-    EBJSONRequest *imageRequest = [EBJSONRequest requestWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode"]];
+    EBJSONRequest *jsonRequest = [EBJSONRequest requestWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode"]];
     
-    imageRequest.delegate = self;
-    
-    imageRequest.delegate = self;
-    
-    imageRequest.completionBlock = ^(id data) {
+    jsonRequest.delegate = self;
+        
+    jsonRequest.completionBlock = ^(id data) {
         _completionExecuted = YES;
         dispatch_semaphore_signal(_semaphore);
     };
     
-    [imageRequest start];
+    [jsonRequest start];
     
     while (dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10.0]];
@@ -110,7 +108,7 @@
 #pragma mark - Delegate
 
 
-- (void)request:(EBRequest *)request changedProgressTo:(float)progress {
+- (void)request:(EBRequest *)request progressChanged:(float)progress {
 
     if (progress == 0.0) {
         if (_zeroFound) {
