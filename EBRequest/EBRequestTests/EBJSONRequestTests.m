@@ -46,6 +46,8 @@ static const NSTimeInterval defaultTimeout = 10;
         STAssertTrue(isDictionary([dict objectForKey:@"address"]), nil);
         STAssertTrue(isArray([dict objectForKey:@"children"]), nil);
 
+        STAssertFalse(request.isRunning, nil);
+
     };
     
     request.errorBlock = ^(NSError *error) {
@@ -55,14 +57,16 @@ static const NSTimeInterval defaultTimeout = 10;
     };
     
     [request start];
-    
+    STAssertTrue(request.isRunning, @"Should be running");
+
     
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
     }
     
     STAssertTrue(completionExecuted, nil);
-    
+    STAssertFalse(request.isRunning, nil);
+
     dispatch_release(semaphore);
     
 }
@@ -83,6 +87,9 @@ static const NSTimeInterval defaultTimeout = 10;
             STAssertTrue(isDictionary(tweet), @"Tweet is not dict");
         }
         completionExecuted = YES;
+        
+        STAssertFalse(request.isRunning, nil);
+
         dispatch_semaphore_signal(semaphore);
 
     };
@@ -94,7 +101,8 @@ static const NSTimeInterval defaultTimeout = 10;
     }
     
     STAssertTrue(completionExecuted, nil);
-    
+    STAssertFalse(request.isRunning, nil);
+
     dispatch_release(semaphore);
 
 }
@@ -148,7 +156,6 @@ static const NSTimeInterval defaultTimeout = 10;
         STAssertTrue([grandgrandson.age isEqualToNumber:@-1], nil);
         STAssertTrue([grandgrandson.children count] == 0, @"Invalid number of children");
 
-                
     };
     
     request.errorBlock = ^(NSError *error) {
@@ -169,7 +176,8 @@ static const NSTimeInterval defaultTimeout = 10;
     }
     
     STAssertTrue(completionExecuted, nil);
-    
+    STAssertFalse(request.isRunning, nil);
+
     dispatch_release(semaphore);
 
 }

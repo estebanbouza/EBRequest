@@ -10,8 +10,8 @@
 
 #import "ImageCell.h"
 
-static const NSInteger  kQuerySearchPages = 5;
-const static NSString   *kQueryString = @"Lettuce";
+static const NSInteger  kQuerySearchPages = 15;
+const static NSString   *kQueryString = @"flower";
 
 const static CGFloat    kRowHeight = 80.0f;
 
@@ -33,7 +33,7 @@ const static CGFloat    kRowHeight = 80.0f;
         
         _queryURLs = [NSMutableArray array];
         for (int i = 0; i < kQuerySearchPages; i++) {
-            [_queryURLs addObject:[NSURL URLWithString:[NSString stringWithFormat:@"https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%@&rsz=8&start=%d", kQueryString, i]]];
+            [_queryURLs addObject:[NSURL URLWithString:[NSString stringWithFormat:@"https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%@&rsz=8&start=%d&imgsz=small", kQueryString, i]]];
         }
     }
     
@@ -49,13 +49,47 @@ const static CGFloat    kRowHeight = 80.0f;
                                  CGRectGetWidth(self.view.frame),
                                  CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
     
-    //_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    _tableView.autoresizingMask = ~UIViewAutoresizingNone;
     [self.view addSubview:_tableView];
     
     [self queryImageURLs];
+}
+
+#pragma mark - Queries
+
+// This method extracts the image objects from Google Images API results.
+- (void)queryImageURLs {
+    for (NSURL *queryURL in _queryURLs) {
+        EBJSONRequest *jsonRequest = [EBJSONRequest requestWithURL:queryURL];
+        
+        EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:
+                                      @[[ImageEntry class],
+                                      [ImageResponse class],
+                                      [ImageResponseData class]]];
+        
+        EBPropertyMapper *responseMapper = [EBPropertyMapper mapperWithClass:[ImageResponse class] properties:
+                                            @{@"myData" : @"resposeData",
+                                            @"myStatus" : @"responseStatus",
+                                            @"myDetail" : @"resposeDetail"}];
+        
+        mapper.propertyMappers = @[responseMapper];
+        
+        jsonRequest.JSONObjectMapper = mapper;
+        
+        jsonRequest.completionBlock = ^(id data){
+            // Data is already mapped to custom classes.
+            ImageResponse *response = (ImageResponse *)data;
+            
+            [_imageEntries addObjectsFromArray:response.responseData.results];
+            
+            [_tableView reloadData];
+        };
+        
+        [jsonRequest start];
+    }
 }
 
 #pragma mark - Table view
@@ -115,33 +149,6 @@ const static CGFloat    kRowHeight = 80.0f;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
-#pragma mark - Queries
-
-// This method extracts the image objects from Google Images API results.
-- (void)queryImageURLs {
-    for (NSURL *queryURL in _queryURLs) {
-        EBJSONRequest *jsonRequest = [EBJSONRequest requestWithURL:queryURL];
-        
-        EBJSONObjectMapper *mapper = [EBJSONObjectMapper mapperWithClasses:
-                                      @[[ImageEntry class],
-                                      [ImageResponse class],
-                                      [ImageResponseData class]]];
-        
-        jsonRequest.JSONObjectMapper = mapper;
-        
-        jsonRequest.completionBlock = ^ (id data){
-            // Data is already mapped to custom classes.
-            ImageResponse *response = (ImageResponse *)data;
-            
-            [_imageEntries addObjectsFromArray:response.responseData.results];
-            
-            [_tableView reloadData];
-        };
-        
-        [jsonRequest start];
-    }
-}
 
 #pragma mark - Generic
 

@@ -36,13 +36,16 @@ static const NSTimeInterval defaultTimeout = 10;
     };
     
     [imageRequest start];
+
+    STAssertTrue(imageRequest.isRunning, nil);
     
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
     }
     
     STAssertTrue(completionExecuted, nil);
-    
+    STAssertFalse(imageRequest.isRunning, nil);
+
     dispatch_release(semaphore);
 
 }
@@ -68,13 +71,15 @@ static const NSTimeInterval defaultTimeout = 10;
     };
     
     [imageRequest start];
+    STAssertTrue(imageRequest.isRunning, nil);
     
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
     }
     
     STAssertTrue(errorExecuted, nil);
-    
+    STAssertFalse(imageRequest.isRunning, nil);
+
     dispatch_release(semaphore);
 }
 
@@ -100,13 +105,15 @@ static const NSTimeInterval defaultTimeout = 10;
     };
     
     [imageRequest start];
+    STAssertTrue(imageRequest.isRunning, nil);
     
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
     }
     
     STAssertTrue(errorExecuted, nil);
-    
+    STAssertFalse(imageRequest.isRunning, nil);
+
     dispatch_release(semaphore);
 }
 

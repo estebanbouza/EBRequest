@@ -13,5 +13,7 @@
 @interface ImageResponseData : NSObject
 
 @property (nonatomic, strong) NSArray *results;
+// This property is not needed. Defined just for clarity.
+@property (nonatomic, strong) id cursor;
 
 @end

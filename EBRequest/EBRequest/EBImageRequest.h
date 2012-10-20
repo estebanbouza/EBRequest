@@ -27,6 +27,11 @@
 
         [_imageRequest start];
 
+ 
+ By default, EBImageRequest will schedule the internal download with `self.runLoopMode = NSRunLoopCommonModes`. 
+ 
+ The behavior can be changed by modifying the property `imageRequest.runLoopMode` before starting it. The default run loop is `NSDefaultRunLoopMode`.
+ 
  */
 @interface EBImageRequest : EBRequest
 

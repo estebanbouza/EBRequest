@@ -48,11 +48,14 @@ static const NSTimeInterval defaultTimeout = 10;
     BOOL status = [request start];
     
     STAssertTrue(status, @"Request could not be started");
-    
+    STAssertTrue(request.isRunning, @"Should be running");
+
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
     }
     
+    STAssertFalse(request.isRunning, nil);
+
     dispatch_release(semaphore);
     
     [request release];
@@ -80,11 +83,14 @@ static const NSTimeInterval defaultTimeout = 10;
     BOOL status = [request start];
     
     STAssertTrue(status, @"Request could not be started");
-    
+    STAssertTrue(request.isRunning, @"Should be running");
+
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
     }
     
+    STAssertFalse(request.isRunning, nil);
+
     dispatch_release(semaphore);
     
 }
@@ -108,11 +114,14 @@ static const NSTimeInterval defaultTimeout = 10;
     };
     
     [request start];
-    
+    STAssertTrue(request.isRunning, @"Should be running");
+
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
     }
-    
+
+    STAssertFalse(request.isRunning, nil);
+
     dispatch_release(semaphore);
     
 }
@@ -136,11 +145,15 @@ static const NSTimeInterval defaultTimeout = 10;
     [request start];
     [request stop];
     
+    STAssertFalse(request.isRunning, @"Should be running");
+
     dispatch_semaphore_signal(semaphore);
     
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
     }
+    
+    STAssertFalse(request.isRunning, nil);
     
     dispatch_release(semaphore);
     
@@ -164,11 +177,15 @@ static const NSTimeInterval defaultTimeout = 10;
     
     [request start];
     
+    STAssertTrue(request.isRunning, @"Should be running");
+    
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:defaultTimeout]];
     }
     
     STAssertTrue(completionExecuted, nil);
+    STAssertFalse(request.isRunning, nil);
+
     
     dispatch_release(semaphore);
 }

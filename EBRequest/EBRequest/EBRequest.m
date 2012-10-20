@@ -39,6 +39,7 @@
     
     [_completionBlock release];
     [_errorBlock release];
+    [_runLoopMode release];
     
     [super dealloc];
 }
@@ -52,6 +53,10 @@
 
 - (void)stop {
     
+}
+
+- (BOOL)isRunning {
+    return NO;
 }
 
 #pragma mark - Description
