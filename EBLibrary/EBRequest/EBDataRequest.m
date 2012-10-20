@@ -27,17 +27,17 @@
     self = [super initWithURL:url];
     
     if (self) {
-        _urlRequest = [[NSURLRequest alloc] initWithURL:self.sourceURL];
-        _urlConnection = [[NSURLConnection alloc] initWithRequest:_urlRequest delegate:self startImmediately:NO];
-        _receivedData = [[NSMutableData alloc] init];
+        
     }
     
     return self;
 }
 
+
 + (id)requestWithURL:(NSURL *)url {
     return [[[self alloc] initWithURL:url] autorelease];
 }
+
 
 - (void)dealloc {
     // Stop running connection
@@ -51,10 +51,13 @@
 }
 
 
-
 #pragma mark -
 
 - (BOOL)start {
+
+    _urlRequest = [[NSURLRequest alloc] initWithURL:self.sourceURL];
+    _urlConnection = [[NSURLConnection alloc] initWithRequest:_urlRequest delegate:self startImmediately:NO];
+    _receivedData = [[NSMutableData alloc] init];
 
     if (self.runLoopMode) {
         [_urlConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:self.runLoopMode];
@@ -66,8 +69,12 @@
 }
 
 - (void)stop {
-    _isRunning = NO;
     [_urlConnection cancel];
+    _isRunning = NO;
+    
+    [_urlRequest release], _urlRequest = nil;
+    [_urlConnection release], _urlConnection = nil;
+    [_receivedData release], _receivedData = nil;
 }
 
 - (BOOL)isRunning {

@@ -23,18 +23,6 @@
 
 #pragma mark - Lifecycle
 
-- (id)initWithURL:(NSURL *)url {
-    self = [super initWithURL:url];
-    
-    if (self) {
-        _urlRequest = [[NSURLRequest alloc] initWithURL:self.sourceURL];
-        _urlConnection = [[NSURLConnection alloc] initWithRequest:_urlRequest delegate:self startImmediately:NO];
-        _receivedData = [[NSMutableData alloc] init];
-    }
-    
-    return self;
-}
-
 - (void)dealloc {
     // Stop running connection
     [_urlConnection cancel];
@@ -53,6 +41,10 @@
 #pragma mark - Public methods
 
 - (BOOL)start {
+    _urlRequest = [[NSURLRequest alloc] initWithURL:self.sourceURL];
+    _urlConnection = [[NSURLConnection alloc] initWithRequest:_urlRequest delegate:self startImmediately:NO];
+    _receivedData = [[NSMutableData alloc] init];
+    
     _isRunning = YES;
     [_urlConnection start];
     
@@ -60,8 +52,12 @@
 }
 
 - (void)stop {
-    _isRunning = NO;
     [_urlConnection cancel];
+    _isRunning = NO;
+    
+    [_urlRequest release], _urlRequest = nil;
+    [_urlConnection release], _urlConnection = nil;
+    [_receivedData release], _receivedData = nil;
 }
 
 - (BOOL)isRunning {
