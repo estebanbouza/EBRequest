@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Esteban. All rights reserved.
 //
 
-#import <EBRequest/EBRequest.h>
+#import <EBLibrary/EBRequest.h>
 #import <UIKit/UIKit.h>
 
 /** EBImageRequest fetches images from a URL.
