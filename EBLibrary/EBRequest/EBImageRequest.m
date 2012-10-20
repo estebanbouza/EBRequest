@@ -46,7 +46,7 @@
 
 - (EBCompletionBlock)imageCompletionBlock {
     
-    id block = ^(NSData *data){
+    EBCompletionBlock block = ^(NSData *data){
 
         if (data == nil) {
             self.errorBlock([NSError errorWithDomain:@"No data downloaded" code:-1 userInfo:nil]);
@@ -68,7 +68,8 @@
 }
 
 - (EBErrorBlock)imageErrorBlock {
-    id block = ^(NSError *error) {
+    
+    EBErrorBlock block = ^(NSError *error) {
         self.errorBlock(error);
     };
     
