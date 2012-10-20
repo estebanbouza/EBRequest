@@ -28,7 +28,7 @@
 		5B49E09B162919A6007AD7F6 /* EBDescribedObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */; };
 		5B49E0CA16297CA5007AD7F6 /* EBInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E0C916297CA5007AD7F6 /* EBInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B49E0D1162984E3007AD7F6 /* EBGitVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E0D0162984E3007AD7F6 /* EBGitVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B49E0D816298781007AD7F6 /* EBRuntimeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E0D616298781007AD7F6 /* EBRuntimeUtils.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5B49E0D816298781007AD7F6 /* EBRuntimeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B49E0D616298781007AD7F6 /* EBRuntimeUtils.h */; settings = {ATTRIBUTES = (); }; };
 		5B49E0D916298781007AD7F6 /* EBRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B49E0D716298781007AD7F6 /* EBRuntimeUtils.m */; };
 		5B52987B1617783B00B6BD6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B52987A1617783B00B6BD6A /* Foundation.framework */; };
 		5B52988A1617783B00B6BD6A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5298891617783B00B6BD6A /* SenTestingKit.framework */; };
@@ -280,7 +280,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B52989C1617783B00B6BD6A /* Build configuration list for PBXNativeTarget "EBLibrary" */;
 			buildPhases = (
-				5B49E0BD16297C05007AD7F6 /* ShellScript */,
+				5B49E0BD16297C05007AD7F6 /* Add Git Information - Run Script */,
 				5B5298731617783B00B6BD6A /* Sources */,
 				5B5298741617783B00B6BD6A /* Frameworks */,
 				5BD4121C16177979007A17AA /* Headers */,
@@ -360,13 +360,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5B49E0BD16297C05007AD7F6 /* ShellScript */ = {
+		5B49E0BD16297C05007AD7F6 /* Add Git Information - Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Add Git Information - Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,7 +527,10 @@
 				DSTROOT = /tmp/EBRequest.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EBRequest/EBLibrary-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = EBLibrary;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
 				SKIP_INSTALL = YES;
@@ -543,7 +547,10 @@
 				DSTROOT = /tmp/EBRequest.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EBRequest/EBLibrary-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = EBLibrary;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
 				SKIP_INSTALL = YES;
