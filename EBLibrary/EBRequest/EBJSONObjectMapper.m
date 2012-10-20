@@ -61,6 +61,14 @@ static const char *kTypeUnknown = "unk";
     return [[[self alloc] initWithClasses:classes propertyMappers:propertyMappers] autorelease];
 }
 
+- (void)dealloc {
+    [_classes release];
+    [_propertyMappers release];
+    
+    [super dealloc];
+}
+
+
 #pragma mark - Implementation
 
 - (id)objectFromJSON:(id)json {
