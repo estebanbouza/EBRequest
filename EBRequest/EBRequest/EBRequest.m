@@ -55,6 +55,10 @@
     
 }
 
+- (BOOL)isRunning {
+    return NO;
+}
+
 #pragma mark - Description
 
 - (NSString *)description {

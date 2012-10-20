@@ -9,7 +9,7 @@
 #import "EBImageRequest.h"
 
 @interface EBImageRequest () {
-    EBDataRequest *_request;
+    EBDataRequest *_dataRequest;
 }
 
 @end
@@ -22,10 +22,10 @@
     
     if (self = [super initWithURL:url]) {
         
-        _request = [[EBDataRequest alloc] initWithURL:url];
-        _request.runLoopMode = NSRunLoopCommonModes;
-        _request.completionBlock = [self imageCompletionBlock];
-        _request.errorBlock = [self imageErrorBlock];
+        _dataRequest = [[EBDataRequest alloc] initWithURL:url];
+        _dataRequest.runLoopMode = NSRunLoopCommonModes;
+        _dataRequest.completionBlock = [self imageCompletionBlock];
+        _dataRequest.errorBlock = [self imageErrorBlock];
         
     }
     
@@ -37,7 +37,7 @@
 }
 
 - (void)dealloc {
-    [_request release];
+    [_dataRequest release];
     
     [super dealloc];
 }
@@ -79,12 +79,17 @@
 #pragma mark - Public methods
 
 - (BOOL)start {
-    return [_request start];
+    return [_dataRequest start];
 }
 
 - (void)stop {
-    [_request stop];
+    [_dataRequest stop];
 }
+
+- (BOOL)isRunning {
+    return _dataRequest.isRunning;
+}
+
 
 
 @end

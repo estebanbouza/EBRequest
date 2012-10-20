@@ -14,7 +14,7 @@
     
     NSMutableData       *_receivedData;
     
-    BOOL                _shouldBeRunning;
+    BOOL                _isRunning;
 }
 
 @end
@@ -50,25 +50,29 @@
 
     _receivedData = [[NSMutableData alloc] init];
     
-    _shouldBeRunning = YES;
+    _isRunning = YES;
     [_urlConnection start];
     return YES;
 }
 
 - (void)stop {
-    _shouldBeRunning = NO;
+    _isRunning = NO;
     [_urlConnection cancel];
+}
+
+- (BOOL)isRunning {
+    return _isRunning;
 }
 
 #pragma mark - Connection data delegate
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     
-    if (!_shouldBeRunning) {
+    if (!_isRunning) {
         return;
     }
     
-    _shouldBeRunning = NO;
+    _isRunning = NO;
     
     if ([NSThread isMainThread]) {
         self.errorBlock(error);
@@ -89,11 +93,11 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
-    if (!_shouldBeRunning) {
+    if (!_isRunning) {
         return;
     }
     
-    _shouldBeRunning = NO;
+    _isRunning = NO;
     
     if ([NSThread isMainThread]) {
         self.completionBlock(_receivedData);
