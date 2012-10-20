@@ -13,9 +13,10 @@
 		5B27AA55162F32BF00686BD6 /* ImageResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AA52162F32BF00686BD6 /* ImageResponseData.m */; };
 		5B27AA58162F399200686BD6 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AA57162F399200686BD6 /* ImageCell.m */; };
 		5B27AA64162F41BF00686BD6 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B27AA63162F41BF00686BD6 /* placeholder.png */; };
-		5B65B5541617BF7B006B1C01 /* libEBRequest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B65B5531617BF7B006B1C01 /* libEBRequest.a */; };
 		5B65B55C1617C2BB006B1C01 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B65B55A1617C2BB006B1C01 /* ResultViewController.m */; };
 		5B65B55D1617C2BB006B1C01 /* ResultViewController~iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B65B55B1617C2BB006B1C01 /* ResultViewController~iphone.xib */; };
+		5B985A341633405E0095F5D8 /* MemoryUsageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B985A331633405E0095F5D8 /* MemoryUsageViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5B985A38163341930095F5D8 /* EBLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B985A37163341930095F5D8 /* EBLibrary.framework */; };
 		5B9E7D2B16298D8B00FF3B86 /* ResultViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E7D2A16298D8B00FF3B86 /* ResultViewController~ipad.xib */; };
 		5B9E7D2E16298FFE00FF3B86 /* StandardRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7D2D16298FFE00FF3B86 /* StandardRequestViewController.m */; };
 		5B9E7D331629923F00FF3B86 /* MappedJSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E7D321629923F00FF3B86 /* MappedJSONViewController.m */; };
@@ -47,10 +48,12 @@
 		5B27AA56162F399200686BD6 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		5B27AA57162F399200686BD6 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 		5B27AA63162F41BF00686BD6 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		5B65B5531617BF7B006B1C01 /* libEBRequest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEBRequest.a; path = "../build/Debug-iphonesimulator/libEBRequest.a"; sourceTree = "<group>"; };
 		5B65B5591617C2BB006B1C01 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		5B65B55A1617C2BB006B1C01 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		5B65B55B1617C2BB006B1C01 /* ResultViewController~iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ResultViewController~iphone.xib"; sourceTree = "<group>"; };
+		5B985A321633405E0095F5D8 /* MemoryUsageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryUsageViewController.h; sourceTree = "<group>"; };
+		5B985A331633405E0095F5D8 /* MemoryUsageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoryUsageViewController.m; sourceTree = "<group>"; };
+		5B985A37163341930095F5D8 /* EBLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EBLibrary.framework; path = "../build/Debug-iphonesimulator/EBLibrary.framework"; sourceTree = "<group>"; };
 		5B9E7D2A16298D8B00FF3B86 /* ResultViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ResultViewController~ipad.xib"; sourceTree = "<group>"; };
 		5B9E7D2C16298FFE00FF3B86 /* StandardRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardRequestViewController.h; sourceTree = "<group>"; };
 		5B9E7D2D16298FFE00FF3B86 /* StandardRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardRequestViewController.m; sourceTree = "<group>"; };
@@ -86,10 +89,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B985A38163341930095F5D8 /* EBLibrary.framework in Frameworks */,
 				5BD413021617B0FC007A17AA /* UIKit.framework in Frameworks */,
 				5BD413041617B0FC007A17AA /* Foundation.framework in Frameworks */,
 				5BD413061617B0FC007A17AA /* CoreGraphics.framework in Frameworks */,
-				5B65B5541617BF7B006B1C01 /* libEBRequest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +122,15 @@
 				5B27AA63162F41BF00686BD6 /* placeholder.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		5B985A30163340400095F5D8 /* Test Memory Usage */ = {
+			isa = PBXGroup;
+			children = (
+				5B985A321633405E0095F5D8 /* MemoryUsageViewController.h */,
+				5B985A331633405E0095F5D8 /* MemoryUsageViewController.m */,
+			);
+			name = "Test Memory Usage";
 			sourceTree = "<group>";
 		};
 		5B9E7D2F1629909C00FF3B86 /* Standard Request */ = {
@@ -174,7 +186,7 @@
 		5BD413001617B0FC007A17AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B65B5531617BF7B006B1C01 /* libEBRequest.a */,
+				5B985A37163341930095F5D8 /* EBLibrary.framework */,
 				5BD413011617B0FC007A17AA /* UIKit.framework */,
 				5BD413031617B0FC007A17AA /* Foundation.framework */,
 				5BD413051617B0FC007A17AA /* CoreGraphics.framework */,
@@ -198,6 +210,7 @@
 				5B9E7D301629921F00FF3B86 /* Mapped JSON Request */,
 				5BCF6A241629E7910024C3BC /* Image Request */,
 				5B27AA45162F2B5B00686BD6 /* Multiple Image Request */,
+				5B985A30163340400095F5D8 /* Test Memory Usage */,
 				5B27AA62162F41AE00686BD6 /* Resources */,
 			);
 			path = EBTestProject;
@@ -300,6 +313,7 @@
 				5B27AA54162F32BF00686BD6 /* ImageResponse.m in Sources */,
 				5B27AA55162F32BF00686BD6 /* ImageResponseData.m in Sources */,
 				5B27AA58162F399200686BD6 /* ImageCell.m in Sources */,
+				5B985A341633405E0095F5D8 /* MemoryUsageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,15 +383,16 @@
 		5BD4131C1617B0FD007A17AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EBTestProject/EBExampleProject-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/include";
-				INFOPLIST_FILE = "EBTestProject/EBExampleProject-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"\"$(SRCROOT)/../build/Debug-iphonesimulator\"",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EBTestProject/EBExampleProject-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "EBTestProject/EBExampleProject-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -391,15 +406,16 @@
 		5BD4131D1617B0FD007A17AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EBTestProject/EBExampleProject-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/include";
-				INFOPLIST_FILE = "EBTestProject/EBExampleProject-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"\"$(SRCROOT)/../build/Debug-iphonesimulator\"",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EBTestProject/EBExampleProject-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "EBTestProject/EBExampleProject-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

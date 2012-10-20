@@ -13,12 +13,14 @@
 #import "StandardRequestViewController.h"
 #import "ImageViewController.h"
 #import "MultipleImageViewController.h"
+#import "MemoryUsageViewController.h"
 
 typedef enum {
     kRowStandardRequest,
     kRowMappedJSONRequest,
     kRowImageRequest,
     kRowMultipleImageRequest,
+    kRowTestMemoryUsage,
     kNumberOfRows
 } t_rows;
 
@@ -83,8 +85,13 @@ static NSString *tableReuseID = @":)";
             cell.textLabel.text = @"Image request";
             break;
             
-            case kRowMultipleImageRequest:
+        case kRowMultipleImageRequest:
             cell.textLabel.text = @"Multiple Image Request";
+            break;
+            
+        case kRowTestMemoryUsage:
+            cell.textLabel.text = @"Memory Usage test";
+            break;
     }
     
     return cell;
@@ -119,6 +126,15 @@ static NSString *tableReuseID = @":)";
         case kRowMultipleImageRequest: {
             MultipleImageViewController *multipleVC = [MultipleImageViewController new];
             [self.navigationController pushViewController:multipleVC animated:YES];
+            
+            break;
+        }
+            
+        case kRowTestMemoryUsage: {
+            MemoryUsageViewController *memoryVC = [MemoryUsageViewController new];
+            [self.navigationController pushViewController:memoryVC animated:YES];
+            
+            break;
         }
             
         default:

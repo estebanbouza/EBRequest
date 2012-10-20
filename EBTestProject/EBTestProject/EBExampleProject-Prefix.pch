@@ -13,6 +13,5 @@
     #import <Foundation/Foundation.h>
 #endif
 
-
-#import <EBRequest/EBLibrary.h>
+#import <EBLibrary/EBLibrary.h>
 
