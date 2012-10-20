@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		5B7B38271632FE420094F1D1 /* Framework */ = {
+		5B7B38271632FE420094F1D1 /* EBLibrary Framework */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 5B7B382A1632FE420094F1D1 /* Build configuration list for PBXAggregateTarget "Framework" */;
+			buildConfigurationList = 5B7B382A1632FE420094F1D1 /* Build configuration list for PBXAggregateTarget "EBLibrary Framework" */;
 			buildPhases = (
 				5B7B382E1632FE520094F1D1 /* build_framework.sh (Run Script) */,
 			);
 			dependencies = (
 				5B7B382D1632FE4F0094F1D1 /* PBXTargetDependency */,
 			);
-			name = Framework;
+			name = "EBLibrary Framework";
 			productName = Framework;
 		};
 /* End PBXAggregateTarget section */
@@ -338,7 +338,7 @@
 			targets = (
 				5B5298761617783B00B6BD6A /* EBLibrary */,
 				5B5298871617783B00B6BD6A /* EBLibraryTests */,
-				5B7B38271632FE420094F1D1 /* Framework */,
+				5B7B38271632FE420094F1D1 /* EBLibrary Framework */,
 			);
 		};
 /* End PBXProject section */
@@ -636,7 +636,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B7B382A1632FE420094F1D1 /* Build configuration list for PBXAggregateTarget "Framework" */ = {
+		5B7B382A1632FE420094F1D1 /* Build configuration list for PBXAggregateTarget "EBLibrary Framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B7B38281632FE420094F1D1 /* Debug */,
