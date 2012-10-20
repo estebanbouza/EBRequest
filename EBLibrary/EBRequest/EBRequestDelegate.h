@@ -13,6 +13,11 @@
 @protocol EBRequestDelegate <NSObject>
 
 @optional
+
+/*** Specifies the current progress of this request.
+ @params request The request being used.
+ @params progress The current progress between `0.0` and `1.0`.
+ */
 - (void)request:(EBRequest *)request changedProgressTo:(float)progress;
 
 @end

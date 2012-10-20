@@ -15,6 +15,8 @@
     NSMutableData       *_receivedData;
     
     BOOL                _isRunning;
+    
+    long long           _expectedContentLength;
 }
 
 @end
@@ -27,7 +29,7 @@
     self = [super initWithURL:url];
     
     if (self) {
-        
+        _expectedContentLength = -1;
     }
     
     return self;
@@ -106,6 +108,9 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     
     [_receivedData appendData:data];
+    
+    [self notifyProgressChange];
+    
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -127,6 +132,25 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             self.completionBlock(data);
         });
+    }
+}
+
+- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSHTTPURLResponse*) response {
+
+    if ([response statusCode] == 200) {
+        _expectedContentLength = [response expectedContentLength];
+
+        [self notifyProgressChange];
+    }
+}
+
+#pragma mark - Internal
+
+- (void)notifyProgressChange {
+    if ([self.delegate respondsToSelector:@selector(request:changedProgressTo:)]) {
+        float progress = ((float) [_receivedData length] / (float) _expectedContentLength);
+        
+        [self.delegate request:self changedProgressTo:progress];
     }
 }
 
