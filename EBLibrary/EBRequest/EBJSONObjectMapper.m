@@ -185,6 +185,8 @@ static const char *kTypeUnknown = "unk";
         [propertyNames addObject:mappedPropertyName];
     }
     
+    free(properties);
+    
     return propertyNames;
 }
 
