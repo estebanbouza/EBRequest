@@ -26,7 +26,7 @@ typedef void(^EBErrorBlock) (NSError *error);
 /// Optional property. When set, this run loop mode will be assigned to the internal NSURLConnection.
 @property (nonatomic, retain) NSString *runLoopMode;
 
-/// Specifies if the current request is running
+/// Specifies whether the current request is running.
 @property (nonatomic, readonly) BOOL isRunning;
 
 /// Creates a new request with the specified URL. Not started until start is called.
