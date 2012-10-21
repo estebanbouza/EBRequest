@@ -11,6 +11,8 @@
 @interface EBRequestDelegateTests () <EBRequestDelegate> {
     BOOL _zeroFound;
     BOOL _oneFound;
+    BOOL _canTrackProgress;
+
     BOOL _completionExecuted;
     
     dispatch_semaphore_t _semaphore;
@@ -29,6 +31,7 @@
     
     _zeroFound = NO;
     _oneFound = NO;
+    _canTrackProgress = YES;
 }
 
 - (void)tearDown {
@@ -79,10 +82,11 @@
     
     STAssertTrue(_zeroFound, @"Progress must start in 0.0");
     STAssertTrue(_oneFound, @"Progress must end in 1.0");
+
     STAssertTrue(_completionExecuted, nil);
 }
 
-- (void)testJSONProgress {
+- (void)testCannotTrackProgress {
     
     EBJSONRequest *jsonRequest = [EBJSONRequest requestWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode"]];
     
@@ -99,8 +103,9 @@
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10.0]];
     }
     
-    STAssertTrue(_zeroFound, @"Progress must start in 0.0");
-    STAssertTrue(_oneFound, @"Progress must end in 1.0");
+    STAssertFalse(_canTrackProgress, @"The twitter request should not respond with content size, so it shouldn't be possible to track progress");
+    STAssertFalse(_zeroFound, @"Zero should not be received");
+    STAssertFalse(_oneFound, @"One should not be received");
     STAssertTrue(_completionExecuted, nil);
 }
 
@@ -110,6 +115,7 @@
 
 - (void)request:(EBRequest *)request progressChanged:(float)progress {
 
+    // Record that a 0.0 is received
     if (progress == 0.0) {
         if (_zeroFound) {
             STFail(@"Zero can only be sent once");
@@ -118,12 +124,22 @@
         _zeroFound = YES;
     }
     
+    // Record that a 1.0 is received
     else if (progress == 1.0) {
         if (_oneFound) {
             STFail(@"One can only be sent once");
         }
         _oneFound = YES;
     }
+    
+    // Check that nothing outside [0.0 and 1.0 is received]
+    else if (progress < 0.0 || progress > 1.0) {
+        STFail(@"Wrong progress received: %f", progress);
+    }
+}
+
+- (void)requestCannotReceiveProgressUpdates:(EBRequest *)request {
+    _canTrackProgress = NO;
 }
 
 @end

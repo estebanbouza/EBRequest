@@ -137,13 +137,18 @@
 
 - (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSHTTPURLResponse*)response {
     
-    if (![response respondsToSelector:@selector(statusCode)]) {
-        DLog(@"Warning. Cannot access [response statusCode]. Maybe the request isn't http?");
-    }
-    else if([response statusCode] == 200) {
-        _expectedContentLength = [response expectedContentLength];
+    // If progress needs to be tracked
+    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)]) {
         
-        [self notifyProgressChange];
+        // Check if statusCode is accessible and is OK
+        
+        if ([response respondsToSelector:@selector(statusCode)] &&
+            [response statusCode] == 200) {
+            _expectedContentLength = [response expectedContentLength];
+            
+            [self notifyProgressChange];
+        }
+        
     }
 }
 

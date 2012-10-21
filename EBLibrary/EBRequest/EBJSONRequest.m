@@ -139,21 +139,48 @@
 
 - (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSHTTPURLResponse*)response {
     
+    // If progress doesn't need to be tracked, return.
+    if (![self.delegate respondsToSelector:@selector(request:progressChanged:)]) {
+        return;
+    }
+    
+    // Not possible to access status code. Return.
     if (![response respondsToSelector:@selector(statusCode)]) {
-        DLog(@"Warning. Cannot access [response statusCode]. Maybe the request isn't http?");
+        [self notifyCannotTrackProgress];
+        return;
     }
-    else if([response statusCode] == 200) {
-        _expectedContentLength = [response expectedContentLength];
-        
-        [self notifyProgressChange];
+    
+    // The request didn't went well. Return.
+    else if ([response statusCode] != 200) {
+        [self notifyCannotTrackProgress];
+        return;
     }
+    
+    // Everything ok. Get contentLength
+    _expectedContentLength = [response expectedContentLength];
+    
+    // Content lenght invalid? Cannot track progress.
+    if (_expectedContentLength == NSURLResponseUnknownLength) {
+        [self notifyCannotTrackProgress];
+        return;
+    }
+    
+    [self notifyProgressChange];
+    
 }
 
 
 #pragma mark - Internal
 
+- (void)notifyCannotTrackProgress {
+    if ([self.delegate respondsToSelector:@selector(requestCannotReceiveProgressUpdates:)]) {
+        [self.delegate requestCannotReceiveProgressUpdates:self];
+    }
+}
+
 - (void)notifyProgressChange {
-    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)]) {
+    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)] &&
+        _expectedContentLength > 0.0f) {
         float progress = ((float) [_receivedData length] / (float) _expectedContentLength);
         
         [self.delegate request:self progressChanged:progress];
