@@ -98,9 +98,10 @@
     } else {
         // Avoid over-retaining error
         __block typeof(error) errorParam = error;
+        __block typeof(self) this = self;
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.errorBlock(errorParam);
+            this.errorBlock(errorParam);
         });
     }
 }
@@ -126,11 +127,12 @@
     }
     
     else {
-        // Avoid over-retaining _receivedData inside block
+        // Avoid over-retaining _receivedData and self inside block
         __block typeof(_receivedData) data = _receivedData;
-        
+        __block typeof(self) this = self;
+
         dispatch_sync(dispatch_get_main_queue(), ^{
-            self.completionBlock(data);
+            this.completionBlock(data);
         });
     }
 }
