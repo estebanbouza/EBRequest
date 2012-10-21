@@ -46,6 +46,10 @@
 	
 	<option value="//api/name/requestCannotReceiveProgressUpdates:">&nbsp;&nbsp;&nbsp;&nbsp;- requestCannotReceiveProgressUpdates:</option>
 	
+	<option value="//api/name/requestDidFinish:">&nbsp;&nbsp;&nbsp;&nbsp;- requestDidFinish:</option>
+	
+	<option value="//api/name/requestDidStart:">&nbsp;&nbsp;&nbsp;&nbsp;- requestDidStart:</option>
+	
 	
 	
 </select>
@@ -75,6 +79,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/request:progressChanged:">request:progressChanged:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestCannotReceiveProgressUpdates:">requestCannotReceiveProgressUpdates:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestDidFinish:">requestDidFinish:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestDidStart:">requestDidStart:</a></span></li>
 	
 </ul></li>
 
@@ -135,6 +143,20 @@
 		<code><a href="#//api/name/requestCannotReceiveProgressUpdates:">&ndash;&nbsp;requestCannotReceiveProgressUpdates:</a></code>
 		<span class="tooltip"><p>This delegate method will be called when there&rsquo;s no possibility to track the progress of a request.
 The request progress is based in the server response, and sometimes the server may not respond valid data. In that case, this delegate method will be called.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestDidStart:">&ndash;&nbsp;requestDidStart:</a></code>
+		<span class="tooltip"><p>Called when the request starts.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestDidFinish:">&ndash;&nbsp;requestDidFinish:</a></code>
+		<span class="tooltip"><p>Called when the request finishes. This could be after a successful completion, error or manual stop.</p></span>
 	</span>
 	
 	
@@ -229,6 +251,88 @@ The request progress is based in the server response, and sometimes the server m
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>This delegate method will be called when there&rsquo;s no possibility to track the progress of a request.
 The request progress is based in the server response, and sometimes the server may not respond valid data. In that case, this delegate method will be called.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBRequestDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestDidFinish:" title="requestDidFinish:"></a>
+	<h3 class="subsubtitle method-title">requestDidFinish:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the request finishes. This could be after a successful completion, error or manual stop.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)requestDidFinish:(EBRequest *)<em>request</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called when the request finishes. This could be after a successful completion, error or manual stop.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBRequestDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestDidStart:" title="requestDidStart:"></a>
+	<h3 class="subsubtitle method-title">requestDidStart:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the request starts.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)requestDidStart:(EBRequest *)<em>request</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called when the request starts.</p>
 	</div>
 	
 	
