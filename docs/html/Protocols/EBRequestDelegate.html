@@ -132,9 +132,7 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/request:progressChanged:">&ndash;&nbsp;request:progressChanged:</a></code>
-		<span class="tooltip"><p>Specifies the current progress of this request.
-@params request The request being used.
-@params progress The current progress between <code>0.0</code> and <code>1.0</code>.</p></span>
+		<span class="tooltip"><p>Specifies the current progress of this request.</p></span>
 	</span>
 	
 	
@@ -184,9 +182,7 @@ The request progress is based in the server response, and sometimes the server m
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Specifies the current progress of this request.
-@params request The request being used.
-@params progress The current progress between <code>0.0</code> and <code>1.0</code>.</p>
+		<p>Specifies the current progress of this request.</p>
 	</div>		
 	
     
@@ -194,6 +190,23 @@ The request progress is based in the server response, and sometimes the server m
 	<div class="method-subsection method-declaration"><code>- (void)request:(EBRequest *)<em>request</em> progressChanged:(float)<em>progress</em></code></div>
 
     
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>request</em></dt>
+			<dd><p>The request being used.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>progress</em></dt>
+			<dd><p>The current progress between <code>0.0</code> and <code>1.0</code>.</p>
+
+<p>In some cases the progress cannot be changed. See <a href="#//api/name/requestCannotReceiveProgressUpdates:">requestCannotReceiveProgressUpdates:</a></p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
@@ -203,11 +216,7 @@ The request progress is based in the server response, and sometimes the server m
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Specifies the current progress of this request.
-@params request The request being used.
-@params progress The current progress between <code>0.0</code> and <code>1.0</code>.</p>
-
-<p>In some cases the progress cannot be changed. See <a href="#//api/name/requestCannotReceiveProgressUpdates:">requestCannotReceiveProgressUpdates:</a></p>
+		<p>Specifies the current progress of this request.</p>
 	</div>
 	
 	

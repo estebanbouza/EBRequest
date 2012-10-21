@@ -17,8 +17,8 @@ static const float kEBProgressUnknown;
 @optional
 
 /** Specifies the current progress of this request.
- @params request The request being used.
- @params progress The current progress between `0.0` and `1.0`.
+ @param request The request being used.
+ @param progress The current progress between `0.0` and `1.0`.
  
  In some cases the progress cannot be changed. See requestCannotReceiveProgressUpdates:
  */
