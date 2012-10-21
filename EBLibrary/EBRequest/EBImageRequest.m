@@ -95,6 +95,18 @@
     }
 }
 
+- (void)requestDidStart:(EBRequest *)request {
+    if ([self.delegate respondsToSelector:@selector(requestDidStart:)]) {
+        [self.delegate requestDidStart:self];
+    }
+}
+
+- (void)requestDidFinish:(EBRequest *)request {
+    if ([self.delegate respondsToSelector:@selector(requestDidFinish:)]) {
+        [self.delegate requestDidFinish:self];
+    }
+}
+
 
 #pragma mark - Public methods
 
