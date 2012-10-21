@@ -60,6 +60,10 @@
     _isRunning = YES;
     [_urlConnection start];
     
+    if ([self.delegate respondsToSelector:@selector(requestDidStart:)]) {
+        [self.delegate requestDidStart:self];
+    }
+    
     return YES;
 }
 
@@ -70,6 +74,10 @@
     [_urlRequest release], _urlRequest = nil;
     [_urlConnection release], _urlConnection = nil;
     [_receivedData release], _receivedData = nil;
+    
+    if ([self.delegate respondsToSelector:@selector(requestDidFinish:)]) {
+        [self.delegate requestDidFinish:self];
+    }
 }
 
 - (BOOL)isRunning {
@@ -96,6 +104,10 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             this.errorBlock(errorParam);
         });
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(requestDidFinish:)]) {
+        [self.delegate requestDidFinish:self];
     }
 }
 
@@ -136,6 +148,10 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             this.completionBlock(__mappedResult);
         });
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(requestDidFinish:)]) {
+        [self.delegate requestDidFinish:self];
     }
 }
 

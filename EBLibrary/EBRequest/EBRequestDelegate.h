@@ -30,4 +30,14 @@ static const float kEBProgressUnknown;
  */
 - (void)requestCannotReceiveProgressUpdates:(EBRequest *)request;
 
+/** 
+ Called when the request starts. 
+ */
+- (void)requestDidStart:(EBRequest *)request;
+
+/** 
+ Called when the request finishes. This could be after a successful completion, error or manual stop.
+ */
+- (void)requestDidFinish:(EBRequest *)request;
+
 @end
