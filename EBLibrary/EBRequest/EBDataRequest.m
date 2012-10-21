@@ -7,6 +7,7 @@
 //
 
 #import "EBDataRequest.h"
+#import "EBRequest+Notifications.h"
 
 @interface EBDataRequest() <NSURLConnectionDataDelegate> {    
     NSURLConnection     *_urlConnection;
@@ -109,8 +110,7 @@
     
     [_receivedData appendData:data];
     
-    [self notifyProgressChange];
-    
+    [self notifyProgressChange:[data length] expected:_expectedContentLength];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -137,30 +137,36 @@
 
 - (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSHTTPURLResponse*)response {
     
-    // If progress needs to be tracked
-    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)]) {
-        
-        // Check if statusCode is accessible and is OK
-        
-        if ([response respondsToSelector:@selector(statusCode)] &&
-            [response statusCode] == 200) {
-            _expectedContentLength = [response expectedContentLength];
-            
-            [self notifyProgressChange];
-        }
-        
+    // If progress doesn't need to be tracked, return.
+    if (![self.delegate respondsToSelector:@selector(request:progressChanged:)]) {
+        return;
     }
+    
+    // Not possible to access status code. Return.
+    if (![response respondsToSelector:@selector(statusCode)]) {
+        [self notifyCannotTrackProgress];
+        return;
+    }
+    
+    // The request didn't went well. Return.
+    else if ([response statusCode] != 200) {
+        [self notifyCannotTrackProgress];
+        return;
+    }
+    
+    // Everything ok. Get contentLength
+    _expectedContentLength = [response expectedContentLength];
+    
+    // Content lenght invalid? Cannot track progress.
+    if (_expectedContentLength == NSURLResponseUnknownLength) {
+        [self notifyCannotTrackProgress];
+        return;
+    }
+    
+    [self notifyProgressChange:0ll expected:_expectedContentLength];
 }
 
-#pragma mark - Internal
 
-- (void)notifyProgressChange {
-    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)]) {
-        float progress = ((float) [_receivedData length] / (float) _expectedContentLength);
-        
-        [self.delegate request:self progressChanged:progress];
-    }
-}
 
 
 @end
