@@ -7,7 +7,6 @@
 //
 
 #import "EBJSONRequest.h"
-#import "EBJSONObjectMapper.h"
 
 @interface EBJSONRequest() {
     NSURLConnection     *_urlConnection;
@@ -16,6 +15,8 @@
     NSMutableData       *_receivedData;
     
     BOOL                _isRunning;
+    
+    long long           _expectedContentLength;
 }
 
 @end
@@ -23,6 +24,16 @@
 @implementation EBJSONRequest
 
 #pragma mark - Lifecycle
+
+- (id)initWithURL:(NSURL *)url {
+    self = [super initWithURL:url];
+    
+    if (self) {
+        _expectedContentLength = -1;
+    }
+    
+    return self;
+}
 
 - (void)dealloc {
     // Stop running connection
@@ -43,19 +54,22 @@
 
 - (BOOL)start {
     _urlRequest = [[NSURLRequest alloc] initWithURL:self.sourceURL];
-    
     _urlConnection = [[NSURLConnection alloc] initWithRequest:_urlRequest delegate:self startImmediately:NO];
-    
     _receivedData = [[NSMutableData alloc] init];
     
     _isRunning = YES;
     [_urlConnection start];
+    
     return YES;
 }
 
 - (void)stop {
-    _isRunning = NO;
     [_urlConnection cancel];
+    _isRunning = NO;
+    
+    [_urlRequest release], _urlRequest = nil;
+    [_urlConnection release], _urlConnection = nil;
+    [_receivedData release], _receivedData = nil;
 }
 
 - (BOOL)isRunning {
@@ -87,6 +101,9 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     
     [_receivedData appendData:data];
+    
+    [self notifyProgressChange];
+    
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -117,6 +134,56 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             self.completionBlock(__mappedResult);
         });
+    }
+}
+
+- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSHTTPURLResponse*)response {
+    
+    // If progress doesn't need to be tracked, return.
+    if (![self.delegate respondsToSelector:@selector(request:progressChanged:)]) {
+        return;
+    }
+    
+    // Not possible to access status code. Return.
+    if (![response respondsToSelector:@selector(statusCode)]) {
+        [self notifyCannotTrackProgress];
+        return;
+    }
+    
+    // The request didn't went well. Return.
+    else if ([response statusCode] != 200) {
+        [self notifyCannotTrackProgress];
+        return;
+    }
+    
+    // Everything ok. Get contentLength
+    _expectedContentLength = [response expectedContentLength];
+    
+    // Content lenght invalid? Cannot track progress.
+    if (_expectedContentLength == NSURLResponseUnknownLength) {
+        [self notifyCannotTrackProgress];
+        return;
+    }
+    
+    [self notifyProgressChange];
+    
+}
+
+
+#pragma mark - Internal
+
+- (void)notifyCannotTrackProgress {
+    if ([self.delegate respondsToSelector:@selector(requestCannotReceiveProgressUpdates:)]) {
+        [self.delegate requestCannotReceiveProgressUpdates:self];
+    }
+}
+
+- (void)notifyProgressChange {
+    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)] &&
+        _expectedContentLength > 0.0f) {
+        float progress = ((float) [_receivedData length] / (float) _expectedContentLength);
+        
+        [self.delegate request:self progressChanged:progress];
     }
 }
 

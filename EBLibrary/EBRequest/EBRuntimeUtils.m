@@ -26,6 +26,8 @@
         [propertyNames addObject:propertyName];
     }
     
+    free(properties);
+    
     return propertyNames;
 }
 

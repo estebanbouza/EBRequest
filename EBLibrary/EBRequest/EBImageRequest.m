@@ -8,7 +8,7 @@
 
 #import "EBImageRequest.h"
 
-@interface EBImageRequest () {
+@interface EBImageRequest () <EBRequestDelegate> {
     EBDataRequest *_dataRequest;
 }
 
@@ -26,6 +26,7 @@
         _dataRequest.runLoopMode = NSRunLoopCommonModes;
         _dataRequest.completionBlock = [self imageCompletionBlock];
         _dataRequest.errorBlock = [self imageErrorBlock];
+        _dataRequest.delegate = self;
         
     }
     
@@ -46,21 +47,23 @@
 
 - (EBCompletionBlock)imageCompletionBlock {
     
-    id block = ^(NSData *data){
+    __block typeof(self) this = self;
+    
+    EBCompletionBlock block = ^(NSData *data){
 
         if (data == nil) {
-            self.errorBlock([NSError errorWithDomain:@"No data downloaded" code:-1 userInfo:nil]);
+            this.errorBlock([NSError errorWithDomain:@"No data downloaded" code:-1 userInfo:nil]);
             return;
         }
         
         UIImage *image = [UIImage imageWithData:data];
         
         if (image == nil) {
-            self.errorBlock([NSError errorWithDomain:@"Couldn't create image" code:-1 userInfo:nil]);
+            this.errorBlock([NSError errorWithDomain:@"Couldn't create image" code:-1 userInfo:nil]);
             return;
         }
         
-        self.completionBlock(image);
+        this.completionBlock(image);
         
     };
     
@@ -68,11 +71,28 @@
 }
 
 - (EBErrorBlock)imageErrorBlock {
-    id block = ^(NSError *error) {
-        self.errorBlock(error);
+
+    __block typeof(self) this = self;
+
+    EBErrorBlock block = ^(NSError *error) {
+        this.errorBlock(error);
     };
     
     return [[block copy] autorelease];
+}
+
+#pragma mark - Data Request delegate
+
+- (void)request:(EBRequest *)request progressChanged:(float)progress {
+    if (request == _dataRequest) {
+        [self notifyProgressChange:progress];
+    }
+}
+
+- (void)notifyProgressChange:(float)progress {
+    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)]) {
+        [self.delegate request:self progressChanged:progress];
+    }
 }
 
 

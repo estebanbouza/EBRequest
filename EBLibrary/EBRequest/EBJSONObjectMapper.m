@@ -22,6 +22,8 @@ static const char *kTypeUnknown = "unk";
 
 @implementation EBJSONObjectMapper
 
+#pragma mark - Lifecycle
+
 - (id)initWithClass:(Class)class {
     if (self = [super init]) {
         _classes = [[NSArray arrayWithObject:class] retain];
@@ -38,6 +40,15 @@ static const char *kTypeUnknown = "unk";
     return self;
 }
 
+- (id)initWithClasses:(NSArray *)classes propertyMappers:(NSArray *)propertyMappers {
+    if (self = [super init]) {
+        _classes = [classes copy];
+        _propertyMappers = [propertyMappers copy];
+    }
+    
+    return self;
+}
+
 + (id)mapperWithClass:(Class)class {
     return [[[self alloc] initWithClass:class] autorelease];
 }
@@ -45,6 +56,18 @@ static const char *kTypeUnknown = "unk";
 + (id)mapperWithClasses:(NSArray *)classes {
     return [[[self alloc] initWithClasses:classes] autorelease];
 }
+
++ (id)mapperWithClasses:(NSArray *)classes propertyMappers:(NSArray *)propertyMappers {
+    return [[[self alloc] initWithClasses:classes propertyMappers:propertyMappers] autorelease];
+}
+
+- (void)dealloc {
+    [_classes release];
+    [_propertyMappers release];
+    
+    [super dealloc];
+}
+
 
 #pragma mark - Implementation
 
@@ -184,6 +207,8 @@ static const char *kTypeUnknown = "unk";
         
         [propertyNames addObject:mappedPropertyName];
     }
+    
+    free(properties);
     
     return propertyNames;
 }

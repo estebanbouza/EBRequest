@@ -37,6 +37,8 @@
 		5B5298961617783B00B6BD6A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B5298941617783B00B6BD6A /* InfoPlist.strings */; };
 		5B5298991617783B00B6BD6A /* EBRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5298981617783B00B6BD6A /* EBRequestTests.m */; };
 		5B5409EB1617B6D1003E7453 /* EBLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B52987F1617783B00B6BD6A /* EBLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B5CC99B16334D0C00A02898 /* EBRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5CC99A16334D0C00A02898 /* EBRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B5CC9A51633567E00A02898 /* EBRequestDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CC9A41633567E00A02898 /* EBRequestDelegateTests.m */; };
 		5B696BA61619FE3200B4A20C /* JSONTest3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B696BA51619FE3200B4A20C /* JSONTest3.txt */; };
 		5B7AF97F162605C7008FE123 /* EBPropertyMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7AF97D162605C7008FE123 /* EBPropertyMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B7AF980162605C7008FE123 /* EBPropertyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AF97E162605C7008FE123 /* EBPropertyMapper.m */; };
@@ -99,6 +101,9 @@
 		5B5298951617783B00B6BD6A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B5298971617783B00B6BD6A /* EBRequestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBRequestTests.h; sourceTree = "<group>"; };
 		5B5298981617783B00B6BD6A /* EBRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBRequestTests.m; sourceTree = "<group>"; };
+		5B5CC99A16334D0C00A02898 /* EBRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRequestDelegate.h; sourceTree = "<group>"; };
+		5B5CC9A31633567E00A02898 /* EBRequestDelegateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRequestDelegateTests.h; sourceTree = "<group>"; };
+		5B5CC9A41633567E00A02898 /* EBRequestDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBRequestDelegateTests.m; sourceTree = "<group>"; };
 		5B696BA51619FE3200B4A20C /* JSONTest3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTest3.txt; sourceTree = "<group>"; };
 		5B7AF97D162605C7008FE123 /* EBPropertyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPropertyMapper.h; sourceTree = "<group>"; };
 		5B7AF97E162605C7008FE123 /* EBPropertyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPropertyMapper.m; sourceTree = "<group>"; };
@@ -187,6 +192,7 @@
 				5B52987F1617783B00B6BD6A /* EBLibrary.h */,
 				5B8A2CC4161A0DD600CB5FBA /* EBRequest.h */,
 				5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */,
+				5B5CC99A16334D0C00A02898 /* EBRequestDelegate.h */,
 				5BD412BB16179505007A17AA /* EBDataRequest.h */,
 				5BD412BC16179505007A17AA /* EBDataRequest.m */,
 				5BCF6A0F1629DA410024C3BC /* EBImageRequest.h */,
@@ -233,6 +239,8 @@
 				5B49E09A162919A6007AD7F6 /* EBDescribedObjectTests.m */,
 				5BCF6A151629E0710024C3BC /* EBImageRequestTests.h */,
 				5BCF6A161629E0710024C3BC /* EBImageRequestTests.m */,
+				5B5CC9A31633567E00A02898 /* EBRequestDelegateTests.h */,
+				5B5CC9A41633567E00A02898 /* EBRequestDelegateTests.m */,
 				5BCA3CD31618C8510007E260 /* JSONTest1.txt */,
 				5BCA3CDE1618ECC80007E260 /* JSONTest2.txt */,
 				5B696BA51619FE3200B4A20C /* JSONTest3.txt */,
@@ -270,6 +278,7 @@
 				5B49E0D1162984E3007AD7F6 /* EBGitVersion.h in Headers */,
 				5B49E09616291912007AD7F6 /* EBDescribedObject.h in Headers */,
 				5B49E0D816298781007AD7F6 /* EBRuntimeUtils.h in Headers */,
+				5B5CC99B16334D0C00A02898 /* EBRequestDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +453,7 @@
 				5BC69A3B161A1C0E00C5DE9F /* EBJSONRequestTests.m in Sources */,
 				5B49E09B162919A6007AD7F6 /* EBDescribedObjectTests.m in Sources */,
 				5BCF6A171629E0710024C3BC /* EBImageRequestTests.m in Sources */,
+				5B5CC9A51633567E00A02898 /* EBRequestDelegateTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,7 +577,7 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EBRequest/EBRequest-Prefix.pch";
+				GCC_PREFIX_HEADER = "EBRequest/EBLibrary-Prefix.pch";
 				INFOPLIST_FILE = "EBRequestTests/EBLibraryTests-Info.plist";
 				PRODUCT_NAME = EBLibraryTests;
 				WRAPPER_EXTENSION = octest;
@@ -583,7 +593,7 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EBRequest/EBRequest-Prefix.pch";
+				GCC_PREFIX_HEADER = "EBRequest/EBLibrary-Prefix.pch";
 				INFOPLIST_FILE = "EBRequestTests/EBLibraryTests-Info.plist";
 				PRODUCT_NAME = EBLibraryTests;
 				WRAPPER_EXTENSION = octest;
@@ -643,6 +653,7 @@
 				5B7B38291632FE420094F1D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

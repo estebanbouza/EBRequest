@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <EBRequest/EBDescribedObject.h>
 
 @interface ImageEntry : EBDescribedObject
 

@@ -13,6 +13,8 @@
 #import "EBJSONRequest.h"
 #import "EBImageRequest.h"
 
+#import "EBRequestDelegate.h"
+
 #import "EBJSONObjectMapper.h"
 #import "EBPropertyMapper.h"
 
