@@ -63,6 +63,13 @@
     STAssertTrue(_completionExecuted, nil);
 }
 
+
+// It's usual that JSON services don't provide a 'content-length' parameter so usually it's not possible to track JSON progress. I couldn't find a web service that provides this information.
+- (void)testJSONProgress {
+    STAssertTrue(YES, @"Couldn't find test feed...");
+}
+
+
 - (void)testImageProgress {
     
     EBImageRequest *imageRequest = [EBImageRequest requestWithURL:[NSURL URLWithString:@"https://lh4.googleusercontent.com/-v0soe-ievYE/AAAAAAAAAAI/AAAAAAAAs7Y/yFVd0T5kw-o/photo.jpg"]];
