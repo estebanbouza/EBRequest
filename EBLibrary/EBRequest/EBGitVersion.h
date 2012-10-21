@@ -1,4 +1,4 @@
 /* Git repository information for current build: */
 
-#define kGitVersion       @"v0.3-80-g15b5932"
+#define kGitVersion       @"v0.3-85-ga2d77ae"
 #define kGitBranch        @"feature-request-protocols"
