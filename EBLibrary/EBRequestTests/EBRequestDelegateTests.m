@@ -61,6 +61,7 @@
     STAssertTrue(_zeroFound, @"Progress must start in 0.0");
     STAssertTrue(_oneFound, @"Progress must end in 1.0");
     STAssertTrue(_completionExecuted, nil);
+    STAssertTrue(_canTrackProgress, @"Progress should be able to be tracked");
 }
 
 
@@ -89,7 +90,7 @@
     
     STAssertTrue(_zeroFound, @"Progress must start in 0.0");
     STAssertTrue(_oneFound, @"Progress must end in 1.0");
-
+    STAssertTrue(_canTrackProgress, @"Progress should be able to be tracked");
     STAssertTrue(_completionExecuted, nil);
 }
 
