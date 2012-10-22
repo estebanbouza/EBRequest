@@ -144,6 +144,7 @@
     }
     
     STAssertTrue(_requestDidStart, nil);
+    STAssertFalse(_requestDidFinish, nil);
     
     _requestDidFinish = YES;;
 }
