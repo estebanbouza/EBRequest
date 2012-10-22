@@ -125,7 +125,7 @@
     
     [_receivedData appendData:data];
     
-    [self notifyProgressChange:[data length] expected:_expectedContentLength];
+    [self notifyProgressChange:[_receivedData length] expected:_expectedContentLength];
     
 }
 

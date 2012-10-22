@@ -12,6 +12,8 @@
     BOOL _zeroFound;
     BOOL _oneFound;
     BOOL _canTrackProgress;
+    
+    float _lastProgress;
 
     BOOL _completionExecuted;
     
@@ -32,6 +34,7 @@
     _zeroFound = NO;
     _oneFound = NO;
     _canTrackProgress = YES;
+    _lastProgress = -1.0;
 }
 
 - (void)tearDown {
@@ -122,6 +125,8 @@
 
 
 - (void)request:(EBRequest *)request progressChanged:(float)progress {
+    
+    DLog(@"%f", progress);
 
     // Record that a 0.0 is received
     if (progress == 0.0) {
@@ -144,6 +149,12 @@
     else if (progress < 0.0 || progress > 1.0) {
         STFail(@"Wrong progress received: %f", progress);
     }
+    
+    if (progress <= _lastProgress) {
+        STFail(@"Progress is not increasing: %f, %f", _lastProgress, progress);
+    }
+    
+    _lastProgress = progress;
 }
 
 - (void)requestCannotReceiveProgressUpdates:(EBRequest *)request {
