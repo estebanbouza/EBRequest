@@ -17,8 +17,8 @@ static const float kEBProgressUnknown;
 @optional
 
 /** Specifies the current progress of this request.
- @params request The request being used.
- @params progress The current progress between `0.0` and `1.0`.
+ @param request The request being used.
+ @param progress The current progress between `0.0` and `1.0`.
  
  In some cases the progress cannot be changed. See requestCannotReceiveProgressUpdates:
  */
@@ -29,5 +29,15 @@ static const float kEBProgressUnknown;
  The request progress is based in the server response, and sometimes the server may not respond valid data. In that case, this delegate method will be called.
  */
 - (void)requestCannotReceiveProgressUpdates:(EBRequest *)request;
+
+/** 
+ Called when the request starts. 
+ */
+- (void)requestDidStart:(EBRequest *)request;
+
+/** 
+ Called when the request finishes. This could be after a successful completion, error or manual stop.
+ */
+- (void)requestDidFinish:(EBRequest *)request;
 
 @end

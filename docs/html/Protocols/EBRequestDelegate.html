@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>EBPropertyMapper Class Reference</title>
+		<title>EBRequestDelegate Protocol Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">EBPropertyMapper Class Reference</h1>
+				<h1 class="hideInXcode">EBRequestDelegate Protocol Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -26,8 +26,6 @@
 				<li id="jumpto_button" role="navigation">
 					<select id="jumpTo">
 	<option value="top">Jump To&#133;</option>
-	
-	<option value="overview">Overview</option>
 	
 	
 	
@@ -38,25 +36,19 @@
 	
 	
 	
-	<option value="properties">Properties</option>
-	
-	<option value="//api/name/propertyMapper">&nbsp;&nbsp;&nbsp;&nbsp;propertyMapper</option>
-	
-	<option value="//api/name/theClass">&nbsp;&nbsp;&nbsp;&nbsp;theClass</option>
-	
-	
-	
-	
-	<option value="class_methods">Class Methods</option>
-	
-	<option value="//api/name/mapperWithClass:properties:">&nbsp;&nbsp;&nbsp;&nbsp;+ mapperWithClass:properties:</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithClass:properties:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithClass:properties:</option>
+	<option value="//api/name/request:progressChanged:">&nbsp;&nbsp;&nbsp;&nbsp;- request:progressChanged:</option>
+	
+	<option value="//api/name/requestCannotReceiveProgressUpdates:">&nbsp;&nbsp;&nbsp;&nbsp;- requestCannotReceiveProgressUpdates:</option>
+	
+	<option value="//api/name/requestDidFinish:">&nbsp;&nbsp;&nbsp;&nbsp;- requestDidFinish:</option>
+	
+	<option value="//api/name/requestDidStart:">&nbsp;&nbsp;&nbsp;&nbsp;- requestDidStart:</option>
 	
 	
 	
@@ -67,8 +59,6 @@
 		<nav id="tocContainer" class="isShowingTOC">
 			<ul id="toc" role="tree">
 				
-<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
-
 
 
 
@@ -80,27 +70,19 @@
 
 
 
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/propertyMapper">propertyMapper</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/theClass">theClass</a></span></li>
-	
-</ul></li>
 
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapperWithClass:properties:">mapperWithClass:properties:</a></span></li>
-	
-</ul></li>
 
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithClass:properties:">initWithClass:properties:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/request:progressChanged:">request:progressChanged:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestCannotReceiveProgressUpdates:">requestCannotReceiveProgressUpdates:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestDidFinish:">requestDidFinish:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestDidStart:">requestDidStart:</a></span></li>
 	
 </ul></li>
 
@@ -109,7 +91,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="EBPropertyMapper Class Reference" name="top"></a>
+				<a title="EBRequestDelegate Protocol Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -118,42 +100,21 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">EBPropertyMapper Class Reference</h1>
+						<h1 class="title title-header">EBRequestDelegate Protocol Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Inherits from</td>
+	<td class="specification-title">Conforms to</td>
 	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">EBPropertyMapper.h<br />EBPropertyMapper.m</td>
+	<td class="specification-value">EBRequestDelegate.h</td>
 </tr>
 						</tbody></table></div>
 					
-					
-					
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The EBPropertyMapper class is used to associate the property names of a
-NSObject to the JSON property names.</p>
-
-<p>For example, for a class defined as</p>
-
-<p><code>Person(name, age)</code></p>
-
-<p>And a JSON defined as</p>
-
-<p><code>{ "jname" : "peter", "jage" : 35 }</code></p>
-
-<p>A mapper can be defined as:</p>
-
-<p><a href="#//api/name/propertyMapper"><code>propertyMapper</code></a> <code>=</code> <code>@[@"name" : @"jname", @"age" : @"jage"];</code></p>
-					</div>
 					
 					
 					
@@ -170,29 +131,30 @@ NSObject to the JSON property names.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/theClass">&nbsp;&nbsp;theClass</a></code>
-		<span class="tooltip"><p>The class which this mapper is associated to.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/propertyMapper">&nbsp;&nbsp;propertyMapper</a></code>
-		<span class="tooltip"><p>Dictionary containing an equivalence between JSON and Class property names.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/initWithClass:properties:">&ndash;&nbsp;initWithClass:properties:</a></code>
-		<span class="tooltip"><p>Returns a Property Mapper with the specified class and properties.</p></span>
+		<code><a href="#//api/name/request:progressChanged:">&ndash;&nbsp;request:progressChanged:</a></code>
+		<span class="tooltip"><p>Specifies the current progress of this request.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/mapperWithClass:properties:">+&nbsp;mapperWithClass:properties:</a></code>
-		<span class="tooltip"><p>See <a href="#//api/name/initWithClass:properties:">initWithClass:properties:</a></p></span>
+		<code><a href="#//api/name/requestCannotReceiveProgressUpdates:">&ndash;&nbsp;requestCannotReceiveProgressUpdates:</a></code>
+		<span class="tooltip"><p>This delegate method will be called when there&rsquo;s no possibility to track the progress of a request.
+The request progress is based in the server response, and sometimes the server may not respond valid data. In that case, this delegate method will be called.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestDidStart:">&ndash;&nbsp;requestDidStart:</a></code>
+		<span class="tooltip"><p>Called when the request starts.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestDidFinish:">&ndash;&nbsp;requestDidFinish:</a></code>
+		<span class="tooltip"><p>Called when the request finishes. This could be after a successful completion, error or manual stop.</p></span>
 	</span>
 	
 	
@@ -205,159 +167,7 @@ NSObject to the JSON property names.</p>
 					
 					
 					
-					<div class="section section-methods">
-						<a title="Properties" name="properties"></a>
-						<h2 class="subtitle subtitle-methods">Properties</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/propertyMapper" title="propertyMapper"></a>
-	<h3 class="subsubtitle method-title">propertyMapper</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Dictionary containing an equivalence between JSON and Class property names.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSDictionary *propertyMapper</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Dictionary containing an equivalence between JSON and Class property names.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">EBPropertyMapper.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/theClass" title="theClass"></a>
-	<h3 class="subsubtitle method-title">theClass</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The class which this mapper is associated to.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) Class theClass</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The class which this mapper is associated to.</p>
-
-<p>Note &ldquo;class&rdquo; is a reserved word.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">EBPropertyMapper.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
 					
-					
-					
-					<div class="section section-methods">
-						<a title="Class Methods" name="class_methods"></a>
-						<h2 class="subtitle subtitle-methods">Class Methods</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/mapperWithClass:properties:" title="mapperWithClass:properties:"></a>
-	<h3 class="subsubtitle method-title">mapperWithClass:properties:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>See <a href="#//api/name/initWithClass:properties:">initWithClass:properties:</a></p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (id)mapperWithClass:(Class)<em>aClass</em> properties:(NSDictionary *)<em>properties</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>aClass</em></dt>
-			<dd><p>The class to be mapped.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>properties</em></dt>
-			<dd><p>The class properties that must be mapped to another name.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>See <a href="#//api/name/initWithClass:properties:">initWithClass:properties:</a></p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">EBPropertyMapper.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
 					
 					
 					
@@ -366,18 +176,18 @@ NSObject to the JSON property names.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithClass:properties:" title="initWithClass:properties:"></a>
-	<h3 class="subsubtitle method-title">initWithClass:properties:</h3>
+	<a name="//api/name/request:progressChanged:" title="request:progressChanged:"></a>
+	<h3 class="subsubtitle method-title">request:progressChanged:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns a Property Mapper with the specified class and properties.</p>
+		<p>Specifies the current progress of this request.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithClass:(Class)<em>aClass</em> properties:(NSDictionary *)<em>properties</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)request:(EBRequest *)<em>request</em> progressChanged:(float)<em>progress</em></code></div>
 
     
 	
@@ -385,13 +195,15 @@ NSObject to the JSON property names.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>aClass</em></dt>
-			<dd><p>The class to be mapped.</p></dd>
+			<dt><em>request</em></dt>
+			<dd><p>The request being used.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>properties</em></dt>
-			<dd><p>The class properties that must be mapped to another name.</p></dd>
+			<dt><em>progress</em></dt>
+			<dd><p>The current progress between <code>0.0</code> and <code>1.0</code>.</p>
+
+<p>In some cases the progress cannot be changed. See <a href="#//api/name/requestCannotReceiveProgressUpdates:">requestCannotReceiveProgressUpdates:</a></p></dd>
 		</dl>
 		
 	</div>
@@ -404,7 +216,7 @@ NSObject to the JSON property names.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Returns a Property Mapper with the specified class and properties.</p>
+		<p>Specifies the current progress of this request.</p>
 	</div>
 	
 	
@@ -415,7 +227,132 @@ NSObject to the JSON property names.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">EBPropertyMapper.h</code><br />
+		<code class="declared-in-ref">EBRequestDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestCannotReceiveProgressUpdates:" title="requestCannotReceiveProgressUpdates:"></a>
+	<h3 class="subsubtitle method-title">requestCannotReceiveProgressUpdates:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This delegate method will be called when there&rsquo;s no possibility to track the progress of a request.
+The request progress is based in the server response, and sometimes the server may not respond valid data. In that case, this delegate method will be called.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)requestCannotReceiveProgressUpdates:(EBRequest *)<em>request</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This delegate method will be called when there&rsquo;s no possibility to track the progress of a request.
+The request progress is based in the server response, and sometimes the server may not respond valid data. In that case, this delegate method will be called.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBRequestDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestDidFinish:" title="requestDidFinish:"></a>
+	<h3 class="subsubtitle method-title">requestDidFinish:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the request finishes. This could be after a successful completion, error or manual stop.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)requestDidFinish:(EBRequest *)<em>request</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called when the request finishes. This could be after a successful completion, error or manual stop.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBRequestDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestDidStart:" title="requestDidStart:"></a>
+	<h3 class="subsubtitle method-title">requestDidStart:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the request starts.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)requestDidStart:(EBRequest *)<em>request</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called when the request starts.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBRequestDelegate.h</code><br />
 	</div>				
 	
 	

@@ -53,6 +53,8 @@
 	
 	<option value="//api/name/mapperWithClasses:">&nbsp;&nbsp;&nbsp;&nbsp;+ mapperWithClasses:</option>
 	
+	<option value="//api/name/mapperWithClasses:propertyMappers:">&nbsp;&nbsp;&nbsp;&nbsp;+ mapperWithClasses:propertyMappers:</option>
+	
 	
 	
 	
@@ -61,6 +63,8 @@
 	<option value="//api/name/initWithClass:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithClass:</option>
 	
 	<option value="//api/name/initWithClasses:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithClasses:</option>
+	
+	<option value="//api/name/initWithClasses:propertyMappers:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithClasses:propertyMappers:</option>
 	
 	<option value="//api/name/mappedPropertyName:forClass:">&nbsp;&nbsp;&nbsp;&nbsp;- mappedPropertyName:forClass:</option>
 	
@@ -108,6 +112,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapperWithClasses:">mapperWithClasses:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapperWithClasses:propertyMappers:">mapperWithClasses:propertyMappers:</a></span></li>
+	
 </ul></li>
 
 
@@ -117,6 +123,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithClass:">initWithClass:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithClasses:">initWithClasses:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithClasses:propertyMappers:">initWithClasses:propertyMappers:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mappedPropertyName:forClass:">mappedPropertyName:forClass:</a></span></li>
 	
@@ -209,6 +217,13 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/initWithClasses:propertyMappers:">&ndash;&nbsp;initWithClasses:propertyMappers:</a></code>
+		<span class="tooltip"><p>Creates a mapper instance with several possible <a href="#//api/name/classes">classes</a> and property mappers.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/mapperWithClass:">+&nbsp;mapperWithClass:</a></code>
 		<span class="tooltip"><p>Creates an autoreleased mapper for the specified class. See <a href="#//api/name/initWithClass:">initWithClass:</a></p></span>
 	</span>
@@ -218,6 +233,13 @@
 	<span class="tooltip">
 		<code><a href="#//api/name/mapperWithClasses:">+&nbsp;mapperWithClasses:</a></code>
 		<span class="tooltip"><p>Creates an autoreleased mapper for the specified <a href="#//api/name/classes">classes</a>. See <a href="#//api/name/initWithClasses:">initWithClasses:</a></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapperWithClasses:propertyMappers:">+&nbsp;mapperWithClasses:propertyMappers:</a></code>
+		<span class="tooltip"><p>Creates an autoreleased mapper for the specified <a href="#//api/name/classes">classes</a> and property mappers. See <a href="#//api/name/initWithClasses:propertyMappers:">initWithClasses:propertyMappers:</a></p></span>
 	</span>
 	
 	
@@ -462,6 +484,47 @@
 	
 </div>
 						
+						<div class="section-method">
+	<a name="//api/name/mapperWithClasses:propertyMappers:" title="mapperWithClasses:propertyMappers:"></a>
+	<h3 class="subsubtitle method-title">mapperWithClasses:propertyMappers:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates an autoreleased mapper for the specified <a href="#//api/name/classes">classes</a> and property mappers. See <a href="#//api/name/initWithClasses:propertyMappers:">initWithClasses:propertyMappers:</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)mapperWithClasses:(NSArray *)<em>classes</em> propertyMappers:(NSArray *)<em>propertyMappers</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Creates an autoreleased mapper for the specified <a href="#//api/name/classes">classes</a> and property mappers. See <a href="#//api/name/initWithClasses:propertyMappers:">initWithClasses:propertyMappers:</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBJSONObjectMapper.h</code><br />
+	</div>				
+	
+	
+</div>
+						
 					</div>
 					
 					
@@ -556,6 +619,62 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Creates a mapper instance with several possible clases.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">EBJSONObjectMapper.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithClasses:propertyMappers:" title="initWithClasses:propertyMappers:"></a>
+	<h3 class="subsubtitle method-title">initWithClasses:propertyMappers:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates a mapper instance with several possible <a href="#//api/name/classes">classes</a> and property mappers.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithClasses:(NSArray *)<em>classes</em> propertyMappers:(NSArray *)<em>propertyMappers</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>classes</em></dt>
+			<dd><p>The possible <a href="#//api/name/classes">classes</a> to map to.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>propertyMappers</em></dt>
+			<dd><p>A list of <a href="../Classes/EBPropertyMapper.html">EBPropertyMapper</a> between NSObject property names and JSON fields. See <a href="../Classes/EBPropertyMapper.html">EBPropertyMapper</a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Creates a mapper instance with several possible <a href="#//api/name/classes">classes</a> and property mappers.</p>
 	</div>
 	
 	
@@ -799,7 +918,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 Filloa Dev. All rights reserved. (Last updated: 2012-10-20)</span><br />
+						<p><span class="copyright">&copy; 2012 Filloa Dev. All rights reserved. (Last updated: 2012-10-22)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

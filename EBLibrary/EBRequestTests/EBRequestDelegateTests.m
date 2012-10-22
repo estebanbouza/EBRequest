@@ -12,6 +12,11 @@
     BOOL _zeroFound;
     BOOL _oneFound;
     BOOL _canTrackProgress;
+    
+    BOOL _requestDidStart;
+    BOOL _requestDidFinish;
+    
+    float _lastProgress;
 
     BOOL _completionExecuted;
     
@@ -32,6 +37,10 @@
     _zeroFound = NO;
     _oneFound = NO;
     _canTrackProgress = YES;
+    _lastProgress = -1.0;
+    
+    _requestDidFinish = NO;
+    _requestDidStart = NO;
 }
 
 - (void)tearDown {
@@ -120,8 +129,29 @@
 
 #pragma mark - Delegate
 
+- (void)requestDidStart:(EBRequest *)request {
+    STAssertFalse(_requestDidStart, nil);
+    STAssertFalse(_requestDidFinish, nil);
+    STAssertFalse(_zeroFound, @"did start should be called before sending progress updates");
+    
+    _requestDidStart = YES;
+}
+
+
+- (void)requestDidFinish:(EBRequest *)request {
+    if (_canTrackProgress) {
+        STAssertTrue(_oneFound, @"Progress must end in 1.0");
+    }
+    
+    STAssertTrue(_requestDidStart, nil);
+    
+    _requestDidFinish = YES;;
+}
+
 
 - (void)request:(EBRequest *)request progressChanged:(float)progress {
+    
+    DLog(@"%f", progress);
 
     // Record that a 0.0 is received
     if (progress == 0.0) {
@@ -144,11 +174,20 @@
     else if (progress < 0.0 || progress > 1.0) {
         STFail(@"Wrong progress received: %f", progress);
     }
+    
+    if (progress <= _lastProgress) {
+        STFail(@"Progress is not increasing: %f, %f", _lastProgress, progress);
+    }
+    
+    _lastProgress = progress;
 }
 
 - (void)requestCannotReceiveProgressUpdates:(EBRequest *)request {
     _canTrackProgress = NO;
 }
+
+
+
 
 @end
 

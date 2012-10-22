@@ -7,6 +7,7 @@
 //
 
 #import "EBJSONRequest.h"
+#import "EBRequest+PrivateMethods.h"
 
 @interface EBJSONRequest() {
     NSURLConnection     *_urlConnection;
@@ -60,6 +61,10 @@
     _isRunning = YES;
     [_urlConnection start];
     
+    if ([self.delegate respondsToSelector:@selector(requestDidStart:)]) {
+        [self.delegate requestDidStart:self];
+    }
+    
     return YES;
 }
 
@@ -70,6 +75,10 @@
     [_urlRequest release], _urlRequest = nil;
     [_urlConnection release], _urlConnection = nil;
     [_receivedData release], _receivedData = nil;
+    
+    if ([self.delegate respondsToSelector:@selector(requestDidFinish:)]) {
+        [self.delegate requestDidFinish:self];
+    }
 }
 
 - (BOOL)isRunning {
@@ -91,10 +100,15 @@
     } else {
         // Avoid over-retaining error
         __block typeof(error) errorParam = error;
-        
+        __block typeof(self) this = self;
+
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.errorBlock(errorParam);
+            this.errorBlock(errorParam);
         });
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(requestDidFinish:)]) {
+        [self.delegate requestDidFinish:self];
     }
 }
 
@@ -102,8 +116,7 @@
     
     [_receivedData appendData:data];
     
-    [self notifyProgressChange];
-    
+    [self notifyProgressChange:[_receivedData length] expected:_expectedContentLength];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -130,10 +143,15 @@
     else {
         // Avoid over-retaining _receivedData inside block
         __block typeof(mappedResult) __mappedResult = mappedResult;
+        __block typeof(self) this = self;
         
         dispatch_sync(dispatch_get_main_queue(), ^{
-            self.completionBlock(__mappedResult);
+            this.completionBlock(__mappedResult);
         });
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(requestDidFinish:)]) {
+        [self.delegate requestDidFinish:self];
     }
 }
 
@@ -165,26 +183,9 @@
         return;
     }
     
-    [self notifyProgressChange];
-    
+    [self notifyProgressChange:0ll expected:_expectedContentLength];
+
 }
 
-
-#pragma mark - Internal
-
-- (void)notifyCannotTrackProgress {
-    if ([self.delegate respondsToSelector:@selector(requestCannotReceiveProgressUpdates:)]) {
-        [self.delegate requestCannotReceiveProgressUpdates:self];
-    }
-}
-
-- (void)notifyProgressChange {
-    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)] &&
-        _expectedContentLength > 0.0f) {
-        float progress = ((float) [_receivedData length] / (float) _expectedContentLength);
-        
-        [self.delegate request:self progressChanged:progress];
-    }
-}
 
 @end
