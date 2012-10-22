@@ -7,6 +7,7 @@
 //
 
 #import "EBDataRequest.h"
+#import "EBRequest+PrivateMethods.h"
 
 @interface EBDataRequest() <NSURLConnectionDataDelegate> {    
     NSURLConnection     *_urlConnection;
@@ -124,7 +125,7 @@
     
     [_receivedData appendData:data];
     
-    [self notifyProgressChange];
+    [self notifyProgressChange:[data length] expected:_expectedContentLength];
     
 }
 
@@ -182,27 +183,7 @@
         return;
     }
     
-    [self notifyProgressChange];
-    
+    [self notifyProgressChange:0ll expected:_expectedContentLength];
 }
-
-
-#pragma mark - Internal
-
-- (void)notifyCannotTrackProgress {
-    if ([self.delegate respondsToSelector:@selector(requestCannotReceiveProgressUpdates:)]) {
-        [self.delegate requestCannotReceiveProgressUpdates:self];
-    }
-}
-
-- (void)notifyProgressChange {
-    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)] &&
-        _expectedContentLength > 0.0f) {
-        float progress = ((float) [_receivedData length] / (float) _expectedContentLength);
-        
-        [self.delegate request:self progressChanged:progress];
-    }
-}
-
 
 @end

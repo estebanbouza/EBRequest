@@ -8,7 +8,6 @@
 
 #import "EBRequest.h"
 
-
 @implementation EBRequest
 
 #pragma mark - Lifecycle
