@@ -7,6 +7,7 @@
 //
 
 #import "EBJSONRequest.h"
+#import "EBRequest+PrivateMethods.h"
 
 @interface EBJSONRequest() {
     NSURLConnection     *_urlConnection;
@@ -115,8 +116,7 @@
     
     [_receivedData appendData:data];
     
-    [self notifyProgressChange];
-    
+    [self notifyProgressChange:[_receivedData length] expected:_expectedContentLength];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -183,26 +183,9 @@
         return;
     }
     
-    [self notifyProgressChange];
-    
+    [self notifyProgressChange:0ll expected:_expectedContentLength];
+
 }
 
-
-#pragma mark - Internal
-
-- (void)notifyCannotTrackProgress {
-    if ([self.delegate respondsToSelector:@selector(requestCannotReceiveProgressUpdates:)]) {
-        [self.delegate requestCannotReceiveProgressUpdates:self];
-    }
-}
-
-- (void)notifyProgressChange {
-    if ([self.delegate respondsToSelector:@selector(request:progressChanged:)] &&
-        _expectedContentLength > 0.0f) {
-        float progress = ((float) [_receivedData length] / (float) _expectedContentLength);
-        
-        [self.delegate request:self progressChanged:progress];
-    }
-}
 
 @end
