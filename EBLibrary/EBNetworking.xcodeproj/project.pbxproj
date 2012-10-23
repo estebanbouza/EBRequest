@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		5B7B38271632FE420094F1D1 /* EBLibrary Framework */ = {
+		5B7B38271632FE420094F1D1 /* EBNetworking Framework */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 5B7B382A1632FE420094F1D1 /* Build configuration list for PBXAggregateTarget "EBLibrary Framework" */;
+			buildConfigurationList = 5B7B382A1632FE420094F1D1 /* Build configuration list for PBXAggregateTarget "EBNetworking Framework" */;
 			buildPhases = (
 				5B7B382E1632FE520094F1D1 /* build_framework.sh (Run Script) */,
 			);
 			dependencies = (
 				5B7B382D1632FE4F0094F1D1 /* PBXTargetDependency */,
 			);
-			name = "EBLibrary Framework";
+			name = "EBNetworking Framework";
 			productName = Framework;
 		};
 /* End PBXAggregateTarget section */
@@ -33,10 +33,10 @@
 		5B52987B1617783B00B6BD6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B52987A1617783B00B6BD6A /* Foundation.framework */; };
 		5B52988A1617783B00B6BD6A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5298891617783B00B6BD6A /* SenTestingKit.framework */; };
 		5B52988D1617783B00B6BD6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B52987A1617783B00B6BD6A /* Foundation.framework */; };
-		5B5298901617783B00B6BD6A /* libEBLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5298771617783B00B6BD6A /* libEBLibrary.a */; };
+		5B5298901617783B00B6BD6A /* libEBNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5298771617783B00B6BD6A /* libEBNetworking.a */; };
 		5B5298961617783B00B6BD6A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B5298941617783B00B6BD6A /* InfoPlist.strings */; };
 		5B5298991617783B00B6BD6A /* EBRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5298981617783B00B6BD6A /* EBRequestTests.m */; };
-		5B5409EB1617B6D1003E7453 /* EBLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B52987F1617783B00B6BD6A /* EBLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B5409EB1617B6D1003E7453 /* EBNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B52987F1617783B00B6BD6A /* EBNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5CC99B16334D0C00A02898 /* EBRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5CC99A16334D0C00A02898 /* EBRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5CC9A51633567E00A02898 /* EBRequestDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CC9A41633567E00A02898 /* EBRequestDelegateTests.m */; };
 		5B696BA61619FE3200B4A20C /* JSONTest3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B696BA51619FE3200B4A20C /* JSONTest3.txt */; };
@@ -94,16 +94,16 @@
 		5B49E0D0162984E3007AD7F6 /* EBGitVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBGitVersion.h; sourceTree = "<group>"; };
 		5B49E0D616298781007AD7F6 /* EBRuntimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRuntimeUtils.h; sourceTree = "<group>"; };
 		5B49E0D716298781007AD7F6 /* EBRuntimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBRuntimeUtils.m; sourceTree = "<group>"; };
-		5B5298771617783B00B6BD6A /* libEBLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEBLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B5298771617783B00B6BD6A /* libEBNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEBNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B52987A1617783B00B6BD6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5B52987E1617783B00B6BD6A /* EBLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EBLibrary-Prefix.pch"; sourceTree = "<group>"; };
-		5B52987F1617783B00B6BD6A /* EBLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBLibrary.h; sourceTree = "<group>"; };
-		5B5298881617783B00B6BD6A /* EBLibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EBLibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B52987E1617783B00B6BD6A /* EBNetworking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "EBNetworking-Prefix.pch"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5B52987F1617783B00B6BD6A /* EBNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBNetworking.h; sourceTree = "<group>"; };
+		5B5298881617783B00B6BD6A /* EBNetworkingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EBNetworkingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5298891617783B00B6BD6A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		5B5298931617783B00B6BD6A /* EBLibraryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EBLibraryTests-Info.plist"; sourceTree = "<group>"; };
+		5B5298931617783B00B6BD6A /* EBNetworkingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EBNetworkingTests-Info.plist"; sourceTree = "<group>"; };
 		5B5298951617783B00B6BD6A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B5298971617783B00B6BD6A /* EBRequestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBRequestTests.h; sourceTree = "<group>"; };
-		5B5298981617783B00B6BD6A /* EBRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBRequestTests.m; sourceTree = "<group>"; };
+		5B5298981617783B00B6BD6A /* EBRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EBRequestTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5B5CC99A16334D0C00A02898 /* EBRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRequestDelegate.h; sourceTree = "<group>"; };
 		5B5CC9A31633567E00A02898 /* EBRequestDelegateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBRequestDelegateTests.h; sourceTree = "<group>"; };
 		5B5CC9A41633567E00A02898 /* EBRequestDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBRequestDelegateTests.m; sourceTree = "<group>"; };
@@ -120,11 +120,11 @@
 		5BC0B2F416182D0600A04A96 /* EBJSONObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBJSONObjectMapper.h; sourceTree = "<group>"; };
 		5BC0B2F516182D0600A04A96 /* EBJSONObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBJSONObjectMapper.m; sourceTree = "<group>"; };
 		5BC0B2F9161844D300A04A96 /* EBJSONObjectMapperTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBJSONObjectMapperTests.h; sourceTree = "<group>"; };
-		5BC0B2FA161844D300A04A96 /* EBJSONObjectMapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBJSONObjectMapperTests.m; sourceTree = "<group>"; };
+		5BC0B2FA161844D300A04A96 /* EBJSONObjectMapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EBJSONObjectMapperTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5BC0B2FC1618452900A04A96 /* MockPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockPerson.h; sourceTree = "<group>"; };
 		5BC0B2FD1618452900A04A96 /* MockPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockPerson.m; sourceTree = "<group>"; };
 		5BC69A39161A1C0E00C5DE9F /* EBJSONRequestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBJSONRequestTests.h; sourceTree = "<group>"; };
-		5BC69A3A161A1C0E00C5DE9F /* EBJSONRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBJSONRequestTests.m; sourceTree = "<group>"; };
+		5BC69A3A161A1C0E00C5DE9F /* EBJSONRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EBJSONRequestTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5BCA3CCF1618C7B50007E260 /* MockAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAddress.h; sourceTree = "<group>"; };
 		5BCA3CD01618C7B50007E260 /* MockAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockAddress.m; sourceTree = "<group>"; };
 		5BCA3CD31618C8510007E260 /* JSONTest1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSONTest1.txt; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 				5BCF6A291629EDF00024C3BC /* UIKit.framework in Frameworks */,
 				5B52988A1617783B00B6BD6A /* SenTestingKit.framework in Frameworks */,
 				5B52988D1617783B00B6BD6A /* Foundation.framework in Frameworks */,
-				5B5298901617783B00B6BD6A /* libEBLibrary.a in Frameworks */,
+				5B5298901617783B00B6BD6A /* libEBNetworking.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,8 +175,8 @@
 		5B5298781617783B00B6BD6A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B5298771617783B00B6BD6A /* libEBLibrary.a */,
-				5B5298881617783B00B6BD6A /* EBLibraryTests.octest */,
+				5B5298771617783B00B6BD6A /* libEBNetworking.a */,
+				5B5298881617783B00B6BD6A /* EBNetworkingTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 		5B52987C1617783B00B6BD6A /* EBRequest */ = {
 			isa = PBXGroup;
 			children = (
-				5B52987F1617783B00B6BD6A /* EBLibrary.h */,
+				5B52987F1617783B00B6BD6A /* EBNetworking.h */,
 				5B8A2CC4161A0DD600CB5FBA /* EBRequest.h */,
 				5B8A2CC5161A0DD600CB5FBA /* EBRequest.m */,
 				5B75A6EC1635DE3700B06164 /* EBRequest+PrivateMethods.h */,
@@ -224,7 +224,7 @@
 		5B52987D1617783B00B6BD6A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5B52987E1617783B00B6BD6A /* EBLibrary-Prefix.pch */,
+				5B52987E1617783B00B6BD6A /* EBNetworking-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 		5B5298921617783B00B6BD6A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5B5298931617783B00B6BD6A /* EBLibraryTests-Info.plist */,
+				5B5298931617783B00B6BD6A /* EBNetworkingTests-Info.plist */,
 				5B5298941617783B00B6BD6A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -274,7 +274,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B5409EB1617B6D1003E7453 /* EBLibrary.h in Headers */,
+				5B5409EB1617B6D1003E7453 /* EBNetworking.h in Headers */,
 				5BD412BD16179505007A17AA /* EBDataRequest.h in Headers */,
 				5BC0B2F616182D0600A04A96 /* EBJSONObjectMapper.h in Headers */,
 				5B8A2CC6161A0DD600CB5FBA /* EBRequest.h in Headers */,
@@ -293,9 +293,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5B5298761617783B00B6BD6A /* EBLibrary */ = {
+		5B5298761617783B00B6BD6A /* EBNetworking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B52989C1617783B00B6BD6A /* Build configuration list for PBXNativeTarget "EBLibrary" */;
+			buildConfigurationList = 5B52989C1617783B00B6BD6A /* Build configuration list for PBXNativeTarget "EBNetworking" */;
 			buildPhases = (
 				5B49E0BD16297C05007AD7F6 /* Add Git Information - Run Script */,
 				5B5298731617783B00B6BD6A /* Sources */,
@@ -307,14 +307,14 @@
 			);
 			dependencies = (
 			);
-			name = EBLibrary;
+			name = EBNetworking;
 			productName = EBRequest;
-			productReference = 5B5298771617783B00B6BD6A /* libEBLibrary.a */;
+			productReference = 5B5298771617783B00B6BD6A /* libEBNetworking.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		5B5298871617783B00B6BD6A /* EBLibraryTests */ = {
+		5B5298871617783B00B6BD6A /* EBNetworkingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B52989F1617783B00B6BD6A /* Build configuration list for PBXNativeTarget "EBLibraryTests" */;
+			buildConfigurationList = 5B52989F1617783B00B6BD6A /* Build configuration list for PBXNativeTarget "EBNetworkingTests" */;
 			buildPhases = (
 				5B5298831617783B00B6BD6A /* Sources */,
 				5B5298841617783B00B6BD6A /* Frameworks */,
@@ -326,9 +326,9 @@
 			dependencies = (
 				5B52988F1617783B00B6BD6A /* PBXTargetDependency */,
 			);
-			name = EBLibraryTests;
+			name = EBNetworkingTests;
 			productName = EBRequestTests;
-			productReference = 5B5298881617783B00B6BD6A /* EBLibraryTests.octest */;
+			productReference = 5B5298881617783B00B6BD6A /* EBNetworkingTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -341,7 +341,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Esteban;
 			};
-			buildConfigurationList = 5B5298711617783B00B6BD6A /* Build configuration list for PBXProject "EBLibrary" */;
+			buildConfigurationList = 5B5298711617783B00B6BD6A /* Build configuration list for PBXProject "EBNetworking" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -353,9 +353,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B5298761617783B00B6BD6A /* EBLibrary */,
-				5B5298871617783B00B6BD6A /* EBLibraryTests */,
-				5B7B38271632FE420094F1D1 /* EBLibrary Framework */,
+				5B5298761617783B00B6BD6A /* EBNetworking */,
+				5B5298871617783B00B6BD6A /* EBNetworkingTests */,
+				5B7B38271632FE420094F1D1 /* EBNetworking Framework */,
 			);
 		};
 /* End PBXProject section */
@@ -472,12 +472,12 @@
 /* Begin PBXTargetDependency section */
 		5B52988F1617783B00B6BD6A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B5298761617783B00B6BD6A /* EBLibrary */;
+			target = 5B5298761617783B00B6BD6A /* EBNetworking */;
 			targetProxy = 5B52988E1617783B00B6BD6A /* PBXContainerItemProxy */;
 		};
 		5B7B382D1632FE4F0094F1D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B5298761617783B00B6BD6A /* EBLibrary */;
+			target = 5B5298761617783B00B6BD6A /* EBNetworking */;
 			targetProxy = 5B7B382C1632FE4F0094F1D1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -546,12 +546,12 @@
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/EBRequest.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EBRequest/EBLibrary-Prefix.pch";
+				GCC_PREFIX_HEADER = "EBRequest/EBNetworking-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = EBLibrary;
+				PRODUCT_NAME = EBNetworking;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
@@ -566,12 +566,12 @@
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/EBRequest.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EBRequest/EBLibrary-Prefix.pch";
+				GCC_PREFIX_HEADER = "EBRequest/EBNetworking-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = EBLibrary;
+				PRODUCT_NAME = EBNetworking;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
@@ -588,8 +588,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EBRequest/EBLibrary-Prefix.pch";
-				INFOPLIST_FILE = "EBRequestTests/EBLibraryTests-Info.plist";
-				PRODUCT_NAME = EBLibraryTests;
+				INFOPLIST_FILE = "EBRequestTests/EBNetworkingTests-Info.plist";
+				PRODUCT_NAME = EBNetworkingTests;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -604,8 +604,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EBRequest/EBLibrary-Prefix.pch";
-				INFOPLIST_FILE = "EBRequestTests/EBLibraryTests-Info.plist";
-				PRODUCT_NAME = EBLibraryTests;
+				INFOPLIST_FILE = "EBRequestTests/EBNetworkingTests-Info.plist";
+				PRODUCT_NAME = EBNetworkingTests;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -614,7 +614,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "EBNetworking Framework";
 			};
 			name = Debug;
 		};
@@ -622,14 +622,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "EBNetworking Framework";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B5298711617783B00B6BD6A /* Build configuration list for PBXProject "EBLibrary" */ = {
+		5B5298711617783B00B6BD6A /* Build configuration list for PBXProject "EBNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B52989A1617783B00B6BD6A /* Debug */,
@@ -638,7 +638,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B52989C1617783B00B6BD6A /* Build configuration list for PBXNativeTarget "EBLibrary" */ = {
+		5B52989C1617783B00B6BD6A /* Build configuration list for PBXNativeTarget "EBNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B52989D1617783B00B6BD6A /* Debug */,
@@ -647,7 +647,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B52989F1617783B00B6BD6A /* Build configuration list for PBXNativeTarget "EBLibraryTests" */ = {
+		5B52989F1617783B00B6BD6A /* Build configuration list for PBXNativeTarget "EBNetworkingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B5298A01617783B00B6BD6A /* Debug */,
@@ -656,7 +656,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B7B382A1632FE420094F1D1 /* Build configuration list for PBXAggregateTarget "EBLibrary Framework" */ = {
+		5B7B382A1632FE420094F1D1 /* Build configuration list for PBXAggregateTarget "EBNetworking Framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B7B38281632FE420094F1D1 /* Debug */,

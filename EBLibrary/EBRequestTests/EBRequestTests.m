@@ -7,7 +7,7 @@
 //
 
 #import "EBRequestTests.h"
-#import "EBLibrary.h"
+#import "EBNetworking.h"
 
 static NSString *testURLString = @"http://api.twitter.com/1/statuses/user_timeline.json?screen_name=textfromxcode&include_rts=0";
 

@@ -5,7 +5,7 @@
       location = "group:Documentation/Documentation.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:EBLibrary/EBLibrary.xcodeproj">
+      location = "group:EBLibrary/EBNetworking.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:EBTestProject/EBExampleProject.xcodeproj">

@@ -7,7 +7,7 @@
 //
 
 #import "EBJSONRequestTests.h"
-#import "EBLibrary.h"
+#import "EBNetworking.h"
 #import "MockPerson.h"
 
 static const NSTimeInterval defaultTimeout = 10;

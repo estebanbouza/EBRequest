@@ -7,7 +7,7 @@
 //
 
 #import "EBJSONObjectMapperTests.h"
-#import "EBLibrary.h"
+#import "EBNetworking.h"
 
 #import "MockPerson.h"
 

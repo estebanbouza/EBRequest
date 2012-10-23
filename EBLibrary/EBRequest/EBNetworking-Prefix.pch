@@ -6,7 +6,7 @@
     #import <Foundation/Foundation.h>
 #endif
 
-#import "EBLibrary.h"
+#import "EBNetworking.h"
 
 #define isDictionary(var)   [var isKindOfClass:[NSDictionary class]]
 #define isArray(var)        [var isKindOfClass:[NSArray class]]
